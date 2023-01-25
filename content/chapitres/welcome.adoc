@@ -1,0 +1,27 @@
+[{invert}]
+= Bonjour !
+
+[{invert}]
+== Damien DUPORTAL
+
+* Staff Software Engineer chez https://www.cloudbees.com[CloudBees] sur le projet Jenkins 👨🏻‍⚖️
+* Freelancer
+
+* Me contacter :
+** +++<span class="fa fa-envelope"></span>+++ damien.duportal <chez> gmail.com
+** link:https://www.linkedin.com/in/damien-duportal-ab70b524/[+++<span class="fab fa-linkedin"></span>+++ Damien Duportal,window=_blank]
+** link:https://twitter.com/DamienDuportal[+++<span class="fab fa-twitter"></span>+++ @DamienDuportal,window=_blank]
+
+== Et vous ?
+
+image::youreup.gif[width="800"]
+
+== A propos du cours
+
+* Alternance de théorie et de pratique pour être le plus interactif possible
+
+* Compatible Distanciel / Présentiel ou les 2
+
+* Contenu entièrement libre et open-source
+[.small]
+** N'hésitez pas ouvrir des Pull Request si vous voyez des améliorations ou problèmes: link:{repositoryUrl}/pulls[sur cette page] (😉 wink wink)

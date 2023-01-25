@@ -1,1 +1,0 @@
-# esgi-containers-ci-cd
