@@ -27,7 +27,7 @@ jobs:
       - name: 'Verify'
         run: make verify
       - name: 'Upload dist/ as artefact'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist/
@@ -46,7 +46,7 @@ jobs:
         if: github.ref == 'refs/heads/${{ env.PRINCIPAL_BRANCH }}'
         run: make pdf
       - name: 'Upload dist/slides.pdf as artefact'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pdf
           path: dist/slides.pdf
