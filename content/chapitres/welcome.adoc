@@ -1,27 +1,59 @@
 [{invert}]
 = Bonjour !
 
+[.small]
+La suite: vers le bas ⬇️
+
 [{invert}]
 == Damien DUPORTAL
 
-* Staff Software Engineer chez https://www.cloudbees.com[CloudBees] sur le projet Jenkins 👨🏻‍⚖️
+* link:https://touilleur-express.fr/2022/07/17/devenir-staff-engineer/[Staff Software Engineer, window="_blank"] chez https://www.cloudbees.com[CloudBees,window="_blank"] pour le projet link:https://www.jenkins.io/[Jenkins,window="_blank"] 👨🏻‍⚖️
 * Freelancer
 
 * Me contacter :
-** +++<span class="fa fa-envelope"></span>+++ damien.duportal <chez> gmail.com
-** link:https://www.linkedin.com/in/damien-duportal-ab70b524/[+++<span class="fab fa-linkedin"></span>+++ Damien Duportal,window=_blank]
-** link:https://twitter.com/DamienDuportal[+++<span class="fab fa-twitter"></span>+++ @DamienDuportal,window=_blank]
+** {author_mail}
+** link:https://github.com/dduportal[{github_icon} dduportal,window="_blank"]
+** link:https://www.linkedin.com/in/damien-duportal-ab70b524/[{linkedin_icon} Damien Duportal,window=_blank]
+** link:https://twitter.com/DamienDuportal[{twitter_icon} @DamienDuportal,window=_blank]
 
 == Et vous ?
 
-image::youreup.gif[width="800"]
+video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 
 == A propos du cours
 
 * Alternance de théorie et de pratique pour être le plus interactif possible
 
-* Compatible Distanciel / Présentiel ou les 2
+* Compatible Distanciel / Présentiel
 
 * Contenu entièrement libre et open-source
 [.small]
-** N'hésitez pas ouvrir des Pull Request si vous voyez des améliorations ou problèmes: link:{repositoryUrl}/pulls[sur cette page] (😉 wink wink)
+** N'hésitez pas ouvrir des Pull Request si vous voyez des améliorations ou problèmes: link:{repositoryUrl}/pulls[sur cette page,window="_blank"] (😉 wink wink)
+
+== Calendrier
+
+* *Distanciel* 🛏️  Mercredi 01 février 2023 - 14h -> 17h15
+* *Présentiel* 🎓 Mardi 28 février 2023 - 14h -> 17h15
+* *Présentiel* 🎓 Mercredi 01 mars 2023 - 08h -> 17h16
+* *Présentiel* 🎓 Jeudi 02 mars 2023 - 08h -> 13h
+* *Distanciel* 🛏️ Vendredi 28/04 - 14h -> 17h15
+
+== Evaluation
+
+video::ohno.mp4[width="200",options="autoplay,loop,nocontrols"]
+
+* Pourquoi ? s'assurer que vous avez acquis un minimum de concepts
+* Quoi ? Une note sur 20, basée sur une liste de critères exhaustifs
+* Comment ? Un projet GitHub (public) à me rendre (timing à déterminer ensemble)
+
+== Plan
+
+video::plan.mp4[width="200",options="autoplay,loop,nocontrols"]
+
+* Rappels de Ligne de commande et Docker
+* Docker Avancé
+* Orchestration de Containers avec Docker Swarm
+* Intégration et Déploiement Continus (CI/CD)
+
+[.small]
+La suite: vers la droite ➡️

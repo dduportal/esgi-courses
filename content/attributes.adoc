@@ -22,3 +22,10 @@
 :notitle: true
 :revealjs_plugins: ./assets/plugins/revealjs-plugins.js
 :revealjs_plugins_configuration: ./assets/plugins/revealjs-plugins-config.js
+:mail_icon: pass:[<span class="fa fa-envelope"></span>]
+:github_icon: pass:[<span class="fab fa-github"></span>]
+:linkedin_icon: pass:[<span class="fab fa-linkedin"></span>]
+:twitter_icon: pass:[<span class="fab fa-twitter"></span>]
+:github_icon: pass:[<span class="fab fa-github"></span>]
+:pdf_icon: pass:[<span class="far fa-file-pdf"></span>]
+:author_mail: {mail_icon} damien.duportal <chez> gmail.com

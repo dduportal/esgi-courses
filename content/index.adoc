@@ -4,13 +4,13 @@
 include::./attributes.adoc[]
 
 [.title]
-🇫🇷 ESGI - 2023
+🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - 2022/2023
 
 [.small]
 * Présentation disponible à l’adresse: {presentationUrl}[{presentationUrl}]
-* Version PDF de la présentation : link:slides.pdf[+++<span class="far fa-file-pdf"></span>+++ Cliquez ici]
+* Version PDF de la présentation : link:slides.pdf[{pdf_icon} Cliquez ici,window="_blank"]
 * This work is licensed under a Creative Commons Attribution 4.0 International License
-* Code source de la présentation: link:{repositoryUrl}[+++<span class="fab fa-github"></span>+++ {repositoryUrl}]
+* Code source de la présentation: link:{repositoryUrl}[{github_icon} {repositoryUrl},window="_blank"]
 
 image::qrcode.png["QRCode to this presentation",height=150]
 
@@ -22,13 +22,13 @@ image::qrcode.png["QRCode to this presentation",height=150]
 * Pour avoir une vue globale : utiliser la touche "o" (pour "*Overview*")
 * Pour voir les notes de l'auteur : utilisez la touche "s" (pour "*Speaker* notes")
 
-// Chapitre Welcome.adoc
+// Welcome
 include::./chapitres/welcome.adoc[leveloffset=1]
 
 [{invert}]
 == Merci !
 
-+++<span class="fa fa-envelope"></span>+++ damien.duportal+pro <chez> gmail.com
+{author_mail}
 
 [.small]
 link:{presentationUrl}[Slides: {presentationUrl}]
@@ -36,4 +36,4 @@ link:{presentationUrl}[Slides: {presentationUrl}]
 image::qrcode.png["QRCode to this presentation",height=150]
 
 [.small]
-link:{repositoryUrl}[Source on +++<span class="fab fa-github"></span>+++: {repositoryUrl}]
+link:{repositoryUrl}[Source on {github_icon} : {repositoryUrl},window="_blank"]
