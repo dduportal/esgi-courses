@@ -25,6 +25,9 @@ image::qrcode.png["QRCode to this presentation",height=150]
 // Welcome
 include::./chapitres/welcome.adoc[leveloffset=1]
 
+// Mise en place de l'environnement de travail
+include::./chapitres/dev-env.adoc[leveloffset=1]
+
 [{invert}]
 == Merci !
 
