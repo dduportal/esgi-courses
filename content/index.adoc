@@ -25,18 +25,28 @@ image::qrcode.png["QRCode to this presentation",height=150]
 // Welcome
 include::./chapitres/welcome.adoc[leveloffset=1]
 
+// Introduction
+include::./chapitres/intro.adoc[leveloffset=1]
+
 // Mise en place de l'environnement de travail
 include::./chapitres/dev-env.adoc[leveloffset=1]
 
-[{invert}]
-== Merci !
+// CLI
+include::./chapitres/cli.adoc[leveloffset=1]
 
-{author_mail}
+== Work in progress
 
-[.small]
-link:{presentationUrl}[Slides: {presentationUrl}]
+🚧 Revenez plus tard
 
-image::qrcode.png["QRCode to this presentation",height=150]
+// [{invert}]
+// == Merci !
 
-[.small]
-link:{repositoryUrl}[Source on {github_icon} : {repositoryUrl},window="_blank"]
+// {author_mail}
+
+// [.small]
+// link:{presentationUrl}[Slides: {presentationUrl}]
+
+// image::qrcode.png["QRCode to this presentation",height=150]
+
+// [.small]
+// link:{repositoryUrl}[Source on {github_icon} : {repositoryUrl},window="_blank"]

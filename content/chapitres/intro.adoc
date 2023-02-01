@@ -1,0 +1,75 @@
+[{invert}]
+= Vous avez dit "DevOps" ?
+
+== Avant : le cycle en V
+
+image::cycleenv.png[width="800"]
+
+== What could go right?
+
+image::what-the-client-want.jpg[width="800"]
+
+[.small]
+Copyright © https://www.projectcartoon.com[window="_blank"] under the Creative Commons Attribution 3.0 Unported License
+
+== Et dans la vraie vie c'est pire !
+
+image::How-Projects-Really-Work.png[width="900"]
+
+[.small]
+Copyright © https://www.projectcartoon.com[window="_blank"] under the Creative Commons Attribution 3.0 Unported License
+
+== Problématique
+
+Travail basé sur les hypothèses de départ + Temps écoulé entre la capture du besoin et la mise à disposition en production
+
+
+* Le besoin a forcément évolué dans ce laps de temps
+
+* Erreur de capture du besoin == coût de l'erreur décuplé avec le temps
+
+== Agile
+
+* Travailler par petites itérations **complètes**
+** Commencer petit
+** Confronter le logiciel au plus tôt aux utilisateurs.
+** Refaire des hypothèses basées sur ce que l'on à appris, et recommencer !
+
+* "Embrasser" le changement : Votre logiciel va changer en **continu**
+
+image:agile.jpg[width="600"]
+[.small]
+link:https://eoiinconnect.com/what-is-agile-methodology/[Source]
+
+== Manifest Agile
+
+[.small]
+* https://agilemanifesto.org/iso/fr/manifesto.html[]
+
+image::agile-manifesto.png[width="800"]
+
+== Le mur de la confusion
+
+image::devops-wall-of-confusion.jpg[width="800"]
+
+[.small]
+link:https://www.linkedin.com/pulse/remove-walls-confusion-rethink-devops-unlock-its-full-glenn-mason[Source]
+
+== La clé : gérer le changement!
+
+* Le changement ne doit pas être un événement, ça doit être la *norme*
+* Faire en sorte que changer quelque chose soit:
+** Facile
+** Rapide
+** Stable
+** Sûr
+
+== Say Hello to DevOps
+
+image::devops.png[width=800]
+
+== Heureusement, vous avez des outils à disposition !
+
+image::DevOps-Tools.svg[width=800]
+
+image::trollface.png[width=50]

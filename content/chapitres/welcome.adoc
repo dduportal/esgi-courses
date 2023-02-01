@@ -50,6 +50,7 @@ video::ohno.mp4[width="200",options="autoplay,loop,nocontrols"]
 
 video::plan.mp4[width="200",options="autoplay,loop,nocontrols"]
 
+* Introduction
 * Rappels de Ligne de commande et Docker
 * Docker Avancé
 * Orchestration de Containers avec Docker Swarm
