@@ -6,13 +6,14 @@ include::./attributes.adoc[]
 [.title]
 🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - 2022/2023
 
+image::qrcode.png["QRCode to this presentation",height=150]
+
 [.small]
 * Présentation disponible à l’adresse: {presentationUrl}[{presentationUrl}]
 * Version PDF de la présentation : link:slides.pdf[{pdf_icon} Cliquez ici,window="_blank"]
-* This work is licensed under a Creative Commons Attribution 4.0 International License
+* Contenu sous licence link:https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License,window="_blank"]
+** Une partie du contenu provient de link:https://github.com/cicd-lectures/slides[] (auteurs: link:https://cicd-lectures.github.io/slides/2021/#/julien_levesy[Julien Levesy,window="_blank"] et moi-même)
 * Code source de la présentation: link:{repositoryUrl}[{github_icon} {repositoryUrl},window="_blank"]
-
-image::qrcode.png["QRCode to this presentation",height=150]
 
 == Comment utiliser cette présentation ?
 
@@ -20,7 +21,6 @@ image::qrcode.png["QRCode to this presentation",height=150]
 ** Gauche/Droite: changer de chapitre
 ** Haut/Bas: naviguer dans un chapitre
 * Pour avoir une vue globale : utiliser la touche "o" (pour "*Overview*")
-* Pour voir les notes de l'auteur : utilisez la touche "s" (pour "*Speaker* notes")
 
 // Welcome
 include::./chapitres/welcome.adoc[leveloffset=1]
