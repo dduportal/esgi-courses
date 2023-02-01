@@ -8,7 +8,7 @@ jobs:
 # end::common[]
 # tag::container[]
     container:
-      image: ghcr.io/cicd-lectures/gitpod:latest
+      image: ghcr.io/dduportal/esgi-gitpod
       options: --user=root
 # end::container[]
 # tag::common[]
