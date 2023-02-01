@@ -51,10 +51,13 @@ video::ohno.mp4[width="200",options="autoplay,loop,nocontrols"]
 video::plan.mp4[width="200",options="autoplay,loop,nocontrols"]
 
 * Introduction
-* Rappels de Ligne de commande et Docker
+* Rappels (Ligne de commande, Git)
+* Intégration Continue (CI)
+* Rappels (Docker)
 * Docker Avancé
-* Orchestration de Containers avec Docker Swarm
-* Intégration et Déploiement Continus (CI/CD)
+* Orchestration de Containers
+* Déploiement Continu (CD)
+
 
 [.small]
 La suite: vers la droite ➡️

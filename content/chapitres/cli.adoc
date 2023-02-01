@@ -1,9 +1,13 @@
 [{invert}]
 = Ligne de commande
 
-Remise à niveau / Rappels
+Guide de survie
 
-// Nécessaire pour Docker
+== 🤔 Problématique
+
+* Communication Humain <-> Machine
+
+* Base commune de TOUS les outils
 
 [{invert}]
 == CLI

@@ -34,6 +34,9 @@ include::./chapitres/dev-env.adoc[leveloffset=1]
 // CLI
 include::./chapitres/cli.adoc[leveloffset=1]
 
+// Git
+include::./chapitres/git.adoc[leveloffset=1]
+
 == Work in progress
 
 🚧 Revenez plus tard
