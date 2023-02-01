@@ -1,4 +1,3 @@
-
 [{invert}]
 = Intégration Continue (CI)
 
@@ -177,22 +176,41 @@ include::../code-samples/gh-actions/npm-example.yml[]
 ** Visibilité publique
 ** Initialisation avec un fichier `README.md`
 
-== Exemple simple avec GitHub Actions
+
+== 🎓 Exercice: Récupérez le dépôt dans Gitpod
+
+* Obtenez l'URL (HTTPS) du dépôt GitHub fraîchement créé
+** 💡 Depuis la page  du dépôt, cliquez sur le bouton vert intitulé "*Code*"
+
+* Dans Gitpod,
+** Depuis un terminal, positionnez-vous dans le dossier `/workspace`,
+** Clonez le dépôt avec la commande `git clone https://github.com/xxx/{student_gh_repository_name}`
+** 💡 Si le dépôt n'apparaît pas dans l'"Explorer" à gauche : `code -a /workspace/{student_gh_repository_name}`
+
+
+== 🎓 Exercice: Exemple simple avec GitHub Actions
 
 * Dans le dépôt `{student_gh_repository_name}`, sur la branch `main`,
 ** Créez le fichier `.github/workflows/bonjour.yml` avec le contenu suivant :
-
++
 [source,yaml]
 ----
 include::../code-samples/gh-actions/say-hello-full.yml[tags="common,simple-hello"]
 ----
 
-* Commitez puis poussez
+* Commitez puis poussez le fichier sur GitHub:
++
+[source,bash]
+----
+git add .github/workflows/bonjour.yml
+git commit -m 'Create GitHub workflow Bonjour'
+git push origin main
+----
+
+== 🎓 Exercice: Exemple simple avec GitHub Actions : Récapépète
 
 * Revenez sur la page GitHub de votre projet et naviguez dans l'onglet "Actions" :
 ** Voyez-vous un workflow ? Et un Job ? Et le message affiché par la commande `echo` ?
-
-== Exemple simple avec GitHub Actions : Récapépète
 
 image::gh-actions-simple-example.svg[width=800]
 
@@ -257,29 +275,10 @@ include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,sho
 include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,apt-cowsay,run-cowsay"]
 ----
 
-== 🎓 Exercice : Environnement préfabriqué
-
-* *But* : exécuter la commande `cat README.md | cowsay` dans le workflow comme dans GitPod
-** En utilisant le même environnement que GitPod (même version de cowsay, java, etc.)
-
-* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour exécuter les étapes dans la même image Docker que GitPod :
-** 💡 link:{gitpod_github_repo_url}/blob/1969526f03fcfe19e314d3dd992c4175a93a820f/.gitpod.yml#L5[Image utilisée dans GitPod,window="_blank"]
-** 💡 link:https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer[Utilisation d'un container comme runner GitHub Actions,window="_blank"]
-** 💡 link:https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem[Contraintes d'exécution de container dans GitHub Actions (`--user=root`),window="_blank"]
-
-== ✅ Solution : Environnement préfabriqué
-
-[source,yaml]
-----
-include::../code-samples/gh-actions/say-hello-full.yml[tags="common,container,checkout,run-cowsay"]
-----
-
 == Checkpoint 🎯
 
-* Quel est l'impact en terme de temps d'exécution du changement précédent ?
+* L'intégration Continue est un ensemble de pratiques pour s'assurer que le code est **continuellement** "vérifié"
+* GitHub Actions est un des nombreux systèmes permettant de faire de l'intégration continue
 
-* *Problème :* Le temps entre une modification et le retour est crucial
 
-* Docker ? 😉
-
-image::wait-here.jpg[]
+=> 🤔 Problème : comment gérer les différences entre l'environnement d'IC et les machines de travail ?

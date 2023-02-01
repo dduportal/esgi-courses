@@ -8,12 +8,12 @@ jobs:
   test-linux:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: npm install
     - run: npm test
   test-mac:
     runs-on: macos-12
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: npm install
     - run: npm test
