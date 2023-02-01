@@ -1,0 +1,46 @@
+# tag::common[]
+name: Bonjour
+on:
+  - push
+jobs:
+  dire_bonjour:
+    runs-on: ubuntu-22.04
+# end::common[]
+# tag::container[]
+    container:
+      image: ghcr.io/cicd-lectures/gitpod:latest
+      options: --user=root
+# end::container[]
+# tag::common[]
+    steps:
+# end::common[]
+# tag::simple-hello[]
+      - run: echo "Bonjour 👋"
+# end::simple-hello[]
+# tag::checkout[]
+      - uses: actions/checkout@v2 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+# end::checkout[]
+# tag::show-readme[]
+      - run: ls -l # Liste les fichier du répertoire courant
+      - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt
+# end::show-readme[]
+# tag::apt-cowsay[]
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y cowsay
+# end::apt-cowsay[]
+# tag::run-cowsay[]
+      - run: cat README.md | cowsay
+# end::run-cowsay[]
+# tag::maven-job[]
+  run_maven:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - run: mvn -v
+      - run: mvn help:effective-pom
+# end::maven-job[]

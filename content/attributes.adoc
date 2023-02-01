@@ -30,3 +30,4 @@
 :pdf_icon: pass:[<span class="far fa-file-pdf"></span>]
 :author_mail: {mail_icon} damien.duportal <chez> gmail.com
 :gitpod_github_repo_url: https://github.com/dduportal/esgi-gitpod
+:student_gh_repository_name: esgi-devops-2023

@@ -1,0 +1,19 @@
+name: Node.js CI
+on: # Évènements déclencheurs
+  - push:
+      branch: main # Lorsqu'un nouveau commit est poussé sur la branche "main"
+  - schedule:
+    - cron: "*/15 * * * *" # Toutes les 15 minutes
+jobs:
+  test-linux:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm install
+    - run: npm test
+  test-mac:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm install
+    - run: npm test

@@ -1,0 +1,285 @@
+
+[{invert}]
+= Intégration Continue (CI)
+
+[quote, Martin Fowler]
+____
+Continuous Integration doesn’t get rid of bugs, but it does make them
+dramatically easier to find and remove.
+____
+
+== Pourquoi la CI ?
+
+*But :* Détecter les fautes au plus tôt pour en limiter le coût
+
+image::big-bugs.jpg[caption="Big Bugs",width=800]
+
+[.small]
+Source : http://cartoontester.blogspot.be/2010/01/big-bugs.html
+
+== Qu'est ce que l'Intégration Continue ?
+
+**Objectif :** que l'intégration de code soit un _non-évènement_
+
+* Construire et intégrer le code *en continu*
+* Le code est intégré *souvent* (au moins quotidiennement)
+* Chaque intégration est validée par une exécution *automatisée*
+
+== Et concrètement ?
+
+image::fail-fast-continuous-integration.png[height=250]
+
+* Un•e dévelopeu•se•r ajoute du code/branche/PR :
+** une requête HTTP est envoyée au système de "CI"
+* Le système de CI compile et teste le code
+* On ferme la boucle : Le résultat est renvoyé au dévelopeu•se•r•s
+
+== Quelques moteurs de CI connus
+
+* A héberger soit-même : https://www.jenkins.io/[Jenkins,window=_blank], https://about.gitlab.com/[GitLab,window=_blank], https://www.drone.io/[Drone CI,window=_blank], https://ovh.github.io/cds/[CDS,window=_blank]...
+* Hébergés en ligne : https://travis-ci.org/[Travis CI,window=_blank], https://semaphoreci.com/[Semaphore CI,window=_blank], https://circleci.com/[Circle CI,window=_blank], https://codefresh.io/[Codefresh,window=_blank], https://docs.github.com/en/free-pro-team@latest/actions/quickstart[GitHub Actions,window=_blank]
+
+== GitHub Actions
+
+GitHub Actions est un moteur de CI/CD intégré à GitHub
+
+* ✅ : Très facile à mettre en place, gratuit et intégré complètement
+* ❌ : Utilisable uniquement avec GitHub, et DANS la plateforme GitHub
+
+== Anatomie de déclenchement de GitHub Actions
+
+image:ghci.svg[with="800"]
+
+== Concepts de GitHub Actions
+
+image::gh-actions-concepts.svg[width=800]
+
+== Concepts de GitHub Actions - Step 1/2
+
+image::gh-actions-concepts.steps.svg[width=800]
+
+== Concepts de GitHub Actions - Step 2/2
+
+Une *Step* (étape) est une tâche individuelle à faire effectuer par le CI :
+
+* Par défaut c'est une commande à exécuter - mot clef `run`
+* Ou une "action" (quel est le nom du produit déjà ?) - mot clef `uses`
+** Réutilisables et https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/finding-and-customizing-actions[partageables,window=_blank]
+
+[source,yaml]
+----
+steps: # Liste de steps
+  # Exemple de step 1 (commande)
+  - name: Say Hello
+    run: echo "Hello ENSG"
+  # Exemple de step 2 (une action)
+  - name: 'Login to DockerHub'
+    uses: docker/login-action@v1 # https://github.com/marketplace/actions/docker-login
+    with:
+      username: ${{ secrets.DOCKERHUB_USERNAME }}
+      password: ${{ secrets.DOCKERHUB_TOKEN }}
+----
+
+== Concepts de GitHub Actions - Job 1/2
+
+image::gh-actions-concepts.jobs.svg[width=800]
+
+== Concepts de GitHub Actions - Job 2/2
+
+Un *Job* est un groupe logique de tâches :
+
+* Enchaînement _séquentiel_ de tâches
+* Regroupement logique : "qui a un sens"
+** Exemple : "compiler puis tester le résultat de la compilation"
+
+[source,yaml]
+----
+jobs: # Map de jobs
+  build: # 1er job, identifié comme 'build'
+    name: 'Build Slides'
+    runs-on: ubuntu-22.04 # cf. prochaine slide "Concepts de GitHub Actions - Runner"
+    steps: # Collection de steps du job
+      - name: 'Build the JAR'
+        run: mvn package
+      - name: 'Run Tests on the JAR file'
+        run: mvn verify
+  deploy: # 2nd job, identifié comme 'deploy'
+    # ...
+----
+
+== Concepts de GitHub Actions - Runner
+
+Un *Runner* est un serveur distant sur lequel s'exécute un job.
+
+* Mot clef `runs-on` dans la définition d'un job
+* Défaut : machine virtuelle Ubuntu dans le cloud utilisé par GitHub
+* https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners[D'autres types sont disponibles,window=_blank]
+(macOS, Windows, etc.)
+* Possibilité de fournir https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners[son propre serveur,window=_blank]
+
+== Concepts de GitHub Actions - Workflow 1/2
+
+image::gh-actions-concepts.workflows.svg[width=800]
+
+== Concepts de GitHub Actions - Workflow 2/2
+
+Un *Workflow* est une procédure automatisée composée de plusieurs jobs,
+décrite par un fichier YAML.
+
+* On parle de "Workflow/Pipeline as Code"
+* Chemin : `.github/workflows/<nom du workflow>.yml`
+* On peut avoir _plusieurs_ fichiers donc _plusieurs_ workflows
+
+[source,shell]
+----
+.github/workflows
+├── ci-cd.yaml
+├── bump-dependency.yml
+└── nightly-tests.yaml
+----
+
+== Concepts de GitHub Actions - Évènement 1/2
+
+image::gh-actions-concepts.svg[width=800]
+
+== Concepts de GitHub Actions - Évènement 2/2
+
+Un *évènement* du projet GitHub (push, merge, nouvelle issue, etc. ) déclenche l'exécution du workflow
+
+* Plein de type d'évènements : push, issue, alarme régulière, favori, fork, etc.
+** Exemple : "Nouveau commit poussé", "chaque dimanche à 07:00", "une issue a été ouverte" ...
+
+* Un workflow spécifie le(s) évènement(s) qui déclenche(nt) son exécution
+** Exemple : "exécuter le workflow lorsque un nouveau commit est poussé ou chaque jour à 05:00 par défaut"
+
+== Concepts de GitHub Actions : Exemple Complet
+
+.Workflow File :
+[source,yaml]
+----
+include::../code-samples/gh-actions/npm-example.yml[]
+----
+
+== Essayons GitHub Actions
+
+* *But* : nous allons créer notre premier workflow dans GitHub Actions
+
+* N'hésitez pas à utiliser la documentation de GitHub Actions:
+** https://docs.github.com/en/free-pro-team@latest/actions[Accueil,window=_blank]
+** https://docs.github.com/en/free-pro-team@latest/actions/quickstart[Quickstart,window=_blank]
+** https://docs.github.com/en/free-pro-team@latest/actions/reference[Référence,window=_blank]
+
+== 🎓 Exercice: Créez un dépôt (git dans) GitHub
+
+* En étant authentifié dans link:https://github.com[{github_icon} GitHub,window="_blank"],
+* Créez un nouveau dépôt nommé `{student_gh_repository_name}`
+** Pas de "template" (modèle)
+** Visibilité publique
+** Initialisation avec un fichier `README.md`
+
+== Exemple simple avec GitHub Actions
+
+* Dans le dépôt `{student_gh_repository_name}`, sur la branch `main`,
+** Créez le fichier `.github/workflows/bonjour.yml` avec le contenu suivant :
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/say-hello-full.yml[tags="common,simple-hello"]
+----
+
+* Commitez puis poussez
+
+* Revenez sur la page GitHub de votre projet et naviguez dans l'onglet "Actions" :
+** Voyez-vous un workflow ? Et un Job ? Et le message affiché par la commande `echo` ?
+
+== Exemple simple avec GitHub Actions : Récapépète
+
+image::gh-actions-simple-example.svg[width=800]
+
+== Exemple GitHub Actions : Checkout
+
+* Supposons que l'on souhaite utiliser le code du dépôt...
+** Essayez: modifiez le fichier `bonjour.yml` pour afficher le contenu de `README.md` :
++
+[source,yaml]
+----
+include::../code-samples/gh-actions/say-hello-full.yml[tags="common,show-readme"]
+----
+
+* Est-ce que l'étape "`cat README.md`" se passe bien ? (SPOILER: non ❌ )
+
+== 🎓 Exercice GitHub Actions : Checkout
+
+* *But* : On souhaite récupérer ("checkout") le code du dépôt dans le job
+
+* 👷🏽‍♀️ C'est à vous d'essayer de _réparer_ 🛠 le job :
+** L'étape "`cat README.md`" doit être conservée et doit fonctionner
+** Utilisez l'action "checkout" (https://github.com/marketplace/actions/checkout[Documentation,window=_blank]) du marketplace GitHub Action
+** Vous pouvez vous inspirer du https://docs.github.com/en/free-pro-team@latest/actions/quickstart[Quickstart,window=_blank] de GitHub Actions
+
+== ✅ Solution GitHub Actions : Checkout
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,show-readme"]
+----
+
+== Exemple : Environnement d'exécution
+
+* Notre workflow doit s'assurer que "la vache" 🐮 doit nous lire 💬 le contenu du fichier `README.md`
+** link:https://www.destroyallsoftware.com/talks/wat[WAT 🤪, window="_blank"] ?
+
+[%steps]
+* Essayez la commande `cat README.md | cowsay` dans GitPod
+** Modifiez l'étape "`cat README.md`" du workflow pour faire la même chose dans GitHub Actions
+** SPOILER: ❌ (la commande `cowsay` n'est pas disponible dans le runner GitHub Actions)
+
+== Problème : Environnement d'exécution
+
+* *Problème* : On souhaite utiliser les mêmes outils dans notre workflow ainsi que dans nos environnement de développement
+
+* Plusieurs solutions existent pour personnaliser l'outillage, chacune avec ses avantages / inconvénients :
+** Personnaliser l'environnement dans votre workflow: (⚠️ sensible aux mises à jour, ✅ facile à mettre en place)
+** Spécifier un environnement préfabriqué pour le workflow (⚠️ complexe, ✅ portable)
+** Utiliser les fonctionnalités de votre outil de CI (⚠️ spécifique au moteur de CI, ✅ efficacité)
+
+== 🎓 Exercice : Personnalisation dans le workflow
+
+* *But* : exécuter la commande `cat README.md | cowsay` dans le workflow comme dans GitPod
+
+* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour personnaliser l'environnement :
+** 💡 Cherchez comment installer `cowsay` dans le runner GitHub (`runs-on`...)
+
+== ✅ Solution : Personnalisation dans le workflow
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,apt-cowsay,run-cowsay"]
+----
+
+== 🎓 Exercice : Environnement préfabriqué
+
+* *But* : exécuter la commande `cat README.md | cowsay` dans le workflow comme dans GitPod
+** En utilisant le même environnement que GitPod (même version de cowsay, java, etc.)
+
+* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour exécuter les étapes dans la même image Docker que GitPod :
+** 💡 link:{gitpod_github_repo_url}/blob/1969526f03fcfe19e314d3dd992c4175a93a820f/.gitpod.yml#L5[Image utilisée dans GitPod,window="_blank"]
+** 💡 link:https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer[Utilisation d'un container comme runner GitHub Actions,window="_blank"]
+** 💡 link:https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem[Contraintes d'exécution de container dans GitHub Actions (`--user=root`),window="_blank"]
+
+== ✅ Solution : Environnement préfabriqué
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/say-hello-full.yml[tags="common,container,checkout,run-cowsay"]
+----
+
+== Checkpoint 🎯
+
+* Quel est l'impact en terme de temps d'exécution du changement précédent ?
+
+* *Problème :* Le temps entre une modification et le retour est crucial
+
+* Docker ? 😉
+
+image::wait-here.jpg[]
