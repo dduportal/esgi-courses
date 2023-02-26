@@ -44,15 +44,18 @@ include::./chapitres/ci.adoc[leveloffset=1]
 
 🚧 Revenez plus tard
 
-// [{invert}]
-// == Merci !
+// Bibliographie
+include::./chapitres/bibliographie.adoc[leveloffset=1]
 
-// {author_mail}
+[{invert}]
+== Merci !
 
-// [.small]
-// link:{presentationUrl}[Slides: {presentationUrl}]
+{author_mail}
 
-// image::qrcode.png["QRCode to this presentation",height=150]
+[.small]
+link:{presentationUrl}[Slides: {presentationUrl}]
 
-// [.small]
-// link:{repositoryUrl}[Source on {github_icon} : {repositoryUrl},window="_blank"]
+image::qrcode.png["QRCode to this presentation",height=150]
+
+[.small]
+link:{repositoryUrl}[Source on {github_icon} : {repositoryUrl},window="_blank"]

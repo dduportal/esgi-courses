@@ -268,15 +268,12 @@ image::scm-feature-branch-workflow.png[caption="Feature Branch SCM Workflow",lin
 ** https://github.com/steeve/france.code-civil/pull/40
 ** https://github.com/steeve/france.code-civil/commit/b805ecf05a86162d149d3d182e04074ecf72c066
 
-== Pour aller plus loin avec Git et les VCS...
+== Checkpoint 🎯
 
-Un peu de lecture :
+* `git` est un des (plus populaires) de système de contrôle de versions
 
-* https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+* Cet outil vous permet:
+** D'avoir un historique auditable de votre code source
+** De collaborer efficacement sur le code source (conflit `git` == "PARLEZ-VOUS")
 
-* http://martinfowler.com/bliki/VersionControlTools.html
-* http://martinfowler.com/bliki/FeatureBranch.html
-
-* https://about.gitlab.com/2014/09/29/gitlab-flow/
-* https://www.atlassian.com/git/tutorials/comparing-workflows
-* http://nvie.com/posts/a-successful-git-branching-model/
+=> C'est une ligne de commande (trop?) complète qui nécessite de pratiquer

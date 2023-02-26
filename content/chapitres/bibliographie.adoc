@@ -1,0 +1,34 @@
+[{invert}]
+= Bibliographie
+
+== Ligne de commande
+
+* https://tldp.org
+* https://en.wikipedia.org/wiki/POSIX
+* https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop
+* https://linuxhandbook.com/linux-directory-structure/
+
+== Git / VCS
+
+* https://docs.github.com
+* https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+* http://martinfowler.com/bliki/VersionControlTools.html
+* http://martinfowler.com/bliki/FeatureBranch.html
+* https://about.gitlab.com/2014/09/29/gitlab-flow/
+* https://www.atlassian.com/git/tutorials/comparing-workflows
+* http://nvie.com/posts/a-successful-git-branching-model/
+
+== CI/CD
+
+* http://martinfowler.com/articles/continuousIntegration.html
+* http://martinfowler.com/bliki/ContinuousDelivery.html
+* https://jaxenter.com/implementing-continuous-delivery-117916.html
+* https://technologyconversations.com/2014/04/29/continuous-delivery-introduction-to-concepts-and-tools/
+* http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model
+* http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment
+
+== Autre
+
+* https://cicd-lectures.github.io/slides/
+* https://dduportal.github.io/cours/
+* https://www.jenkins.io/node/
