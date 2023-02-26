@@ -631,19 +631,8 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install -y cowsay
-      - run: cat README.md | cowsay</code></pre></div></div></div></section><section id="exercice_environnement_préfabriqué"><h2>🎓 Exercice : Environnement préfabriqué</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But</strong> : exécuter la commande <code>cat README.md | cowsay</code> dans le workflow comme dans GitPod</p><div class="ulist"><ul><li><p>En utilisant le même environnement que GitPod (même version de cowsay, java, etc.)</p></li></ul></div></li><li><p>👷🏽‍♀️ C&#8217;est à vous de mettre à jour le workflow pour exécuter les étapes dans la même image Docker que GitPod :</p><div class="ulist"><ul><li><p>💡 <a href="https://github.com/dduportal/esgi-gitpod/blob/1969526f03fcfe19e314d3dd992c4175a93a820f/.gitpod.yml#L5" target="_blank">Image utilisée dans GitPod</a></p></li><li><p>💡 <a href="https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer" target="_blank">Utilisation d&#8217;un container comme runner GitHub Actions</a></p></li><li><p>💡 <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem" target="_blank">Contraintes d&#8217;exécution de container dans GitHub Actions (<code>--user=root</code>)</a></p></li></ul></div></li></ul></div></div></section><section id="solution_environnement_préfabriqué"><h2>✅ Solution : Environnement préfabriqué</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml">name: Bonjour
-on:
-  - push
-jobs:
-  dire_bonjour:
-    runs-on: ubuntu-22.04
-    container:
-      image: ghcr.io/dduportal/esgi-gitpod
-      options: --user=root
-    steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
-      - run: cat README.md | cowsay</code></pre></div></div></div></section><section id="checkpoint_2"><h2>Checkpoint 🎯</h2><div class="slide-content"><div class="ulist"><ul><li><p>Quel est l&#8217;impact en terme de temps d&#8217;exécution du changement précédent ?</p></li><li><p><strong>Problème :</strong> Le temps entre une modification et le retour est crucial</p></li><li><p>Docker ? 😉</p></li></ul></div>
-<div class="imageblock"><img src="media/wait-here.jpg" alt="wait here"></div></div></section></section>
+      - run: cat README.md | cowsay</code></pre></div></div></div></section><section id="checkpoint_2"><h2>Checkpoint 🎯</h2><div class="slide-content"><div class="ulist"><ul><li><p>L&#8217;intégration Continue est un ensemble de pratiques pour s&#8217;assurer que le code est <strong>continuellement</strong> "vérifié"</p></li><li><p>GitHub Actions est un des nombreux systèmes permettant de faire de l&#8217;intégration continue</p></li></ul></div>
+<div class="paragraph"><p>&#8658; 🤔 Problème : comment gérer les différences entre l&#8217;environnement d&#8217;IC et les machines de travail ?</p></div></div></section></section>
 <section id="work_in_progress"><h2>Work in progress</h2><div class="slide-content"><div class="paragraph"><p>🚧 Revenez plus tard</p></div></div></section></div></div><script src="./reveal.js/js/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
