@@ -27,6 +27,13 @@
 * http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model
 * http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment
 
+== Docker
+
+* https://dduportal.github.io/cours/cnam-docker-2018
+* https://kodekloud.com/blog/docker-for-beginners/
+* https://www.slideshare.net/dotCloud/why-docker
+* https://docs.docker.com/
+
 == Autre
 
 * https://cicd-lectures.github.io/slides/

@@ -40,6 +40,9 @@ include::./chapitres/git.adoc[leveloffset=1]
 // CI - base
 include::./chapitres/ci.adoc[leveloffset=1]
 
+// Docker - bases
+include::./chapitres/docker-basics.adoc[leveloffset=1]
+
 == Work in progress
 
 🚧 Revenez plus tard
