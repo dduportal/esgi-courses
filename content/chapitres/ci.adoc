@@ -70,10 +70,10 @@ Une *Step* (étape) est une tâche individuelle à faire effectuer par le CI :
 steps: # Liste de steps
   # Exemple de step 1 (commande)
   - name: Say Hello
-    run: echo "Hello ENSG"
+    run: echo "Hello ESGI"
   # Exemple de step 2 (une action)
   - name: 'Login to DockerHub'
-    uses: docker/login-action@v1 # https://github.com/marketplace/actions/docker-login
+    uses: docker/login-action@v2 # https://github.com/marketplace/actions/docker-login
     with:
       username: ${{ secrets.DOCKERHUB_USERNAME }}
       password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -195,7 +195,7 @@ include::../code-samples/gh-actions/npm-example.yml[]
 +
 [source,yaml]
 ----
-include::../code-samples/gh-actions/say-hello-full.yml[tags="common,simple-hello"]
+include::../code-samples/gh-actions/ci-base.yml[tags="common,simple-hello"]
 ----
 
 * Commitez puis poussez le fichier sur GitHub:
@@ -221,7 +221,7 @@ image::gh-actions-simple-example.svg[width=800]
 +
 [source,yaml]
 ----
-include::../code-samples/gh-actions/say-hello-full.yml[tags="common,show-readme"]
+include::../code-samples/gh-actions/ci-base.yml[tags="common,show-readme"]
 ----
 
 * Est-ce que l'étape "`cat README.md`" se passe bien ? (SPOILER: non ❌ )
@@ -239,7 +239,7 @@ include::../code-samples/gh-actions/say-hello-full.yml[tags="common,show-readme"
 
 [source,yaml]
 ----
-include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,show-readme"]
+include::../code-samples/gh-actions/ci-base.yml[tags="common,checkout,show-readme"]
 ----
 
 == Exemple : Environnement d'exécution
@@ -252,15 +252,6 @@ include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,sho
 ** Modifiez l'étape "`cat README.md`" du workflow pour faire la même chose dans GitHub Actions
 ** SPOILER: ❌ (la commande `cowsay` n'est pas disponible dans le runner GitHub Actions)
 
-== Problème : Environnement d'exécution
-
-* *Problème* : On souhaite utiliser les mêmes outils dans notre workflow ainsi que dans nos environnement de développement
-
-* Plusieurs solutions existent pour personnaliser l'outillage, chacune avec ses avantages / inconvénients :
-** Personnaliser l'environnement dans votre workflow: (⚠️ sensible aux mises à jour, ✅ facile à mettre en place)
-** Spécifier un environnement préfabriqué pour le workflow (⚠️ complexe, ✅ portable)
-** Utiliser les fonctionnalités de votre outil de CI (⚠️ spécifique au moteur de CI, ✅ efficacité)
-
 == 🎓 Exercice : Personnalisation dans le workflow
 
 * *But* : exécuter la commande `cat README.md | cowsay` dans le workflow comme dans GitPod
@@ -272,7 +263,7 @@ include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,sho
 
 [source,yaml]
 ----
-include::../code-samples/gh-actions/say-hello-full.yml[tags="common,checkout,apt-cowsay,run-cowsay"]
+include::../code-samples/gh-actions/ci-base.yml[tags="common,checkout,apt-cowsay,run-cowsay"]
 ----
 
 == Checkpoint 🎯

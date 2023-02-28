@@ -4,7 +4,7 @@ on:
   - push
 jobs:
   dire_bonjour:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04 # Same as GitPod
 # end::common[]
 # tag::container[]
     container:
@@ -14,9 +14,6 @@ jobs:
 # tag::common[]
     steps:
 # end::common[]
-# tag::simple-hello[]
-      - run: echo "Bonjour 👋"
-# end::simple-hello[]
 # tag::checkout[]
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
 # end::checkout[]
@@ -32,15 +29,3 @@ jobs:
 # tag::run-cowsay[]
       - run: cat README.md | cowsay
 # end::run-cowsay[]
-# tag::maven-job[]
-  run_maven:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-      - run: mvn -v
-      - run: mvn help:effective-pom
-# end::maven-job[]
