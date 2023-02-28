@@ -32,7 +32,9 @@
 * https://dduportal.github.io/cours/cnam-docker-2018
 * https://kodekloud.com/blog/docker-for-beginners/
 * https://www.slideshare.net/dotCloud/why-docker
-* https://docs.docker.com/
+* https://docs.docker.com/engine/reference/builder/
+* https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/
+* https://github.com/wagoodman/dive
 
 == Autre
 

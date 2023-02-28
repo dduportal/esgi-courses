@@ -103,7 +103,7 @@ Dans un terminal Unix/Linux/WSL :
 image::linux-directory-structure.png[width=400]
 
 [.small]
-link:https://linuxhandbook.com/linux-directory-structure/[Source,windows="_blank"]
+link:https://linuxhandbook.com/linux-directory-structure/[Source,window="_blank"]
 
 == Arborescence de fichiers 2/2
 

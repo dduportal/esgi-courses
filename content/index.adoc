@@ -35,13 +35,16 @@ include::./chapitres/dev-env.adoc[leveloffset=1]
 include::./chapitres/cli.adoc[leveloffset=1]
 
 // Git - base
-include::./chapitres/git.adoc[leveloffset=1]
+include::./chapitres/git-base.adoc[leveloffset=1]
 
 // CI - base
 include::./chapitres/ci.adoc[leveloffset=1]
 
 // Docker - bases
-include::./chapitres/docker-basics.adoc[leveloffset=1]
+include::./chapitres/docker-base.adoc[leveloffset=1]
+
+// Docker - Images
+include::./chapitres/docker-images-base.adoc[leveloffset=1]
 
 == Work in progress
 

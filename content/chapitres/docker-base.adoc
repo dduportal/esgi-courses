@@ -101,15 +101,15 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 == 🎓 Exercice : Cycle de vie d'un conteneur simple
 
 * Lancez un nouveau conteneur nommé `bonjour`
-** 💡 `docker container run --help` ou https://docs.docker.com/engine/reference/commandline/container_run/[Documentation en ligne,windows="_blank"]
+** 💡 `docker container run --help` ou https://docs.docker.com/engine/reference/commandline/container_run/[Documentation en ligne,window="_blank"]
 
 * Affichez les "logs" du conteneur (==traces d'exécution écrites sur le stdout + stderr de la commande conteneurisée)
-** 💡 `docker container logs  --help` ou https://docs.docker.com/engine/reference/commandline/container_logs/[Documentation en ligne,windows="_blank"]
+** 💡 `docker container logs  --help` ou https://docs.docker.com/engine/reference/commandline/container_logs/[Documentation en ligne,window="_blank"]
 
-* Lancez le conteneur avec la commande https://docs.docker.com/engine/reference/commandline/container_start/[`docker container start`,windows="_blank"]
+* Lancez le conteneur avec la commande https://docs.docker.com/engine/reference/commandline/container_start/[`docker container start`,window="_blank"]
 ** Regardez le résultat dans les logs
 
-* Supprimez le container avec la commande https://docs.docker.com/engine/reference/commandline/container_rm/[`docker container rm`,windows="_blank"]
+* Supprimez le container avec la commande https://docs.docker.com/engine/reference/commandline/container_rm/[`docker container rm`,window="_blank"]
 
 == ✅ Solution : Cycle de vie d'un conteneur simple
 
@@ -238,3 +238,5 @@ docker container ls
 ** "One shot"
 ** Interactif
 ** En tâche de fond
+
+=> 🤔 Mais comment ces images sont-elles fabriquées ? Quelle confiance leur accorder ?
