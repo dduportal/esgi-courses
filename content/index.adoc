@@ -56,6 +56,9 @@ include::./chapitres/docker-network.adoc[leveloffset=1]
 // Moar Git
 include::./chapitres/moar-git.adoc[leveloffset=1]
 
+// Multiplayer Git
+include::./chapitres/multiplayer-git.adoc[leveloffset=1]
+
 == Work in progress
 
 🚧 Revenez plus tard
