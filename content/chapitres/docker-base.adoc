@@ -118,13 +118,13 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 docker container run --name=bonjour hello-world
 # Affiche le texte habituel
 
-docker logs bonjour
+docker container logs bonjour
 # Affiche le même texte : pratique si on a fermé le terminal
 
-docker start bonjour
+docker container start bonjour
 # N'affiche pas le texte mais l'identifiant unique du conteneur 'bonjour'
 
-docker logs bonjour
+docker container logs bonjour
 # Le texte est affiché 2 fois !
 
 docker container ls --all
@@ -133,7 +133,7 @@ docker container rm bonjour
 docker container ls --all
 # Le conteneur n'est plus là : il a été supprimé ainsi que ses logs
 
-docker logs bonjour
+docker container logs bonjour
 # Error: No such container: bonjour
 ----
 
@@ -195,7 +195,7 @@ $ docker container run alpine:3.17 cat /etc/os-release
 ** ⚠️ Pensez bien à `docker container ls`
 
 * Regardez le contenu du fichier `/etc/os-release` dans ce conteneur
-** 💡 `docker exec`
+** 💡 `docker container exec`
 
 * Essayez d'arrêter, démarrer puis redémarrer le conteneur
 ** ⚠️ Pensez bien à `docker container ls` à chaque fois

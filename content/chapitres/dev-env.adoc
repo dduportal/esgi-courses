@@ -64,6 +64,15 @@ image::gitpod-select-editor.png[width=600]
 
 image::gitpod-workspaces.png[width=600]
 
+== Permissions GitPod <-> GitHub 🔐
+
+* Pour les besoins de ce cours, vous devez autoriser GitPod à pouvoir effectuer certaines modification dans vos dépôts GitHub
+* Rendez-vous sur https://gitpod.io/user/integrations[la page des intégrations avec GitPod,window="_blank"]
+* Éditez les permissions de la ligne "GitHub" (les 3 petits points à droits) et sélectionnez uniquement :
+** `user:email`
+** `public_repo`
+** `workflow`
+
 == Démarrer l'environnement GitPod
 
 Cliquez sur le bouton ci-dessous pour démarrer un environnement GitPod personnalisé:
