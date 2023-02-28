@@ -235,7 +235,7 @@ Ces "checks" peuvent êtres exécutés par votre moteur de CI ou des outils exte
 * Vous pouvez changer la spec du workflow directement dans votre PR
 * La link:https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows[documentation] se trouve par ici
 
-== !
+== Checkpoint 🎯
 
 *Règle d'or*: Si le CI est rouge, on ne merge pas la pull request !
 

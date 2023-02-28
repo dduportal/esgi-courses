@@ -59,6 +59,9 @@ include::./chapitres/moar-git.adoc[leveloffset=1]
 // Multiplayer Git
 include::./chapitres/multiplayer-git.adoc[leveloffset=1]
 
+// Versions
+include::./chapitres/version.adoc[leveloffset=1]
+
 == Work in progress
 
 🚧 Revenez plus tard
