@@ -1,0 +1,243 @@
+[{invert}]
+= Plus de Git !
+
+aka. Mettre son code en sécurité
+
+== 🤔 Une petite histoire
+
+Votre dépôt est actuellement sur votre ordinateur.
+
+* Que se passe t'il si :
+** Votre disque dur tombe en panne ?
+** On vous vole votre ordinateur ?
+** Vous échappez votre tasse de thé / café sur votre ordinateur ?
+** Une météorite tombe sur votre bureau et fracasse votre ordinateur ?
+
+[%notitle]
+== !
+
+image:crying.gif[width="500"]
+
+[.small]
+Testé, pas approuvé.
+
+== Comment éviter ça ?
+
+* Répliquer votre dépôt sur une ou plusieurs machines !
+* Git est pensé pour gérer ce de problème
+
+== Gestion de version décentralisée
+
+* Chaque utilisateur maintient une version du dépôt _local_ qu'il peut changer à souhait
+* Indépendant du commit, ils peuvent "pousser" une version sur un dépôt **distant**
+* Un dépôt _local_ peut avoir plusieurs dépôts **distants**.
+
+== Centralisé vs Décentralisé
+
+image:cvsdcvs.png[width="800"]
+
+[.small]
+
+Source link:https://www.geeksforgeeks.org/centralized-vs-distributed-version-control-which-one-should-we-choose/[Geek for Geeks]
+
+Cela rends la manipulation un peu plus complexe, allons-y pas à pas :-)
+
+== 🎓 Consulter l'historique de commits
+
+* Dans votre workspace GitPod,
+* positionnez-vous dans le dépôt `{student_gh_repository_name}`,
+* modifiez le fichier `README.md`, puis commitez,
+* et enfin, affichez l'historique de commits.
+
+== ✅ Consulter l'historique de commits
+
+[source,bash]
+--
+cd /workspace/esgi-devops-2013
+echo "A new line" >> ./README.md
+git add ./README.md
+git commit -m "add a new line to the documentation"
+
+# Liste tous les commits présent sur la branche main.
+git log --graph
+--
+
+== Associer un dépôt distant (1/2)
+
+Git permet de manipuler des "remotes"
+
+* Image "distante" (sur un autre ordinateur) de votre dépôt local.
+* Permet de publier et de rapatrier des branches.
+* Le serveur maintient sa propre arborescence de commits, tout comme votre dépôt local.
+
+* Un dépôt peut posséder N remotes.
+
+== Associer un dépôt distant (2/2)
+
+[source,bash]
+--
+# Liste les remotes associés a votre dépôt
+git remote -v
+# Vous devriez voir l'URL de votre dépôt en tant que 'origin'
+
+## La commande 'git clone' a effectué l'action ci-dessous pour vous :
+# git remote add origin https://<URL de votre dépôt>
+--
+
+== Publier une branche dans sur dépôt distant
+
+Maintenant qu'on a un dépôt, il faut publier notre code dessus !
+
+[source, bash]
+--
+# git push <remote> <votre_branche_courante>
+git push origin main
+--
+
+== Que s'est il passé ?
+
+image:remote1.svg[]
+
+== !
+
+* `git` a envoyé la branche `main` sur le remote `origin`
+
+* ... qui à accepté le changement et mis à jour sa propre branche main.
+* `git` a créé localement une branche distante `origin/main` qui suis l'état de `main` sur le remote.
+
+* Vous pouvez constater que la page github de votre dépôt affiche le code source
+
+== Refaisons un commit !
+
+[source, bash]
+--
+
+git commit --allow-empty -m "Yet another commit"
+git push origin main
+--
+
+== !
+
+image:remote2.svg[]
+
+== Branche distante
+
+Dans votre dépôt local, une branche "distante" est automatiquement maintenue par git
+
+C'est une image du dernier état connu de la branche sur le remote.
+
+Pour mettre a jour les branches distantes depuis le remote il faut utiliser :
+
+`git fetch <nom_du_remote>`
+
+== !
+
+[source, bash]
+--
+# Lister toutes les branches y compris les branches distances
+git branch -a
+
+
+# Notez qu'est listé remotes/origin/main
+
+
+# Mets a jour les branches distantes du remote origin
+git fetch origin
+
+
+# Rien ne se passe, votre dépôt est tout neuf, changeons ça!
+--
+
+== 🎓 Créez un commit depuis GitHub directement
+
+* Cliquez sur le bouton éditer en haut à droite du "README"
+* Changez le contenu de votre README
+* Dans la section "Commit changes"
+** Ajoutez un titre de commit et une description
+
+** Cochez "Commit directly to the main branch"
+** Validez
+
+GitHub crée directement un commit sur la branche main sur le dépôt distant
+
+== ✅ Rapatrier les changements distants
+
+[source, bash]
+--
+# Mets à jour les branches distantes du dépôt origin
+git fetch origin
+
+# La branche distante main a avancé sur le remote origin
+# => La branche remotes/origin/main est donc mise a jour
+
+# Ouvrez votre README
+code ./README.md
+
+# Mystère, le fichier README ne contient pas vos derniers changements?
+git log
+
+# Votre nouveau commit n'est pas présent, AHA !
+--
+
+== !
+
+image:remote3.svg[]
+
+== Branche Distante VS Branche Locale
+
+Le changement à été rapatrié, cependant il n'est pas encore présent sur votre branche main locale
+
+[source, bash]
+--
+# Merge la branch distante dans la branche locale.
+git merge origin/main
+--
+
+== !
+
+Vu que votre branche main n'a pas divergé (== partage le même historique) de la branche distante, `git merge` effectue automatiquement un "fast forward".
+
+[source, bash]
+--
+Updating 1919673..b712a8e
+Fast-forward
+ README.md | 1 +
+
+ 1 file changed, 1 insertion(+)
+--
+
+Cela signifie qu'il fait "avancer" la branche `main` sur le même commit que la branche `origin/main`
+
+== !
+
+image:remote4.svg[]
+
+== !
+
+[source, bash]
+--
+# Liste l'historique de commit
+git log
+
+# Votre nouveau commit est présent sur la branche main !
+# Juste au dessus de votre commit initial !
+--
+
+Et vous devriez voir votre changement dans le ficher README.md
+
+== Git(Hub|Lab|tea|...)
+
+- Un dépôt distant peut être hébergé par n'importe quel serveur sans besoin autre qu'un accès SSH ou HTTPS.
+
+- Une multitudes de services facilitent et enrichissent encore git: (GitHub, Gitlab, Gitea, Bitbucket...)
+
+
+== Checkpoint 🎯
+
+=> git + Git(Hub|Lab|tea|...) = superpowers ! 🦄
+
+* GUI de navigation dans le code
+* Plateforme de gestion et suivi d'issues
+* Plateforme de revue de code
+* Integration aux moteurs de CI/CD
+* And so much more...
