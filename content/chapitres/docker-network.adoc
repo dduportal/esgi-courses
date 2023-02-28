@@ -1,0 +1,218 @@
+[{invert}]
+= Docker : Réseau
+
+== 🤔 Quel est le problème ?
+
+* Comment accéder aux serveurs webs dans des conteneurs ?
+
+== Réseau dans Docker
+
+* Docker utilise des réseaux virtuels privés
+** Un peu comme votre box internet
+
+* Votre point d'entrée : la commande https://docs.docker.com/engine/reference/commandline/network/[`docker network`]
+** 🎓 Affichons la liste des réseaux par défaut :
++
+[source,bash]
+----
+$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+9affa4f4faa9   bridge    bridge    local
+d454eb8cca5a   host      host      local
+80a73237a778   none      null      local
+----
+
+== Réseau Bridge `default`
+
+image::docker-bridge-1.png[]
+
+== 🤔 Comment accéder au serveur web en tâche de fond ?
+
+* Assurez-vous que le conteneur `webserver-1` est toujours en fonctionnement
+** Sinon: link:/#/exercice_conteneur_en_tâche_de_fond[🎓 Exercice : conteneur en tâche de fond]
+
+[source,bash]
+----
+$ docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+ee5b70fa72c3   nginx     "/docker-entrypoint.…"   3 seconds ago   Up 2 seconds   80/tcp    webserver-1
+----
+
+=> Super, le port 80 (TCP) est annoncé (on parle d'"exposé"). Mais où ?
+
+== 🎓 Un client HTTP en ligne de commande
+
+En utilisant la ligne de commande `curl`, affichez en ligne de commande :
+
+* Le contenu (HTML) de la page http://google.com
+* Les en-tête HTTP (requête et réponse) associés à la page http://google.com
+* Le contenu de la page vers laquelle http://google.com redirige
+
+[small]
+💡 `man curl` / https://curl.se/docs/manpage.html
+
+== ✅ Un client HTTP en ligne de commande
+
+[source,bash]
+----
+curl http://google.com
+# <HTML> ...
+
+curl --verbose --output /dev/null http://google.com
+#< HTTP/1.1 301 Moved Permanently
+#< Location: http://www.google.com/
+# ...
+
+curl --location http://google.com
+# <!doctype html> ...
+----
+
+== 🎓 Accéder au serveur web via le réseau privé
+
+* *But :* Affichez la page du serveur web qui tourne dans le conteneur `webserver-1`
+
+* Obtenez l'adresse IP privée du conteneur avec la commande https://docs.docker.com/engine/reference/commandline/container_inspect/[`docker container inspect`,window="_blank"]
+* Utilisez la command `curl`
+
+== ✅ Accéder au serveur web via le réseau privé
+
+[source,bash]
+----
+docker container inspect webserver-1
+# ...
+# docker inspect webserver-1 | grep IPAddress
+
+curl http://172.17.0.x:80 # x peut changer
+# ...
+<title>Welcome to nginx!</title>
+# ...
+
+docker container stop webserver-1
+
+curl http://172.17.0.x:80
+# Erreur
+----
+
+== Réseau privé / public
+
+* Un réseau privé doit le rester !
+* Solution : publier le(s) port(s) sur les interface réseau publiques
+
+== 🎓 Accéder au serveur web via un port publié
+
+* *But :* Créez un nouveau conteneur `webserver-1` accessible publiquement
+
+* Utilisez le port `8080` publique
+* 💡 Flag `--publish` pour `docker container run`
+* 💡 GitPod va vous proposer un popup : choisissez "Open Browser"
+
+== ✅ Accéder au serveur web via un port publié
+
+[source,bash]
+----
+docker container run --detach --name=webserver-2 --publish 8080:80 nginx
+1c5020a818887b1eb4b14b7e75f490db97fac4172c96cc918df63c8c2a0fbaff
+
+curl http://localhost:8080
+# ...
+----
+
+== Autres Réseaux
+
+image::docker-networks-all.png[width=800]
+
+== 🎓 Autre Réseaux
+
+* Comparons les interfaces réseaux de la VM GitPod et de 3 conteneurs basés sur `alpine:3.17` :
+** Un conteneur dans le réseau `default`
+** Un conteneur avec `--network=host`
+** Un conteneur avec `--network=none`
+
+* 💡 Commande `ip addr` pour afficher les interfaces réseaux sous Linux
+
+== ✅ Autre Réseaux
+
+[source,bash]
+----
+$ ip addr
+1: lo: # ...
+  inet 127.0.0.1/8 scope host lo
+# ...
+4: docker0: # ...
+# ...
+
+$ docker container run --rm alpine:3.17 ip addr
+1: lo:  # ...
+  inet 127.0.0.1/8 scope host lo
+# ...
+  inet 172.17.0.x/16  # ...
+# ...
+
+$ docker container run --rm --network=host alpine:3.17 ip addr
+1: lo: # ...
+  inet 127.0.0.1/8 scope host lo
+# ...
+4: docker0: # ...
+# ...
+
+gitpod /workspace $ docker container run --rm --network=none alpine:3.17 ip addr
+1: lo: # ...
+  inet 127.0.0.1/8 scope host lo
+----
+
+== Réseaux personnalisés
+
+* Vous pouvez créer vos propres réseaux isolés les un des autres
+* Le fonctionnement reste le même (IP privées, ports à publier)
+* Avantage: Pour chaque réseau "bridge" (hors `default`, Docker fournit un serveur DNS automatique !)
+
+== 🎓 Réseaux personnalisés 1/2
+
+* Créez un réseau nommé `esgi-1` avec la commande `docker network create`
+
+* Exécuter un conteneur avec les propriétés suivantes :
+** Nom : `webserver-3`
+** Type : détaché (tâche de fond)
+** Dans le réseau `esgi-1` (💡 `--network=`)
+** Image : `nginx`
+
+== 🎓 Réseaux personnalisés 2/2
+
+
+* Exécutez un second conteneur interactif
+** Interactif
+** `--entrypoint=bash`
+** Réseau attaché : `esgi-1`
+** Image : `nginx`
+
+* Essayez la commande `curl http://webserver-3`
+
+== ✅ Réseaux personnalisés
+
+[source,bash]
+----
+docker network create ls
+docker network create esgi-1
+docker network create ls
+
+docker container run --detach --network=esgi-1 --name=webserver-3 nginx
+
+docker container run --rm --tty --interactive --network=esgi-1 --entrypoint=bash nginx
+root@ac99e0beb95d:/# curl --verbose http://webserver-3
+*   Trying 172.18.0.2:80...
+* Connected to webserver-3 (172.18.0.2) port 80 (#0)
+> GET / HTTP/1.1
+> Host: webserver-3
+> User-Agent: curl/7.74.0
+> Accept: */*
+>
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+# ...
+----
+
+== Checkpoint 🎯
+
+* Docker gère les réseaux automatiquement pour vous
+* Un conteneur peut exposer un service sur son réseau privé et également le publier
+* Les réseaux personnalisés fournissent un serveur de nom de domaines intégré 🦄

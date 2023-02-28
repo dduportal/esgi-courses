@@ -1,0 +1,122 @@
+[{invert}]
+= Docker : Volumes
+
+== 🤔 Quel est le problème ?
+
+* Faut-il fabriquer sa propre image à chaque fois ?
+** Ref. copie du `README` pour utiliser `cowsay`
+
+* Comment partager des fichiers entre conteneurs ?
+
+* Et entre hôte et conteneur ?
+
+== Problème des Layers
+
+* ⏱️ Performances : les layers ont de très mauvais performance I/🎓O (disque)
+
+* 💾 Si vous supprimez un conteneur, ses layers disparaissent
+
+* ❌ Pas de partage de layer possible entre conteneurs
+
+== Docker Volumes
+
+* Ce sont des dossier stockés sur l'hôte,
+* gérés par le Docker Engine,
+* Pouvant être partagés,
+* Et survivant aux conteneurs
+
+=> Parfait 🦄
+
+== 🎓 Votre premier volume
+
+* Vérifiez que le dossier `/app` n'existe pas au préalable :
++
+[source,bash]
+----
+docker container run --rm alpine ls -la /app
+----
+
+* Essayez maintenant avec un volume :
++
+[source,bash]
+----
+docker volume create app-data
+docker container run --rm --volume=app-data:/app alpine ls -la /app
+docker volume ls
+----
+
+* Essayez de créer un fichier dedans :
++
+[source,bash]
+----
+docker container run --rm --volume=app-data:/app alpine touch /app/test-1
+docker container run --rm --volume=app-data:/app alpine ls -la /app
+----
+
+== Partager avec l'hôte
+
+* Concept : partager un dossier/fichier de l'hôte
+** Contrainte : chemin absolu
+
+* ⚠️ à n'utiliser que pour des commandes "one shot"
+** Entorse à la portabilité (file owner, permission, contrainte du chemin)
+
+* 🎓 Dans GitPod, essayez la commande suivante :
++
+[source,bash]
+----
+docker run --rm --volume /workspace:/app alpine:3.17 ls -la /app
+----
+
+== 🎓 CI : Partager le dépôt dans le conteneur
+
+* Revenons à l'image Docker dans GitHub Actions
+* Enlevez la ligne `COPY README.md` du workflow
+* Utilisez un partage avec l'hôte pour le fichier `README.md`
+
+* 💡 `--workdir="$(pwd)"`
+
+== ✅ CI : Partager le dépôt dans le conteneur
+
+[source,Dockerfile]
+----
+# Dockerfile
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install --yes cowsay
+----
+
+[source,yaml]
+----
+# bonjour.yml
+include::../code-samples/gh-actions/ci-docker-build-vol.yml[]
+----
+
+== 🎓 Sécurité des conteneurs
+
+* *Buts :*
+** Limiter l'impact d'un processus malicieux
+** S'assurer des meilleurs performances de production
+** Obtenir une liste exhaustive des dossier utilisés par l'application
+
+* Essayez d'exécuter un conteneur `webserver-4`, basé sur l'image `nginx`, avec l'option `--read-only` activée
+** 💡 Pensez à regarder les logs si le conteneur est en erreur
+** 💡 Déclarez un volume pour chaque dossier/fichier nécessitant une écriture
+
+== ✅ Sécurité des conteneurs
+
+[source,bash]
+----
+docker container run --detach --name=webserver-4 --publish=8080:80 --read-only \
+  --volume=/var/cache/nginx --volume=/var/run nginx
+----
+
+== Checkpoint 🎯
+
+* Docker sépare le cycle de vie des conteneurs de celui des données
+** Utile pour les mises à jours d'images
+
+* Les données des conteneurs peuvent être partagées en utilisant des volumes
+
+* Bonne pratique : utiliser les options de volumes de Docker permet de mieux communiquer les caractéristiques et contraintes de l'application
+
+=> DevOps The Right Way 🦄

@@ -86,9 +86,10 @@ include::../code-samples/gh-actions/ci-docker-build.yml[]
 
 == 🤔 Réfléchissons ensemble
 
-- Impact sur le temps ?
+- Impact sur le temps de build ?
 - Quelles limites voyez-vous ?
 
-// == Checkpoint 🎯
+== Checkpoint 🎯
 
-// => 🤔 Problème : comment gérer les différences entre l'environnement d'IC et les machines de travail ?
+- On peut exécuter des tâches de CI dans des images de container
+- Un curseur est à positionner entre des images préfabriquées qui peuvent être lourdes ou fabriquer soit-même sa propre image

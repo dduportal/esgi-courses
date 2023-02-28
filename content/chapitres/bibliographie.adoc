@@ -35,6 +35,8 @@
 * https://docs.docker.com/engine/reference/builder/
 * https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/
 * https://github.com/wagoodman/dive
+* https://docs.docker.com/engine/tutorials/networkingcontainers/
+* https://towardsdatascience.com/docker-networking-919461b7f498
 
 == Autre
 

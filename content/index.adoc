@@ -49,6 +49,10 @@ include::./chapitres/docker-images-base.adoc[leveloffset=1]
 // CI avec Docker Images
 include::./chapitres/ci-docker-images.adoc[leveloffset=1]
 
+// Docker - Réseau et Volumes
+include::./chapitres/docker-volumes.adoc[leveloffset=1]
+include::./chapitres/docker-network.adoc[leveloffset=1]
+
 == Work in progress
 
 🚧 Revenez plus tard
