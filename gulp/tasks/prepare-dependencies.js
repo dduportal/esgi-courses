@@ -14,6 +14,8 @@ module.exports = function (gulp, plugins, current_config) {
                 .pipe(gulp.dest(revealJsDestDir + '/js/')),
             zenBurnCss = gulp.src(baseRevealJSPath + '/lib/css/zenburn.css')
                 .pipe(gulp.dest(revealJsDestDir + '/lib/css/')),
+            monokaiCss = gulp.src(baseRevealJSPath + '/lib/css/monokai.css')
+                .pipe(gulp.dest(revealJsDestDir + '/lib/css/')),
             notesJs = gulp.src(baseRevealJSPath + '/plugin/notes/notes.js')
                 .pipe(gulp.dest(revealJsDestDir + '/plugin/notes/')),
             markedJs = gulp.src(baseRevealJSPath + '/plugin/markdown/marked.js')
@@ -28,6 +30,7 @@ module.exports = function (gulp, plugins, current_config) {
             paperCSS,
             mainRevealJs,
             zenBurnCss,
+            monokaiCss,
             notesJs,
             notesHtml,
             zoomJs,

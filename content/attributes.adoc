@@ -15,8 +15,6 @@
 :revealjs_controls: true
 :experimental: true
 :source-highlighter: highlightjs
-:highlightjs-main-theme: github
-:highlightjs-theme: {revealjsdir}/plugin/highlight/styles/{highlightjs-main-theme}.min.css
 :invert: state=invert,background-color="rgb(248, 228, 130)"
 :stylesdir: styles
 :notitle: true
