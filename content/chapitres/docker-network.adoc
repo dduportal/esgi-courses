@@ -29,7 +29,7 @@ image::docker-bridge-1.png[]
 == 🤔 Comment accéder au serveur web en tâche de fond ?
 
 * Assurez-vous que le conteneur `webserver-1` est toujours en fonctionnement
-** Sinon: link:/#/exercice_conteneur_en_tâche_de_fond[🎓 Exercice : conteneur en tâche de fond]
+** Sinon: link:#exercice_conteneur_en_tâche_de_fond[🎓 Exercice : conteneur en tâche de fond]
 
 [source,bash]
 ----
@@ -100,7 +100,7 @@ curl http://172.17.0.x:80
 
 == 🎓 Accéder au serveur web via un port publié
 
-* *But :* Créez un nouveau conteneur `webserver-1` accessible publiquement
+* *But :* Créez un nouveau conteneur `webserver-public` accessible publiquement
 
 * Utilisez le port `8080` publique
 * 💡 Flag `--publish` pour `docker container run`
@@ -110,7 +110,7 @@ curl http://172.17.0.x:80
 
 [source,bash]
 ----
-docker container run --detach --name=webserver-2 --publish 8080:80 nginx
+docker container run --detach --name=webserver-public --publish 8080:80 nginx
 1c5020a818887b1eb4b14b7e75f490db97fac4172c96cc918df63c8c2a0fbaff
 
 curl http://localhost:8080
@@ -171,7 +171,7 @@ gitpod /workspace $ docker container run --rm --network=none alpine:3.17 ip addr
 * Créez un réseau nommé `esgi-1` avec la commande `docker network create`
 
 * Exécuter un conteneur avec les propriétés suivantes :
-** Nom : `webserver-3`
+** Nom : `webserver-private`
 ** Type : détaché (tâche de fond)
 ** Dans le réseau `esgi-1` (💡 `--network=`)
 ** Image : `nginx`
@@ -185,7 +185,7 @@ gitpod /workspace $ docker container run --rm --network=none alpine:3.17 ip addr
 ** Réseau attaché : `esgi-1`
 ** Image : `nginx`
 
-* Essayez la commande `curl http://webserver-3`
+* Essayez la commande `curl http://webserver-private`
 
 == ✅ Réseaux personnalisés
 
@@ -195,14 +195,14 @@ docker network create ls
 docker network create esgi-1
 docker network create ls
 
-docker container run --detach --network=esgi-1 --name=webserver-3 nginx
+docker container run --detach --network=esgi-1 --name=webserver-private nginx
 
 docker container run --rm --tty --interactive --network=esgi-1 --entrypoint=bash nginx
-root@ac99e0beb95d:/# curl --verbose http://webserver-3
+root@ac99e0beb95d:/# curl --verbose http://webserver-private
 *   Trying 172.18.0.2:80...
-* Connected to webserver-3 (172.18.0.2) port 80 (#0)
+* Connected to webserver-private (172.18.0.2) port 80 (#0)
 > GET / HTTP/1.1
-> Host: webserver-3
+> Host: webserver-private
 > User-Agent: curl/7.74.0
 > Accept: */*
 >

@@ -117,7 +117,7 @@ Dans la terminologie GitHub:
 * Les branches de version (main, staging...) vivent sur le dépôt principal
 * La procédure de ramener un changement d'un fork à un dépôt principal s'appelle la Pull Request (PR)
 
-== Exercice: Créez un fork
+== 🎓 Exercice: Créez un fork
 
 * Nous allons vous faire forker vos dépôts respectifs
 * Trouvez vous un binôme dans le groupe et échangez vos URL de dépôts
@@ -155,7 +155,7 @@ Maintenant voici la liste des choses à faire:
 
 * Corrigez /ignorez les erreurs du lint afin d'avoir un build qui passe
 
-== Exercice: Contribuez au projet de votre binôme (3/5)
+== 🎓 Exercice: Contribuez au projet de votre binôme (3/5)
 
 Pour tester votre changement :
 
@@ -164,11 +164,11 @@ Pour tester votre changement :
 hadolint ./Dockerfile
 ----
 
-== Exercice: Contribuez au projet de votre binôme (4/5)
+== 🎓 Exercice: Contribuez au projet de votre binôme (4/5)
 
 Une fois que vous êtes satisfaits de votre changement il vous faut maintenant créer un commit et pousser votre nouvelle branche sur votre fork.
 
-== Exercice: Contribuez au projet de votre binôme (5/5)
+== 🎓 Exercice: Contribuez au projet de votre binôme (5/5)
 
 Dernière étape: ouvrir une pull request!
 
@@ -204,7 +204,7 @@ image:pr.png[]
 
 💡 Astuce: link:https://github.com/franckverrot/clamav-client/pull/12#discussion_r526222319[Proposez des solutions] plutôt que simplement pointer les problèmes.
 
-== Exercice: Relisez votre PR reçue !
+== 🎓 Exercice: Relisez votre PR reçue !
 
 * Vous devriez avoir reçu une PR de votre binôme :-)
 * Relisez le changement de la PR
@@ -228,7 +228,7 @@ image:pr.png[]
 
 Ces "checks" peuvent êtres exécutés par votre moteur de CI ou des outils externes.
 
-== Exercice: Déclencher un Workflow de CI sur une PR
+== 🎓 Exercice: Déclencher un Workflow de CI sur une PR
 
 * Votre PR n'a pas déclenché le workflow de CI de votre binôme 🤔
 * Il faut changer la spec de votre workflow pour qu'il se déclenche aussi sur une PR

@@ -98,7 +98,7 @@ include::../code-samples/gh-actions/ci-docker-build-vol.yml[]
 ** S'assurer des meilleurs performances de production
 ** Obtenir une liste exhaustive des dossier utilisés par l'application
 
-* Essayez d'exécuter un conteneur `webserver-4`, basé sur l'image `nginx`, avec l'option `--read-only` activée
+* Essayez d'exécuter un conteneur `webserver-2`, basé sur l'image `nginx`, avec l'option `--read-only` activée
 ** 💡 Pensez à regarder les logs si le conteneur est en erreur
 ** 💡 Déclarez un volume pour chaque dossier/fichier nécessitant une écriture
 
@@ -106,7 +106,7 @@ include::../code-samples/gh-actions/ci-docker-build-vol.yml[]
 
 [source,bash]
 ----
-docker container run --detach --name=webserver-4 --publish=8080:80 --read-only \
+docker container run --detach --name=webserver-2 --read-only \
   --volume=/var/cache/nginx --volume=/var/run nginx
 ----
 
