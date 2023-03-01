@@ -1,0 +1,138 @@
+[{invert}]
+= "Continuous Everything"
+
+== Livraison Continue
+
+Continuous Delivery (CD)
+
+== Pourquoi la Livraison Continue ?
+
+* Diminuer les risque liés au déploiement
+* Permettre de récolter des retours utilisateurs plus souvent
+* Rendre l'avancement visible par *tous*
+
+[quote, Mary and Tom Poppendieck]
+____
+How long would it take to your organization to deploy a change that
+involves just one single line of code?
+____
+
+== Qu'est ce que la Livraison Continue ?
+
+* Suite logique de l'intégration continue:
+** Chaque changement est *potentiellement* déployable en production
+** Le déploiement peut donc être effectué à *tout* moment
+
+[quote, Martin Fowler]
+____
+Your team prioritizes keeping the software *deployable* over working on new features
+____
+
+[{invert}]
+== !
+
+La livraison continue est l'exercice de **mettre à disposition automatiquement** le produit logiciel pour qu'il soit prêt à être déployé à tout moment.
+
+== Livraison Continue avec GitHub Actions
+
+== Pré-requis: exécution conditionnelle des jobs
+
+* Il est possible d’exécuter conditionnellement un job ou un step à l'aide du mot clé `if` (link:https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idif[documentation de `if`])
+
+[source,yaml]
+----
+jobs:
+  release:
+    # Lance le job release uniquement si la branche est main.
+    if: contains('refs/heads/main', github.ref)
+    steps:
+      # ...
+----
+
+== 🎓 Secret GitHub / DockerHub Token
+
+* Créez un personal access token dans le DockerHub avec les droits "Read,Write"
+** ⚠️ ne partagez pas ce token, ne le mettez PAS dans GitPod, ne l'enregistrez pas sur votre disque dur
+** 💡 https://docs.docker.com/docker-hub/access-tokens/[Documentation "Manage access tokens",window="_blank"]
+
+* Insérez le token DockerHub comme secret dans votre dépôt GitHub
+** 💡 https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository[Creating encrypted secrets for a repository,window="_blank"]
+
+== 🎓 Livraison Continue sur le DockerHub
+
+* *But :* Automatiser le déploiement de l'image dans le DockerHub lorsqu'un tag est poussé
+
+* Changez votre workflow de CI de façon à ce que, sur un push de tag, les tâches suivantes soient effectuées :
+** Comme avant: Lint, Build, Test de l'image (en affichant le `README`)
+** SI c'est un tag, alors il faut pousser (et éventuellement reconstruire avec le bon nom) l'image sur le DockerHub
+
+* 💡 Utilisez les GitHub Action suivantes :
+** https://github.com/marketplace/actions/docker-login[docker-login, window="_blank]
+** https://github.com/marketplace/actions/build-and-push-docker-images[build-and-push-docker-images, window="_blank]
+
+== ✅ Livraison Continue sur le DockerHub
+
+[source,bash]
+----
+include::../code-samples/gh-actions/ci-docker-push-tag.yml[]
+----
+
+== Déploiement Continu
+
+🇬🇧 Continuous Deployment / "CD"
+
+== Qu'est ce que le Déploiement Continu ?
+
+* Version "avancée" de la livraison continue:
+** Chaque changement *est* déployé en production, de manière *automatique*
+
+== Continuous Delivery versus Deployment
+
+image::continuous-depl-vs-delivery.jpg[caption=Continuous Delivery vs Deployment,width=700]
+
+[.small]
+Source : http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment
+
+== Bénéfices du Déploiement Continu
+
+* Rends triviales les procédures de mise en production et de rollback
+** Encourage à mettre en production le plus souvent possible
+** Encourage à faire des mises en production incrémentales
+* Limite les risques d'erreur lors de la mise en production
+* Fonctionne de 1 à 1000 serveurs et plus encore...
+
+== Qu'est ce que "La production" ?
+
+* Un (ou plusieurs) ordinateur ou votre / vos applications sont exécutées
+* Ce sont là où vos utilisateurs "utilisent" votre code
+** Que ce soit un serveur web pour une application web
+** Ou un téléphone pour une application mobile
+* Certaines plateformes sont plus ou moins outillées pour la mise en production automatique
+
+== 🎓 Déploiement Continu sur le DockerHub
+
+* *But :* Déployer votre image `cowsay` continuellement sur le DockerHub
+
+* Changez votre workflow de CI de façon à ce que, sur un push sur la branch `main`, les tâches suivantes soient effectuées :
+** Comme avant: Lint, Build, Test de l'image (en affichant le `README`)
+** SI c'est la branche `main`, alors il faut pousser l'image avec le tag `latest` sur le DockerHub
+** Conservez le cas avec les tags
+
+== ✅ Déploiement Continu sur le DockerHub
+
+[source,bash]
+----
+include::../code-samples/gh-actions/ci-docker-push-main.yml[]
+----
+
+== Checkpoint 🎯
+
+* La livraison continue et le déploiement continu étendent les concepts du CI
+
+* Les 2 sont automatisées, mais un être humain est nécessaire comme déclencheur pour la 1ère
+
+* Le choix dépends des risques et de la "production"
+
+* On a vu comment automatiser le déploiement dans GitHub Actions
+** Conditions dans le workflow
+** Gestion de secrets
