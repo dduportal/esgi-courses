@@ -1,0 +1,22 @@
+[{invert}]
+= Docker Compose
+
+== 🤔 Quel est le problème ?
+
+* Chaque commande `docker` emmène sa collection de flags et d'arguments
+* Plusieurs commandes `docker`, dans un ordre précis, sont nécessaires
+
+== Quoi
+
+https://docs.docker.com/compose/[Docker Compose] permet :
+
+* De gérer plusieurs environnements ("stack") isolées sur un même Docker Engine
+* Gérer la persistence des données des conteneurs dans leur cycle de vie
+* Optimiser la fabrication et re-création de conteneurs
+* De variabiliser et composer différents environnements
+
+== Comment
+
+* Un fichier YAML (`docker-compose.yml`) qui décrit l'environnement
+* Une ligne de commande `docker compose`
+** 90% du temps : `docker compose up`

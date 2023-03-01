@@ -1,5 +1,5 @@
 [{invert}]
-= Docker : Bases
+= Docker
 
 "La Base"
 
