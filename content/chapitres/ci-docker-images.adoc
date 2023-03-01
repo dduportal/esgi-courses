@@ -65,7 +65,7 @@ image::wait-here.jpg[]
 +
 [source,bash]
 ----
-bash -c 'README.md | cowsay'
+bash -c " cat /README.md | /usr/games/cowsay"
 ----
 
 == ✅ Exercice : Environnement préfabriqué local
