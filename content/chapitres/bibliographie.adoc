@@ -18,7 +18,7 @@
 * https://www.atlassian.com/git/tutorials/comparing-workflows
 * http://nvie.com/posts/a-successful-git-branching-model/
 
-== CI/CD
+== Intégration Continue
 
 * http://martinfowler.com/articles/continuousIntegration.html
 * http://martinfowler.com/bliki/ContinuousDelivery.html
@@ -37,6 +37,15 @@
 * https://github.com/wagoodman/dive
 * https://docs.docker.com/engine/tutorials/networkingcontainers/
 * https://towardsdatascience.com/docker-networking-919461b7f498
+
+== Livraison/Déploiement Continu
+
+* http://martinfowler.com/articles/continuousIntegration.html
+* http://martinfowler.com/bliki/ContinuousDelivery.html
+* https://jaxenter.com/implementing-continuous-delivery-117916.html
+* https://technologyconversations.com/2014/04/29/continuous-delivery-introduction-to-concepts-and-tools/
+* http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model
+* http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment
 
 == Autre
 

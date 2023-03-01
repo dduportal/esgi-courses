@@ -158,16 +158,49 @@ Retrait d'une fonctionnalité (retrait d'une route dans une API).
 * Utilisation de *tags* git pour définir des versions.
 * Un *tag* git est une référence sur un commit.
 
-// == 🎓 Exercice: Créez et "taguez" la version 1.0.0 de `cowsay`
+== 🎓 "taguez" et déployez la version 1.0.0 de `cowsay`
 
-// [source,bash]
-// ----
-// # Créer un tag.
-// git tag -a  -m "Release version v1.4.3"
+* Si vous n'avez pas déjà un compte sur le DockerHub, créez-en un maintenant (nécessite une validation)
 
+* Depuis GitPod, créez un tag git local `1.0.0`
+** 💡 `git tag 1.0.0 -a -m "Première release 1.0.0, mode manuel"`
 
-// # Publier un tag sur le remote origin.
-// git push origin v1.4.3
-// ----
+* Fabriquez l'image Docker de `cowsay` avec le tag (Docker) 1.0.0
+** 💡 `docker image build --tag=XXXX/cowsay:1.0.0 #...` avec `XXXX` étant votre username DockerHub
 
-// == Checkpoint 🎯
+* Déployez l'image sur le DockerHub
+** 💡 `docker login`
+** 💡 `docker image push`
+
+* Déployez le tag sur GitHub
+** 💡 `git push origin <tagname>`
+
+== ✅ "taguez" et déployez la version 1.0.0 de `cowsay`
+
+[source,bash]
+----
+DOCKER_USERNAME=dduportal
+TAG=1.0.0
+
+git tag "${TAG}" -a -m "Première release ${TAG}, mode manuel"
+
+docker image build --tag="${DOCKER_USERNAME}"/cowsay:"${TAG}" ./
+docker login --username="${DOCKER_USERNAME}"
+# ...
+
+docker image push "${DOCKER_USERNAME}"/cowsay:"${TAG}"
+
+git push origin "${TAG}"
+
+# Check DockerHub et GitHub après ça
+----
+
+== Checkpoint 🎯
+
+* La notion de "version" est un outil de communication aux consommateurs de nos produits logiciels
+
+* Le "semantic versioning" est une des façon les plus usitées pour gérer les politiques de version
+
+* Nous avons déployé manuellement notre première image Docker, avec synchronisation code source <-> image Docker
+
+=> 🤔 C'était fort manuel. Et si on regardait à automatiser tout ça ?
