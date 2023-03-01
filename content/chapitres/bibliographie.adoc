@@ -47,6 +47,15 @@
 * http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model
 * http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment
 
+== Tests
+
+* (FR) http://douche.name/blog/nomenclature-des-tests-logiciels/
+* http://martinfowler.com/bliki/UnitTest.html
+* https://en.wikipedia.org/wiki/Software_testing
+* http://martinfowler.com/tags/testing.html
+* http://martinfowler.com/bliki/TestCoverage.html
+* http://martinfowler.com/bliki/TestDrivenDevelopment.html
+
 == Autre
 
 * https://cicd-lectures.github.io/slides/
