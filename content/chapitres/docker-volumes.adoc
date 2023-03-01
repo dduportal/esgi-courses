@@ -12,7 +12,7 @@
 
 == Problème des Layers
 
-* ⏱️ Performances : les layers ont de très mauvais performance I/🎓O (disque)
+* ⏱️ Performances : les layers ont de très mauvais performance I/O (disque)
 
 * 💾 Si vous supprimez un conteneur, ses layers disparaissent
 
@@ -65,7 +65,7 @@ docker container run --rm --volume=app-data:/app alpine ls -la /app
 +
 [source,bash]
 ----
-docker run --rm --volume /workspace:/app alpine:3.17 ls -la /app
+docker container run --rm --volume /workspace:/app alpine:3.17 ls -la /app
 ----
 
 == 🎓 CI : Partager le dépôt dans le conteneur
