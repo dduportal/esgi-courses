@@ -1,7 +1,19 @@
 [{invert}]
 = Docker Compose
 
+Chapitre Bonus
+
 == 🤔 Quel est le problème ?
+
+[source]
+----
+docker run --rm --detach \
+  --publish=80:80 \
+  --publish=443:443 \
+  --volume=htdocs:/usr/share/nginx/html:ro \
+  --name=webserver \
+  nginx:alpine-stable
+----
 
 * Chaque commande `docker` emmène sa collection de flags et d'arguments
 * Plusieurs commandes `docker`, dans un ordre précis, sont nécessaires

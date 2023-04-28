@@ -65,13 +65,6 @@ include::./chapitres/version.adoc[leveloffset=1]
 // CD
 include::./chapitres/continuous-delivery.adoc[leveloffset=1]
 
-// Tests
-include::./chapitres/tests.adoc[leveloffset=1]
-
-== Work in progress
-
-🚧 Revenez plus tard
-
 // Bibliographie
 include::./chapitres/bibliographie.adoc[leveloffset=1]
 
