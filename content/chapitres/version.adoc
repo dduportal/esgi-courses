@@ -59,7 +59,7 @@ Que se passe t'il du côté de votre application ?
 
 image::explosion.gif[width="800"]
 
-== Qu'est s'est il passé ?
+== Que s'est-il passé ?
 
 * Votre application ne s'attendait pas à un identifiant sous forme de chaîne de caractères !
 * Le fournisseur de l'API à "changé le contrat" de son API d'une façon non rétrocompatible avec votre l'existant.
