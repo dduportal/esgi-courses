@@ -45,15 +45,8 @@ dependencies-update: $(DIST_DIR) prepare
 
 $(DIST_DIR)/index.html: build
 
-pdf: $(DIST_DIR)/index.html
-	@docker run --rm -t \
-		-v $(DIST_DIR):/slides \
-		--user $(CURRENT_UID) \
-		astefanutti/decktape:3.1.0 \
-		/slides/index.html \
-		/slides/slides.pdf \
-		--size='2048x1536' \
-		--pause 0
+pdf:
+	@CURRENT_UID=$(CURRENT_UID) DIST_DIR=$(DIST_DIR) docker compose up --force-recreate pdf
 
 clean:
 	@docker compose down -v --remove-orphans

@@ -24,3 +24,11 @@ services:
   build:
     <<: *slides-base
     command: "build"
+
+  pdf:
+    image: ghcr.io/astefanutti/decktape:3.7.0
+    user: ${CURRENT_UID}
+    volumes:
+      - ${DIST_DIR}:/slides
+    command: >
+      /slides/index.html /slides/slides.pdf --size='2048x1536' --pause 0
