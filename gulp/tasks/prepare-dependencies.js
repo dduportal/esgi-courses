@@ -18,8 +18,6 @@ module.exports = function (gulp, plugins, current_config) {
                 .pipe(gulp.dest(revealJsDestDir + '/lib/css/')),
             notesJs = gulp.src(baseRevealJSPath + '/plugin/notes/notes.js')
                 .pipe(gulp.dest(revealJsDestDir + '/plugin/notes/')),
-            markedJs = gulp.src(baseRevealJSPath + '/plugin/markdown/marked.js')
-                .pipe(gulp.dest(revealJsDestDir + '/plugin/markdown/')),
             notesHtml = gulp.src(baseRevealJSPath + '/plugin/notes/notes.html')
                 .pipe(gulp.dest(revealJsDestDir + '/plugin/notes/')),
             zoomJs = gulp.src(baseRevealJSPath + '/plugin/zoom-js/zoom.js')
@@ -34,7 +32,6 @@ module.exports = function (gulp, plugins, current_config) {
             notesJs,
             notesHtml,
             zoomJs,
-            markedJs,
             resetCss
         );
     });
