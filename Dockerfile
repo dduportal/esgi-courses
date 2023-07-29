@@ -20,8 +20,8 @@ RUN ln -s /app/npm-packages/package.json /app/package.json \
 
 WORKDIR /app
 # Install NPM dependencies using the package-lock.json
-RUN npm install-clean || npm install \
-  && npx update-browserslist-db@latest
+RUN { npm install-clean && npx update-browserslist-db@latest; } || npm install
+
 ## Link some NPM commands installed as dependencies to be available within the PATH
 # There muste be 1 and only 1 `npm link` for each command
 # hadolint ignore=DL3059

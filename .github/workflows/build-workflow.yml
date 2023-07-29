@@ -13,7 +13,8 @@ on:
   workflow_dispatch:
 
 env:
-  PRINCIPAL_BRANCH: "2023"
+  REPOSITORY_URL: https://github.com/{{ github.repository_owner }}/{{ github.repository }}
+  PRESENTATION_URL: https://{{ github.repository_owner }}.github.io/{{ github.repository }}/2023
 
 jobs:
   build-slides:
@@ -40,10 +41,7 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
-      - name: 'Build'
-        run: make build
       - name: PDF on main branch
-        if: github.ref == 'refs/heads/${{ env.PRINCIPAL_BRANCH }}'
         run: make pdf
       - name: 'Upload dist/slides.pdf as artefact'
         uses: actions/upload-artifact@v3
