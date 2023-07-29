@@ -74,7 +74,7 @@ docker container run --rm docker-git:latest git --version
 
 == Conventions de nommage des images
 
-[source]
+[source, plaintext]
 ----
 [REGISTRY/][NAMESPACE/]NAME[:TAG|@DIGEST]
 ----
@@ -169,7 +169,7 @@ docker container run --rm docker-git:1.1.0 git config --get init.defaultBranch
 
 == Cache d'images & Layers
 
-[source]
+[source, plaintext]
 ----
 Step 2/4 : RUN apt-get update && apt-get install --yes --no-install-recommends git
   ---> Using cache

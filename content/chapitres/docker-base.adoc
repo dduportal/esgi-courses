@@ -86,7 +86,7 @@ docker container ls --all
 
 Le conteneur est toujours présent dans le "Docker Engine" même en étant arrêté
 
-[source]
+[source,shell]
 ----
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 109a9cdd3ec8   hello-world   "/hello"   33 seconds ago   Exited (0) 17 seconds ago             festive_faraday

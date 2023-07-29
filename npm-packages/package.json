@@ -5,7 +5,7 @@
     "repository": "https://github.com/dduportal/esgi-containers-ci-cd",
     "dependencies": {
         "font-awesome": "^4.7.0",
-        "reveal.js-copycode": "1.0.4",
+        "reveal.js-copycode": "1.1.2",
         "reveal.js-menu": "2.1.0",
         "reveal.js-toolbar": "0.2.1"
     },
