@@ -1,17 +1,14 @@
 x-slides-base: &slides-base
   build:
     context: ./
-    cache_from:
-      - ${IMAGE_CACHE_NAME:-slides-builder}
     args:
       BUILDKIT_INLINE_CACHE: 1
-  image: ${IMAGE_CACHE_NAME:-slides-builder}
   environment:
     - PRESENTATION_URL=${PRESENTATION_URL}
     - REPOSITORY_URL=${REPOSITORY_URL}
   user: ${CURRENT_UID}
   tmpfs:
-    - /temp-dist # Faster gulp I/O operations
+    - ${BUILD_DIR} # Faster gulp I/O operations
   volumes:
     - ./content:/app/content
     - ./assets:/app/assets
@@ -23,9 +20,6 @@ x-slides-base: &slides-base
 services:
   serve:
     <<: *slides-base
-    depends_on:
-      qrcode:
-        condition: service_started # Can run in parallel
     ports:
       - "8000:8000"
 
@@ -35,7 +29,7 @@ services:
       qrcode:
         condition: service_completed_successfully # Must NOT run in parallel
     entrypoint: >
-      sh -c 'gulp build && cp -r /temp-dist/* /app/dist/'
+      sh -xc 'gulp build && cp -r "${BUILD_DIR}"/* /app/dist/'
 
   qrcode:
     <<: *slides-base

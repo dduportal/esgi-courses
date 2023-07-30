@@ -1,7 +1,6 @@
-CURRENT_UID = $(shell id -u):$(shell id -g)
 DIST_DIR ?= $(CURDIR)/dist
-
-REPOSITORY_URL = file://$(CURDIR)
+REPOSITORY_URL ?= file://$(CURDIR)
+export REPOSITORY_URL DIST_DIR
 
 ## Docker Buildkit is enabled for faster build and caching of images
 DOCKER_BUILDKIT ?= 1
@@ -9,24 +8,21 @@ COMPOSE_DOCKER_CLI_BUILD ?= 1
 export DOCKER_BUILDKIT COMPOSE_DOCKER_CLI_BUILD
 
 ## Define the reusable shell commands once for all
-set_env = export CURRENT_UID=$(CURRENT_UID); \
-	export DIST_DIR=$(DIST_DIR); \
-	export REPOSITORY_URL=$(REPOSITORY_URL);
-compose_cmd = $(call set_env) docker compose --file=$(CURDIR)/docker-compose.yml $(1)
-compose_up = $(call compose_cmd, up --force-recreate $(1))
+compose_cmd = docker compose --file=$(CURDIR)/docker-compose.yml $(1)
+compose_up = $(call compose_cmd, up --build $(1))
 compose_run = $(call compose_cmd, run --user=0 $(1))
 
 all: clean build verify
 
 # Generate documents inside a container, all *.adoc in parallel
-build: clean
-	@$(call compose_up, --exit-code-from=build build)
+build:
+	@$(call compose_up,--exit-code-from=build build)
 
 verify:
 	@echo "Verify disabled"
 
 serve:
-	@$(call compose_up, serve qrcode)
+	@$(call compose_up, --force-recreate serve qrcode)
 
 shell:
 	@$(call compose_run,--entrypoint=sh --rm serve)
@@ -39,7 +35,7 @@ dependencies-update:
 	@make -C $(CURDIR) dependencies-lock-update
 
 pdf:
-	@$(call compose_up, pdf)
+	@$(call compose_up, --exit-code-from=pdf pdf)
 
 clean:
 	@$(call compose_cmd, down -v --remove-orphans)
