@@ -8,8 +8,8 @@ module.exports = function (gulp, plugins, current_config) {
                 .pipe(gulp.dest(revealJsDestDir + '/dist/')),
             revealJsEmbeddedPlugins = gulp.src(baseRevealJSPath + '/plugin/**/*')
                 .pipe(gulp.dest(revealJsDestDir + '/plugin/')),
-            revealPluginMenu = gulp.src(current_config.nodeModulesDir + '/reveal.js-menu/**/*')
-                .pipe(gulp.dest(current_config.distDir + '/reveal.js/plugin/reveal.js-menu/')),
+            revealJsCommunityPlugins = gulp.src(current_config.nodeModulesDir + '/reveal.js-plugins/**/*')
+                .pipe(gulp.dest(revealJsDestDir + '/reveal.js-plugins/' )),
             revealPluginCopyCode = gulp.src(current_config.nodeModulesDir + '/reveal.js-copycode/plugin/copycode/**/*')
                 .pipe(gulp.dest(current_config.buildDir + '/reveal.js/plugin/reveal.js-copycode/'))
             ;
@@ -17,7 +17,7 @@ module.exports = function (gulp, plugins, current_config) {
         return plugins.mergeStreams(
             revealJsDist,
             revealJsEmbeddedPlugins,
-            revealPluginMenu,
+            revealJsCommunityPlugins,
             revealPluginCopyCode,
         );
     });

@@ -6,8 +6,8 @@
     "dependencies": {
         "font-awesome": "^4.7.0",
         "reveal.js-copycode": "1.1.2",
-        "reveal.js-menu": "2.1.0",
-        "reveal.js-toolbar": "0.2.1"
+        "reveal.js-toolbar": "0.2.1",
+        "reveal.js-plugins": "4.2.0"
     },
     "devDependencies": {
         "@asciidoctor/reveal.js": "5.0.1",
