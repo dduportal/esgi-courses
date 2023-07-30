@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "🇫🇷 Cours ESGI : Orchestration de conteneurs et intégration continue",
     "repository": "https://github.com/dduportal/esgi-containers-ci-cd",
-    "dependencies": {
-        "reveal.js-copycode": "1.1.2",
-        "reveal.js-plugins": "4.2.0"
-    },
     "devDependencies": {
         "@asciidoctor/reveal.js": "5.0.1",
         "asciidoctor": "^3.0.2",
@@ -20,6 +16,9 @@
         "gulp-sass": "5.1.0",
         "merge-stream": "2.0.0",
         "qrcode": "1.5.3",
+        "reveal.js-copycode": "1.1.2",
+        "reveal.js-plugins": "4.2.0",
+        "@highlightjs/cdn-assets": "11.8.0",
         "sass": "^1.64.1"
     }
 }

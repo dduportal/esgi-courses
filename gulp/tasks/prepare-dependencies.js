@@ -17,7 +17,11 @@ module.exports = function (gulp, plugins, current_config) {
                 .pipe(plugins.rename('font-awesome.css'))
                 .pipe(gulp.dest(current_config.buildDir + '/styles/')),
             fontAwesomeWebfonts = gulp.src(current_config.fontAwesomeDir + '/webfonts/**/*')
-                .pipe(gulp.dest(current_config.buildDir + '/webfonts/'))
+                .pipe(gulp.dest(current_config.buildDir + '/webfonts/')),
+            highlightJSScript = gulp.src(current_config.nodeModulesDir + '/@highlightjs/cdn-assets/highlight.min.js')
+                .pipe(gulp.dest(current_config.buildDir + '/highlightjs/')),
+            highlightJSLanguages = gulp.src(current_config.nodeModulesDir + '/@highlightjs/cdn-assets/languages**/*')
+                .pipe(gulp.dest(current_config.buildDir + '/highlightjs/'))
             ;
 
         return plugins.mergeStreams(
@@ -27,6 +31,8 @@ module.exports = function (gulp, plugins, current_config) {
             revealPluginCopyCode,
             fontAwesomeCss,
             fontAwesomeWebfonts,
+            highlightJSScript,
+            highlightJSLanguages,
         );
     });
 };
