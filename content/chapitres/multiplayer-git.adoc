@@ -141,6 +141,9 @@ cd /workspace/
 # Clonez votre fork
 git clone <url_de_votre_fork>
 
+# Se placer dans le fork
+cd <nom_du_fork>
+
 # Créez votre feature branch
 git switch --create feat/hadolint
 ----
