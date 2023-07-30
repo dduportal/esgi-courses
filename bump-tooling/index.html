@@ -449,7 +449,8 @@ Saisissez un numéro de téléphone valide pour recevoir par SMS un code de déb
 <section><section id="ligne_de_commande" data-background-color="rgb(248, 228, 130)" data-state="invert"><h2>Ligne de commande</h2><div class="slide-content"><div class="paragraph"><p>Guide de survie</p></div></div></section><section id="problématique_2"><h2>🤔 Problématique</h2><div class="slide-content"><div class="ulist"><ul><li><p>Communication Humain &lt;&#8594; Machine</p></li><li><p>Base commune de TOUS les outils</p></li></ul></div></div></section><section id="cli" data-background-color="rgb(248, 228, 130)" data-state="invert"><h2>CLI</h2><div class="slide-content"><div class="ulist"><ul><li><p>🇬🇧 CLI == "Command Line Interface"</p></li><li><p>🇫🇷 "Interface de Ligne de Commande"</p></li></ul></div></div></section><section id="repl"><h2>REPL</h2><div class="slide-content"><div class="paragraph"><p>Pour les théoriciens et curieux :</p></div>
 <div class="ulist"><ul><li><p>🇬🇧 REPL == "Read–eval–print loop"</p></li></ul></div>
 <div class="paragraph"><p><a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop" class="bare">https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop</a></p></div></div></section><section id="anatomie_dune_commande"><h2>Anatomie d&#8217;une commande</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">ls --color=always -l /bin</code></pre></div></div>
-<div class="ulist"><ul><li><p>Séparateur : l&#8217;espace</p></li><li><p>Premier élément (<code>ls</code>) : c&#8217;est la commande</p></li><li><p>Les éléments commençant par un tiret <code>-</code> sont des "options" et/ou drapeaux ("flags")</p><div class="ulist"><ul><li><p>"Option" == "Optionnel"</p></li></ul></div></li><li><p>Les autres éléments sont des arguments  (<code>/bin</code>)</p><div class="ulist"><ul><li><p>Nécessaire (par opposition)</p></li></ul></div></li></ul></div></div></section><section id="manuel_des_commande"><h2>Manuel des commande</h2><div class="slide-content"><div class="ulist"><ul><li><p>Afficher le manuel de <code>&lt;commande&gt;</code> :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">man &lt;commande&gt; # Commande 'man' avec comme argument le nom de ladite commande</code></pre></div></div>
+<div class="ulist"><ul><li><p>Séparateur : l&#8217;espace</p></li><li><p>Premier élément (<code>ls</code>) : c&#8217;est la commande</p></li><li><p>Les éléments commençant par un tiret <code>-</code> sont des "options" et/ou drapeaux ("flags")</p><div class="ulist"><ul><li><p>"Option" == "Optionnel"</p></li></ul></div></li><li><p>Les autres éléments sont des arguments  (<code>/bin</code>)</p><div class="ulist"><ul><li><p>Nécessaire (par opposition)</p></li></ul></div></li></ul></div></div></section><section id="manuel_des_commande"><h2>Manuel des commande</h2><div class="slide-content"><div class="ulist"><ul><li><p>Afficher le manuel de <code>&lt;commande&gt;</code> :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash"># Commande 'man' avec comme argument le nom de ladite commande
+man &lt;commande&gt;</code></pre></div></div>
 <div class="ulist"><ul><li><p>Navigation avec les flèches haut et bas</p><div class="ulist"><ul><li><p>Tapez <code>/</code> puis une chaîne de texte pour chercher</p></li><li><p>Touche <code>n</code> pour sauter d’occurrence en occurrence</p></li></ul></div></li><li><p>Touche <code>q</code> pour quitter</p></li></ul></div></li></ul></div>
 <div class="paragraph"><p>🎓 Essayez avec <code>ls</code>, chercher le mot <code>color</code></p></div>
 <div class="ulist small"><ul><li><p>💡 La majorité des commandes fournit également une option (<code>--help</code>), un flag (<code>-h</code>)  ou un argument (<code>help</code>)</p></li><li><p>Google c&#8217;est pratique aussi hein !</p></li></ul></div></div></section><section id="raccourcis"><h2>Raccourcis</h2><div class="slide-content"><div class="paragraph"><p>Dans un terminal Unix/Linux/WSL :</p></div>
@@ -1796,13 +1797,12 @@ hljs.highlightAll();
 <script>
   Reveal.configure({
     copycode: {
-        copy: "Copy",
-        copied: "Copied!",
-        timeout: 1000,
-        copybg: "orange",
-        copiedbg: "green",
-        copycolor: "black",
-        copiedcolor: "white"
+      button: "hover", // Allow not showing button when exporting to PDF
+      display: "both",
+      clipboardjspath: "scripts/clipboard.min.js",
+      style: {
+        scale: 0.7,
+      },
     },
     customcontrols: {
       controls: [
