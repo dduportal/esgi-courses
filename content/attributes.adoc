@@ -2,11 +2,13 @@
 :source-highlighter: highlight.js
 :highlightjs-languages: groovy, dockerfile
 :icons: font
+:iconfont-remote!:
 :sectids:
 :allow-uri-read:
 :linkattrs:
 :idprefix:
 :imagesdir: media/
+:stylesdir: ./styles/
 :customcss: ./styles/build.css
 :revealjs_hash: true
 :revealjsdir: ./reveal.js
@@ -20,10 +22,10 @@
 :revealjs_controls: true
 :experimental: true
 :notitle: true
-:github_icon: icon:github[set=fa]
-:linkedin_icon: icon:linkedin[set=fa]
-:twitter_icon: icon:twitter[set=fa]
-:pdf_icon: icon:pdf[set=fa]
+:github_icon: icon:github[set=fab]
+:linkedin_icon: icon:linkedin[set=fab]
+:twitter_icon: icon:twitter[set=fab]
+:pdf_icon: icon:file-pdf[set=fa]
 :author_mail: icon:envelope[set=fa] damien.duportal icon:at[set=fa] gmail.com
 :gitpod_github_repo_url: https://github.com/dduportal/esgi-gitpod
 :student_gh_repository_name: esgi-devops-2023

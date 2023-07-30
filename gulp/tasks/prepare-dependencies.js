@@ -11,7 +11,13 @@ module.exports = function (gulp, plugins, current_config) {
             revealJsCommunityPlugins = gulp.src(current_config.nodeModulesDir + '/reveal.js-plugins/**/*')
                 .pipe(gulp.dest(revealJsDestDir + '/reveal.js-plugins/' )),
             revealPluginCopyCode = gulp.src(current_config.nodeModulesDir + '/reveal.js-copycode/plugin/copycode/**/*')
-                .pipe(gulp.dest(current_config.buildDir + '/reveal.js/plugin/reveal.js-copycode/'))
+                .pipe(gulp.dest(current_config.buildDir + '/reveal.js/plugin/reveal.js-copycode/')),
+            fontAwesomeCss = gulp.src(current_config.fontAwesomeDir + '/css/all.css')
+                // https://github.com/asciidoctor/asciidoctor-reveal.js/issues/286#issuecomment-787081903
+                .pipe(plugins.rename('font-awesome.css'))
+                .pipe(gulp.dest(current_config.buildDir + '/styles/')),
+            fontAwesomeWebfonts = gulp.src(current_config.fontAwesomeDir + '/webfonts/**/*')
+                .pipe(gulp.dest(current_config.buildDir + '/webfonts/'))
             ;
 
         return plugins.mergeStreams(
@@ -19,6 +25,8 @@ module.exports = function (gulp, plugins, current_config) {
             revealJsEmbeddedPlugins,
             revealJsCommunityPlugins,
             revealPluginCopyCode,
+            fontAwesomeCss,
+            fontAwesomeWebfonts,
         );
     });
 };

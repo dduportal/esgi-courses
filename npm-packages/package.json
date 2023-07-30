@@ -4,9 +4,7 @@
     "description": "🇫🇷 Cours ESGI : Orchestration de conteneurs et intégration continue",
     "repository": "https://github.com/dduportal/esgi-containers-ci-cd",
     "dependencies": {
-        "font-awesome": "^4.7.0",
         "reveal.js-copycode": "1.1.2",
-        "reveal.js-toolbar": "0.2.1",
         "reveal.js-plugins": "4.2.0"
     },
     "devDependencies": {
