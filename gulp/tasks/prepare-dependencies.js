@@ -21,7 +21,10 @@ module.exports = function (gulp, plugins, current_config) {
             highlightJSScript = gulp.src(current_config.nodeModulesDir + '/@highlightjs/cdn-assets/highlight.min.js')
                 .pipe(gulp.dest(current_config.buildDir + '/highlightjs/')),
             highlightJSLanguages = gulp.src(current_config.nodeModulesDir + '/@highlightjs/cdn-assets/languages**/*')
-                .pipe(gulp.dest(current_config.buildDir + '/highlightjs/'))
+                .pipe(gulp.dest(current_config.buildDir + '/highlightjs/')),
+            clipboardJs = gulp.src(current_config.nodeModulesDir + '/clipboard/dist/clipboard.min.js')
+                .pipe(gulp.dest(current_config.buildDir + '/scripts/'))
+
             ;
 
         return plugins.mergeStreams(
@@ -33,6 +36,7 @@ module.exports = function (gulp, plugins, current_config) {
             fontAwesomeWebfonts,
             highlightJSScript,
             highlightJSLanguages,
+            clipboardJs,
         );
     });
 };

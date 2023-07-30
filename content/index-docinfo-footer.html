@@ -8,13 +8,12 @@
 <script>
   Reveal.configure({
     copycode: {
-        copy: "Copy",
-        copied: "Copied!",
-        timeout: 1000,
-        copybg: "orange",
-        copiedbg: "green",
-        copycolor: "black",
-        copiedcolor: "white"
+      button: "hover", // Allow not showing button when exporting to PDF
+      display: "both",
+      clipboardjspath: "scripts/clipboard.min.js",
+      style: {
+        scale: 0.7,
+      },
     },
     customcontrols: {
       controls: [
