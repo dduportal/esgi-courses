@@ -75,8 +75,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         destination_dir: ${{ github.event.ref_name }}
-    - name: 'Comment PR to specify the deployment URL'
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run:
-        gh pr comment ${{ github.event.number }} --edit-last --body "Preview deployed to ${{ env.PRESENTATION_URL }}"
