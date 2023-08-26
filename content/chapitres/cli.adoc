@@ -43,7 +43,8 @@ ls --color=always -l /bin
 +
 [source,bash]
 ----
-man <commande> # Commande 'man' avec comme argument le nom de ladite commande
+# Commande 'man' avec comme argument le nom de ladite commande
+man <commande>
 ----
 
 ** Navigation avec les flèches haut et bas

@@ -6,20 +6,26 @@ on:
       - '*'
   push:
     branches-ignore:
-      - gh_pages
+      - gh-pages
     tags:
       - '*'
   pull_request:
   workflow_dispatch:
 
 env:
-  PRINCIPAL_BRANCH: "2023"
+  REPOSITORY_URL: https://github.com/${{ github.repository_owner }}/${{ github.repository }}
+  PRESENTATION_URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/${{ github.ref_name }}
 
 jobs:
   build-slides:
     name: 'Build Slides'
     runs-on: ubuntu-latest
     steps:
+      - name: 'Check environment'
+        run: |
+          docker compose version
+          echo $REPOSITORY_URL
+          echo $PRESENTATION_URL
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Build'
@@ -35,15 +41,11 @@ jobs:
   build-pdf:
     name: 'Build PDF'
     runs-on: ubuntu-latest
-    # Only generate PDF when pushing code on a branch of the repository
-    if: github.event_name == 'push'
+    # if: github.event_name == "push"
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
-      - name: 'Build'
-        run: make build
       - name: PDF on main branch
-        if: github.ref == 'refs/heads/${{ env.PRINCIPAL_BRANCH }}'
         run: make pdf
       - name: 'Upload dist/slides.pdf as artefact'
         uses: actions/upload-artifact@v3
@@ -67,25 +69,9 @@ jobs:
       with:
         name: pdf
         path: ./dist
-    - name: Get tag value
-      if: startsWith(github.ref, 'refs/tags/')
-      id: tags
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-    - name: 'Deploy Tag'
-      if: startsWith(github.ref, 'refs/tags/')
+    - name: 'Deploy to GitHub Pages'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-        destination_dir: ${{ steps.tags.outputs.tag }}
-    - name: Get branch name
-      if: startsWith(github.ref, 'refs/heads/')
-      id: branches
-      run: echo ::set-output name=branch::${GITHUB_REF#refs/heads/}
-    - name: 'Deploy Main Branch'
-      if: startsWith(github.ref, 'refs/heads/')
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        destination_dir: ${{ steps.branches.outputs.branch }}
+        destination_dir: ${{ github.event.ref_name }}

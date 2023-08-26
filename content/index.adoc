@@ -1,5 +1,3 @@
-
-[{invert}]
 = Orchestration de conteneurs et CI/CD
 include::./attributes.adoc[]
 

@@ -5,7 +5,7 @@ Chapitre Bonus
 
 == 🤔 Quel est le problème ?
 
-[source]
+[source, shell]
 ----
 docker run --rm --detach \
   --publish=80:80 \
