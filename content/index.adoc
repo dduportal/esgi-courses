@@ -2,7 +2,7 @@
 include::./attributes.adoc[]
 
 [.title]
-🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - 2022/2023
+🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - 2023/2024
 
 image::qrcode.png["QRCode to this presentation",height=150]
 

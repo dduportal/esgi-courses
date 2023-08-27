@@ -32,11 +32,10 @@ video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 
 == Calendrier
 
-* *Distanciel* 🛏️  Mercredi 01 février 2023 - 14h -> 17h15
-* *Présentiel* 🎓 Mardi 28 février 2023 - 14h -> 17h15
-* *Présentiel* 🎓 Mercredi 01 mars 2023 - 08h -> 17h16
-* *Présentiel* 🎓 Jeudi 02 mars 2023 - 08h -> 13h
-* *Distanciel* 🛏️ Vendredi 28/04 - 09h45 -> 13h00
+🚧 Work in progress... 🚧
+
+// * *Présentiel* 🎓 Jeudi 14 septembre 2023 - 9h -> 19h
+// * *Distanciel* 🛏️ Vendredi 15 septembre 2023 - 08h -> 17h
 
 == Evaluation
 
