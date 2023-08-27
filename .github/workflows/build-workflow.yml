@@ -30,6 +30,8 @@ jobs:
         uses: actions/checkout@master
       - name: 'Build'
         run: make build
+      - name: PDF on main branch
+        run: make pdf # Reuses the 'make build' steps
       - name: 'Verify'
         run: make verify
       - name: 'Upload dist/ as artefact'
@@ -38,24 +40,9 @@ jobs:
           name: dist
           path: dist/
 
-  build-pdf:
-    name: 'Build PDF'
-    runs-on: ubuntu-latest
-    # if: github.event_name == "push"
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
-      - name: PDF on main branch
-        run: make pdf
-      - name: 'Upload dist/slides.pdf as artefact'
-        uses: actions/upload-artifact@v3
-        with:
-          name: pdf
-          path: dist/slides.pdf
-
   deploy:
     runs-on: ubuntu-latest
-    needs: [build-slides,build-pdf]
+    needs: [build-slides]
     # Only run deploy when pushing code on a branch of the repository
     if: github.event_name == 'push'
     steps:
@@ -63,11 +50,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: dist
-        path: ./dist
-    - name: 'Download dist/slides.pdf artefact'
-      uses: actions/download-artifact@v3
-      with:
-        name: pdf
         path: ./dist
     - name: 'Deploy to GitHub Pages'
       uses: peaceiris/actions-gh-pages@v3
