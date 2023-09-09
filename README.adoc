@@ -1,6 +1,6 @@
 = 🇫🇷 Cours ESGI : Orchestration de conteneurs et intégration continue
 
-Cours disponible (plusieurs années) à cette adresse : https://dduportal.github.io/esgi-containers-ci-cd[]
+Cours disponible (plusieurs années) à cette adresse : https://dduportal.github.io/esgi-courses[]
 
 🇺🇸
 
