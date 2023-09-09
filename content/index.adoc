@@ -1,8 +1,8 @@
-= Orchestration de conteneurs et CI/CD
+= CI/CD: Solutions de déploiements continus
 include::./attributes.adoc[]
 
 [.title]
-🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - 2023/2024
+🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - M2-IW-ALT-S1 2023
 
 image::qrcode.png["QRCode to this presentation",height=150]
 
