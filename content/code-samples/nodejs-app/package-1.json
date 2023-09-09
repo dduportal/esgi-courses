@@ -1,0 +1,11 @@
+{
+  "name": "sayhello",
+  "version": "1.0.0",
+  "description": "A web application which says hello",
+  "main": "index.js",
+  "scripts": {
+    "launch-app": "node index.js",
+  },
+  "author": "<your name here>",
+  "license": "ISC"
+}

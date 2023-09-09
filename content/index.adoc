@@ -38,18 +38,8 @@ include::./chapitres/git-base.adoc[leveloffset=1]
 // CI - base
 include::./chapitres/ci.adoc[leveloffset=1]
 
-// Docker - bases
-include::./chapitres/docker-base.adoc[leveloffset=1]
-
-// Docker - Images
-include::./chapitres/docker-images-base.adoc[leveloffset=1]
-
-// CI avec Docker Images
-include::./chapitres/ci-docker-images.adoc[leveloffset=1]
-
-// Docker - Réseau et Volumes
-include::./chapitres/docker-volumes.adoc[leveloffset=1]
-include::./chapitres/docker-network.adoc[leveloffset=1]
+// CI avec NodeJS
+include::./chapitres/ci-nodejs.adoc[leveloffset=1]
 
 // Moar Git
 include::./chapitres/moar-git.adoc[leveloffset=1]

@@ -98,7 +98,7 @@ ls -la # Pas de dossier .git
 git status # Erreur "fatal: not a git repository"
 git init ./
 ls -la # On a un dossier .git
-git status # Succès avec un message "On branch master No commits yet"
+git status # Succès avec un message "On branch main No commits yet"
 --
 
 
@@ -213,8 +213,8 @@ image::scm-branches.png[caption="SCM branches"]
 
 [source,bash]
 --
-git branch feature/html && git switch feature/html
-# Ou git switch --create feature/html
+git switch --create feature/html
+# Ou alors: git branch feature/html && git switch feature/html
 echo '<h1>Hello</h1>' > ./index.html
 git add ./index.html && git commit --message="Ajout d'une page HTML par défaut" # -m / --message
 

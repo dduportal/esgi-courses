@@ -182,10 +182,21 @@ include::../code-samples/gh-actions/npm-example.yml[]
 * Obtenez l'URL (HTTPS) du dépôt GitHub fraîchement créé
 ** 💡 Depuis la page  du dépôt, cliquez sur le bouton vert intitulé "*Code*"
 
-* Dans Gitpod,
+* Dans Gitpod :
 ** Depuis un terminal, positionnez-vous dans le dossier `/workspace`,
-** Clonez le dépôt avec la commande `git clone https://github.com/xxx/{student_gh_repository_name}`
-** 💡 Si le dépôt n'apparaît pas dans l'"Explorer" à gauche : `code -a /workspace/{student_gh_repository_name}`
+** Clonez le dépôt avec la commande
++
+[source,bash]
+----
+git clone https://github.com/xxx/{student_gh_repository_name}
+----
+
+** 💡 Si le dépôt n'apparaît pas dans l'"Explorer" à gauche :
++
+[source,bash]
+----
+code -a /workspace/{student_gh_repository_name}
+----
 
 
 == 🎓 Exercice: Exemple simple avec GitHub Actions
