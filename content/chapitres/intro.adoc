@@ -1,5 +1,7 @@
 [{invert}]
-= Vous avez dit "DevOps" ?
+= Introduction
+
+💡 Vous avez dit "Continu" ?
 
 == Avant : le cycle en V
 
@@ -21,12 +23,14 @@ Copyright © https://www.projectcartoon.com[window="_blank"] under the Creative 
 
 == Problématique
 
-Travail basé sur les hypothèses de départ + Temps écoulé entre la capture du besoin et la mise à disposition en production
+* Travail basé sur:
+** Hypothèses initiales (capture du besoin)
+** Temps écoulé entre hypothèse et usage en production
 
 
-* Le besoin a forcément évolué dans ce laps de temps
+⚠️ Le besoin a forcément évolué dans ce laps de temps
 
-* Erreur de capture du besoin == coût de l'erreur décuplé avec le temps
+⚠️ Erreur de capture du besoin == coût de l'erreur décuplé avec le temps
 
 == Agile
 
@@ -41,16 +45,12 @@ image:agile.jpg[width="600"]
 [.small]
 link:https://eoiinconnect.com/what-is-agile-methodology/[Source]
 
-== Manifest Agile
+== Manifeste Agile
 
 [.small]
 * https://agilemanifesto.org/iso/fr/manifesto.html[]
 
 image::agile-manifesto.png[width="800"]
-
-== Le mur de la confusion
-
-image::devops-wall-of-confusion.jpg[width="800"]
 
 [.small]
 link:https://www.linkedin.com/pulse/remove-walls-confusion-rethink-devops-unlock-its-full-glenn-mason[Source]

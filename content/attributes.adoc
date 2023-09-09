@@ -25,7 +25,6 @@
 :notitle: true
 :github_icon: icon:github[set=fab]
 :linkedin_icon: icon:linkedin[set=fab]
-:twitter_icon: icon:twitter[set=fab]
 :pdf_icon: icon:file-pdf[set=fa]
 :author_mail: icon:envelope[set=fa] damien.duportal icon:at[set=fa] gmail.com
 :gitpod_github_repo_url: https://github.com/dduportal/esgi-gitpod

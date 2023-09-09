@@ -14,7 +14,6 @@ La suite: vers le bas ⬇️
 ** {author_mail}
 ** link:https://github.com/dduportal[{github_icon} dduportal,window="_blank"]
 ** link:https://www.linkedin.com/in/damien-duportal-ab70b524/[{linkedin_icon} Damien Duportal,window=_blank]
-** link:https://twitter.com/DamienDuportal[{twitter_icon} @DamienDuportal,window=_blank]
 
 == Et vous ?
 
@@ -26,24 +25,24 @@ video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 
 * Compatible Distanciel / Présentiel
 
-* Contenu entièrement libre et open-source
+* Contenu entièrement libre, open-source sous link:https://creativecommons.org/licenses/by/4.0/[licence Creative Commons,window="_blank"]
 [.small]
 ** N'hésitez pas ouvrir des Pull Request si vous voyez des améliorations ou problèmes: link:{repositoryUrl}/pulls[sur cette page,window="_blank"] (😉 wink wink)
 
 == Calendrier
 
-🚧 Work in progress... 🚧
-
-// * *Présentiel* 🎓 Jeudi 14 septembre 2023 - 9h -> 19h
-// * *Distanciel* 🛏️ Vendredi 15 septembre 2023 - 08h -> 17h
+* *Présentiel* 🎓 Jeudi 14 septembre 2023 - 9h45 -> 19h
+* *Présentiel* 🎓 Vendredi 15 septembre 2023 - 9h45 -> 19h
 
 == Evaluation
 
 video::ohno.mp4[width="200",options="autoplay,loop,nocontrols"]
 
-* Pourquoi ? s'assurer que vous avez acquis un minimum de concepts
-* Quoi ? Une note sur 20, basée sur une liste de critères exhaustifs
-* Comment ? Un projet GitHub (public) à me rendre (timing à déterminer ensemble)
+* *Pourquoi ?* s'assurer que vous avez acquis un minimum de concepts
+* *Quoi ?* Deux notes sur 20 (25% Contrôle Continu, 75% Projet)
+* *Comment ?*
+** Contrôle Continu: Participation + attention pendant le cours, respect des échéance et des autres, éventuellement un QCM
+** Un projet GitHub (public) évalué selon une liste de critères _pré-déterminés_
 
 == Plan
 
@@ -53,9 +52,8 @@ video::plan.mp4[width="200",options="autoplay,loop,nocontrols"]
 * Rappels (Ligne de commande, Git)
 * Intégration Continue (CI)
 * Rappels (Docker)
-* Docker Avancé
-* Orchestration de Containers
 * Déploiement Continu (CD)
+* Livraison Continue (CD aussi!)
 
 
 [.small]
