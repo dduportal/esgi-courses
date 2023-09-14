@@ -5,6 +5,11 @@ on:
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
+# tag::container[]
+    container:
+      image: ghcr.io/dduportal/esgi-gitpod
+      options: --user=root
+# end::container[]
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
 # end::common[]

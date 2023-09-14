@@ -162,13 +162,13 @@ Retrait d'une fonctionnalité (retrait d'une route dans une API).
 
 Si vous n'avez pas déjà un compte sur le DockerHub, créez-en un maintenant (nécessite une validation)
 
-== 🎓 "Taguez" et déployez la version 1.0.0 de `cowsay`
+== 🎓 "Taguez" et déployez la version 1.0.0
 
 * Depuis GitPod, créez un tag git local `1.0.0`
 ** 💡 `git tag 1.0.0 -a -m "Première release 1.0.0, mode manuel"`
 
-* Fabriquez l'image Docker de `cowsay` avec le tag (Docker) 1.0.0
-** 💡 `docker image build --tag=XXXX/cowsay:1.0.0 #...` avec `XXXX` étant votre username DockerHub
+* Fabriquez l'image Docker avec le tag (Docker) 1.0.0
+** 💡 `docker image build --tag=XXXX/sayhello:1.0.0 #...` avec `XXXX` étant votre username DockerHub
 
 * Déployez l'image sur le DockerHub
 ** 💡 `docker login`, `docker image push`
@@ -176,7 +176,7 @@ Si vous n'avez pas déjà un compte sur le DockerHub, créez-en un maintenant (n
 * Déployez le tag sur GitHub
 ** 💡 `git push origin <tagname>`
 
-== ✅ "Taguez" et déployez la version 1.0.0 de `cowsay`
+== ✅ "Taguez" et déployez la version 1.0.0
 
 [source,bash]
 ----
@@ -185,15 +185,15 @@ TAG=1.0.0
 
 git tag "${TAG}" -a -m "Première release ${TAG}, mode manuel"
 
-docker image build --tag="${DOCKER_USERNAME}"/cowsay:"${TAG}" ./
+docker image build --tag="${DOCKER_USERNAME}"/sayhello:"${TAG}" ./
 docker login --username="${DOCKER_USERNAME}"
 # ...
 
-docker image push "${DOCKER_USERNAME}"/cowsay:"${TAG}"
+docker image push "${DOCKER_USERNAME}"/sayhello:"${TAG}"
 
 git push origin "${TAG}"
 
-# Check DockerHub et GitHub après ça
+# Vérifiez DockerHub et GitHub après ça
 ----
 
 == Checkpoint 🎯

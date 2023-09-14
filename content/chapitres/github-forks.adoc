@@ -1,0 +1,130 @@
+[{invert}]
+= GitHub Forks
+
+== 🎓 Exercice: Créez un fork
+
+* Nous allons vous faire forker vos dépôts respectifs
+* Trouvez vous un binôme dans le groupe et échangez vos URL de dépôts
+* Depuis la page du dépôt de votre binôme, cliquez en haut à droite sur le bouton **Fork**.
+
+image:fork.png[]
+
+[{invert}]
+== !
+
+🎓 À vous de jouer : dans le dépôt de votre binôme, vous allez ajouter un étape de "lint"
+
+== 🎓 Exercice: Contribuez au projet de votre binôme (1/5)
+
+Première étape: on clone le fork dans son environnement de développement
+
+[source,bash]
+----
+cd /workspace/
+
+# Clonez votre fork
+git clone <url_de_votre_fork>
+
+# Se placer dans le fork
+cd <nom_du_fork>
+
+# Créez votre feature branch
+git switch --create feat/hadolint
+----
+
+== 🎓 Exercice: Contribuez au projet de votre binôme (2/5)
+
+Maintenant voici la liste des choses à faire:
+
+* Ajoutez une étape de "lint" dans le workflow, avant de fabriquer l'image
+** La ligne de commande https://github.com/hadolint/hadolint[`hadolint`] est pré-installée dans votre GitPod
+** https://github.com/hadolint/hadolint-action[GitHub action hadolint]
+
+* Corrigez /ignorez les erreurs du lint afin d'avoir un build qui passe
+
+== 🎓 Exercice: Contribuez au projet de votre binôme (3/5)
+
+Pour tester votre changement :
+
+[source, bash]
+----
+hadolint ./Dockerfile
+----
+
+== 🎓 Exercice: Contribuez au projet de votre binôme (4/5)
+
+Une fois que vous êtes satisfaits de votre changement il vous faut maintenant créer un commit et pousser votre nouvelle branche sur votre fork.
+
+== 🎓 Exercice: Contribuez au projet de votre binôme (5/5)
+
+Dernière étape: ouvrir une pull request!
+
+* Rendez vous sur la page de votre projet
+* Sélectionnez votre branche dans le menu déroulant "branches"  en haut a gauche.
+* Cliquez ensuite sur le bouton ouvrir une pull request
+* Remplissez le contenu de votre PR (titre, description, labels) et validez.
+
+image:pr.png[]
+
+== La procédure de Pull Request
+
+*Objectif* : Valider les changements d'un contributeur
+
+* Technique : est-ce que ça marche ? est-ce maintenable ?
+* Fonctionnel : est-ce que le code fait ce que l'on veux ?
+* Humain : Propager la connaissance par la revue de code.
+* Méthode : Tracer les changements.
+
+== Revue de code ?
+
+* Validation par un ou plusieurs pairs (technique et non technique) des changements
+* Relecture depuis github (ou depuis le poste du développeur)
+* Chaque relecteur émet des commentaires // suggestions de changement
+* Quand un relecteur est satisfait d'un changement, il l'approuve
+
+== !
+
+* La revue de code est un **exercice difficile** et **potentiellement frustrant** pour les deux parties.
+** Comme sur Twitter, on est bien à l'abri derrière son écran ;=)
+* En tant que contributeur, **soyez respectueux** de vos relecteurs : votre changement peut être refusé et c'est quelque chose de normal.
+* En tant que relecteur, **soyez respectueux** du travail effectué, même si celui ci comporte des erreurs ou ne correspond pas à vos attentes.
+
+💡 Astuce: link:https://github.com/franckverrot/clamav-client/pull/12#discussion_r526222319[Proposez des solutions] plutôt que simplement pointer les problèmes.
+
+== 🎓 Exercice: Relisez votre PR reçue !
+
+* Vous devriez avoir reçu une PR de votre binôme :-)
+* Relisez le changement de la PR
+* Effectuez quelques commentaires (bonus: utilisez la suggestion de changements), si c'est nécessaire
+* Si elle vous convient, approuvez la!
+* En revanche ne la "mergez" pas, car il manque quelque chose...
+
+== Validation automatisée
+
+**Objectif**: Valider que le changement n'introduit pas de régressions dans le projet
+
+* A chaque fois qu'un nouveau commit est créé dans une PR, une succession de validations ("checks") sont déclenchés par GitHub
+* Effectue des vérifications automatisées sur un commit de merge entre votre branche cible et la branche de PR
+
+== Quelques exemples
+
+* Analyse syntaxique du code (lint), pour détecter les erreurs potentielles ou les violations du guide de style
+* Compilation du projet
+* Execution des tests automatisés du projet
+* Déploiement du projet dans un environnement de test...
+
+Ces "checks" peuvent êtres exécutés par votre moteur de CI ou des outils externes.
+
+== 🎓 Exercice: Déclencher un Workflow de CI sur une PR
+
+* Votre PR n'a pas déclenché le workflow de CI de votre binôme 🤔
+* Il faut modifier votre workflow pour qu'il se déclenche aussi sur une PR
+* "Une chose à la fois" : faites une PR dédiée au déclenchement, puis mettez à jour la PR initial
+* La link:https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows[documentation] se trouve par ici
+
+== Checkpoint 🎯
+
+*Règle d'or*: Si le CI est rouge, on ne merge pas la pull request !
+
+[.small]
+Même si le linter "ilécon", même si on a la flemme et "sépanou" qui avons cassé le CI.

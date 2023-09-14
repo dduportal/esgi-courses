@@ -111,7 +111,7 @@ Source : http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-co
 
 == 🎓 Déploiement Continu sur le DockerHub
 
-* *But :* Déployer votre image `cowsay` continuellement sur le DockerHub
+* *But :* Déployer votre image `sayhello` continuellement sur le DockerHub
 
 * Changez votre workflow de CI de façon à ce que, sur un push sur la branch `main`, les tâches suivantes soient effectuées :
 ** Comme avant: Lint, Build, Test de l'image (en affichant le `README`)
