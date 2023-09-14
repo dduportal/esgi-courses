@@ -1,0 +1,189 @@
+[{invert}]
+= CI: Application d'exemple
+
+== Application "Say Hello"
+
+* Web application écrite en NodeJS
+* Fonctionnalité : réponds "Hello World" à une requête HTTP GET sur `/`
+
+[source,js]
+----
+include::../code-samples/nodejs-app/index.js[]
+----
+
+== 🎓 Exercice : Essayons cette application dans GitPod
+
+* Créez un fichier `index.js` à la racine de votre dépôt avec le contenu de la slide précédente
+* Ouvrez 2 terminaux
+** Dans le premier terminal, exécutez l'application :
++
+[source,bash]
+----
+node ./index.js # CTRL-C to stop
+----
+
+** Dans le second terminal, faites-lui dire bonjour :
++
+[source,bash]
+----
+curl --verbose http://127.0.0.1:3000
+----
+
+== 🤔 Cycle de vie / Pipeline
+
+* C'est tout ? Bien sûr que non ! Il y a plein d'étapes (avant et après)
+
+* Commençons par un cycle de vie NodeJS classique :
+** Récupération des dépendances
+** Lint (Analyse statique)
+** Test (peu importe le type)
+
+* 💡 https://www.npmjs.com/[NPM] à la rescousse
+
+== 🎓 Exercice : Mise en place d'un cycle de vie 1/2
+
+* Créez un fichier `package.json` à la racine de votre dépôt:
+
+[source,json]
+----
+include::../code-samples/nodejs-app/package.json[lines="1..7,9..22"]
+----
+
+== 🎓 Exercice : Mise en place d'un cycle de vie 2/2
+
+* Essayez de lancer l'application dans GitPod :
+
+[source,bash]
+----
+# Récupérer les dépendances - Prérequis systématique
+npm install
+
+# Exécuter le script "launch-app"
+npm run start # CTRL-C to stop
+
+# Second terminal:
+curl --verbose http://127.0.0.1:3000
+----
+
+== 🎓 Exercice : Lint de l'application dans GitPod
+
+[source,bash]
+----
+npm run lint
+# Indique une erreur
+# index.js: line 7, col 27, Missing semicolon.
+----
+
+== 🎯 Checkpoint
+
+On a donc un pipeline à 2 étapes :
+
+** Récupération des dépendances
+** Lint (qui indique une erreur).
+
+// TODO: workflow image
+
+== 🎓 Exercice : Mise en place du CI Node/NPM
+
+* *But :* exécuter les mêmes étapes que précédemment dans GitHub Actions
+* Modifiez votre workflow pour :
+** Ajouter `node_modules/` dans un fichier `.gitignore` à la racine
+** Enlever les commandes "cowsay" de l'exercice précédent
+** Exécuter les commandes `npm install` puis `npm run lint` dans 2 étapes distinctes
+
+❌ Résultat attendu : la même erreur
+
+== ✅ Solution : Mise en place du CI Node/NPM
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
+----
+
+
+== 🎓 Exercice : Corriger le CI
+
+* *But:* Le workflow est toujours en échec. Faites le nécessaire pour corriger les erreurs
+
+== 🤔 Environnement d'exécution du CI
+
+*Problème* : On souhaite avoir les mêmes outils dans notre CI ainsi que dans nos environnement de développement
+
+* Environnement d'exécutions différents :
+** Système d'exploitation ? (macOS, Windows, Ubuntu Linux, Arch Linux, etc.)
+** Architecture du processeur ? (Intel, AMD, ARM, PowerPC, Risc-V, etc.)
+** SDKs installés (quelle version de NodeJS ? et de NPM ? etc.)
+
+🚧 Que dis l'étape "npm install du workflow ?
+
+// `Unsupported engine `
+
+== 🎓 Exercice : CI avec le tooling NodeJS
+
+* *But* : Utilisez l'action GitHub https://github.com/actions/setup-node[] pour avoir la même version de NodeJS + NPM que dans GitPod
+
+* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour que l'étape `npm install` ne signale plus d'incompatibilité de version
+
+== ✅ Solution : CI avec le tooling NodeJS
+
+[source,yaml]
+----
+include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
+----
+
+
+// == !
+
+// * Quel est l'impact en terme de temps d'exécution du changement précédent ?
+
+// * *Problème :* Le temps entre une modification et le retour est crucial
+
+// image::wait-here.jpg[]
+
+// == 🤔 Problème : Accélérer le workflow
+
+// * *Problème :*
+// ** Optimiser prématurément est contre-productif (commencez par faire un système qui marche comme prévu)
+// ** Mais il faut bien s'y coller à un moment donné
+
+// == 🎓 Exercice : Environnement préfabriqué local
+
+// * *But :* Utiliser un `Dockerfile` pour fabriquer une image à utiliser
+
+// * 🤔 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer[GitHub Actions ne permet pas de spécifier un `Dockerfile`]
+
+// * C'est à vous. Mettez à jour votre workflow pour :
+// ** Fabriquer une image Docker contenant `cowsay` et basée sur le même Ubuntu que Gitpod
+// ** https://docs.docker.com/engine/reference/builder/#copy[Copier le fichier `README`] dans l'image
+// ** Exécuter la commande `cowsay` avec l'aide d'un conteneur avec
+// +
+// [source,bash]
+// ----
+// bash -c " cat /README.md | /usr/games/cowsay"
+// ----
+
+// == ✅ Exercice : Environnement préfabriqué local
+
+// [source,Dockerfile]
+// ----
+// # Dockerfile
+// FROM ubuntu:20.04
+// RUN apt-get update && apt-get install --yes cowsay
+// COPY ./README.md /README.md
+// ----
+
+// [source,yaml]
+// ----
+// # bonjour.yml
+// include::../code-samples/gh-actions/ci-docker-build.yml[]
+// ----
+
+// == 🤔 Réfléchissons ensemble
+
+// - Impact sur le temps de build ?
+// - Quelles limites voyez-vous ?
+
+// == Checkpoint 🎯
+
+// - On peut exécuter des tâches de CI dans des images de container
+// - Un curseur est à positionner entre des images préfabriquées qui peuvent être lourdes ou fabriquer soit-même sa propre image

@@ -8,6 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
 # end::common[]
+# tag::setupnode[]
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+# end::setupnode[]
 #tag::initial[]
       - run: npm install
       - run: npm run lint
