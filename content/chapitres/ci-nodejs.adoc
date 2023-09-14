@@ -100,11 +100,6 @@ On a donc un pipeline à 2 étapes :
 include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
 ----
 
-
-== 🎓 Exercice : Corriger le CI
-
-* *But:* Le workflow est toujours en échec. Faites le nécessaire pour corriger les erreurs
-
 == 🤔 Environnement d'exécution du CI
 
 *Problème* : On souhaite avoir les mêmes outils dans notre CI ainsi que dans nos environnement de développement
@@ -131,59 +126,11 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
 include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
 ----
 
+== 🎓 Exercice : Corriger le CI
 
-// == !
+* *But:* Le workflow est toujours en échec. Faites le nécessaire pour corriger les erreurs
 
-// * Quel est l'impact en terme de temps d'exécution du changement précédent ?
+== Checkpoint 🎯
 
-// * *Problème :* Le temps entre une modification et le retour est crucial
-
-// image::wait-here.jpg[]
-
-// == 🤔 Problème : Accélérer le workflow
-
-// * *Problème :*
-// ** Optimiser prématurément est contre-productif (commencez par faire un système qui marche comme prévu)
-// ** Mais il faut bien s'y coller à un moment donné
-
-// == 🎓 Exercice : Environnement préfabriqué local
-
-// * *But :* Utiliser un `Dockerfile` pour fabriquer une image à utiliser
-
-// * 🤔 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer[GitHub Actions ne permet pas de spécifier un `Dockerfile`]
-
-// * C'est à vous. Mettez à jour votre workflow pour :
-// ** Fabriquer une image Docker contenant `cowsay` et basée sur le même Ubuntu que Gitpod
-// ** https://docs.docker.com/engine/reference/builder/#copy[Copier le fichier `README`] dans l'image
-// ** Exécuter la commande `cowsay` avec l'aide d'un conteneur avec
-// +
-// [source,bash]
-// ----
-// bash -c " cat /README.md | /usr/games/cowsay"
-// ----
-
-// == ✅ Exercice : Environnement préfabriqué local
-
-// [source,Dockerfile]
-// ----
-// # Dockerfile
-// FROM ubuntu:20.04
-// RUN apt-get update && apt-get install --yes cowsay
-// COPY ./README.md /README.md
-// ----
-
-// [source,yaml]
-// ----
-// # bonjour.yml
-// include::../code-samples/gh-actions/ci-docker-build.yml[]
-// ----
-
-// == 🤔 Réfléchissons ensemble
-
-// - Impact sur le temps de build ?
-// - Quelles limites voyez-vous ?
-
-// == Checkpoint 🎯
-
-// - On peut exécuter des tâches de CI dans des images de container
-// - Un curseur est à positionner entre des images préfabriquées qui peuvent être lourdes ou fabriquer soit-même sa propre image
+- GitHub Action fournit des actions pour installer et configurer nos environnements de CI
+- Quand le CI est rouge, on le corrige en priorité !

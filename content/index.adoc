@@ -47,11 +47,16 @@ include::./chapitres/moar-git.adoc[leveloffset=1]
 // Multiplayer Git
 include::./chapitres/multiplayer-git.adoc[leveloffset=1]
 
-// Versions
-include::./chapitres/version.adoc[leveloffset=1]
 
-// CD
-include::./chapitres/continuous-delivery.adoc[leveloffset=1]
+== WiP
+
+🚧
+
+// // Versions
+// include::./chapitres/version.adoc[leveloffset=1]
+
+// // CD
+// include::./chapitres/continuous-delivery.adoc[leveloffset=1]
 
 // Bibliographie
 include::./chapitres/bibliographie.adoc[leveloffset=1]
