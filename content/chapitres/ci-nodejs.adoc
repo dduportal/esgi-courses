@@ -97,7 +97,7 @@ On a donc un pipeline à 2 étapes :
 
 [source,yaml]
 ----
-include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
+include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial,setupnode"]
 ----
 
 == 🤔 Environnement d'exécution du CI
