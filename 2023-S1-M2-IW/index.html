@@ -713,9 +713,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 19
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section id="environnement_dexécution_du_ci"><h2>🤔 Environnement d&#8217;exécution du CI</h2><div class="slide-content"><div class="paragraph"><p><strong>Problème</strong> : On souhaite avoir les mêmes outils dans notre CI ainsi que dans nos environnement de développement</p></div>
 <div class="ulist"><ul><li><p>Environnement d&#8217;exécutions différents :</p><div class="ulist"><ul><li><p>Système d&#8217;exploitation ? (macOS, Windows, Ubuntu Linux, Arch Linux, etc.)</p></li><li><p>Architecture du processeur ? (Intel, AMD, ARM, PowerPC, Risc-V, etc.)</p></li><li><p>SDKs installés (quelle version de NodeJS ? et de NPM ? etc.)</p></li></ul></div></li></ul></div>
@@ -727,6 +724,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section id="exercice_corriger_le_ci"><h2>🎓 Exercice : Corriger le CI</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But:</strong> Le workflow est toujours en échec. Faites le nécessaire pour corriger les erreurs</p></li></ul></div></div></section><section id="checkpoint_5"><h2>Checkpoint 🎯</h2><div class="slide-content"><div class="ulist"><ul><li><p>GitHub Action fournit des actions pour installer et configurer nos environnements de CI</p></li><li><p>Quand le CI est rouge, on le corrige en priorité !</p></li></ul></div></div></section></section>
 <section><section id="plus_de_git" data-background-color="rgb(248, 228, 130)" data-state="invert"><h2>Plus de Git !</h2><div class="slide-content"><div class="paragraph"><p>aka. Mettre son code en sécurité</p></div></div></section><section id="une_petite_histoire"><h2>🤔 Une petite histoire</h2><div class="slide-content"><div class="paragraph"><p>Votre dépôt est actuellement sur votre ordinateur.</p></div>
