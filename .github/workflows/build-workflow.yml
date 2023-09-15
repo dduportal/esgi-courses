@@ -14,7 +14,7 @@ on:
 
 env:
   REPOSITORY_URL: https://github.com/${{ github.repository_owner }}/${{ github.repository }}
-  PRESENTATION_URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/${{ github.ref_name }}
+  PRESENTATION_URL: https://${{ github.repository_owner }}.github.io/${{ github.ref_name }}
 
 jobs:
   build-slides:
