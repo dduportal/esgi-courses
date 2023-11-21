@@ -35,16 +35,6 @@ image::gitpod-github-permissions.png[width=400]
 [.small]
 ⚠️ Passez à la slide suivante avant d'aller plus loin
 
-== Validation du Compte GitPod 📱
-
-GitPod vous demande votre numéro de téléphone mobile afin d'éviter les abus (service gratuit).
-Saisissez un numéro de téléphone valide pour recevoir par SMS un code de déblocage :
-
-image::gitpod-phone-validation.png[width=400]
-
-[.small]
-⚠️ Passez à la slide suivante avant d'aller plus loin
-
 == Choix de l'Éditeur de Code ✎
 
 Choisissez l'éditeur "VSCode Browser" (la première tuile) :
