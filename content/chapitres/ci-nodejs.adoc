@@ -97,7 +97,7 @@ On a donc un pipeline à 2 étapes :
 
 [source,yaml]
 ----
-include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
+include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initial"]
 ----
 
 == 🤔 Environnement d'exécution du CI
@@ -123,7 +123,7 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial"]
 
 [source,yaml]
 ----
-include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,initial,setupnode"]
+include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initial,setupnode"]
 ----
 
 == 🎓 Exercice : Corriger le CI
