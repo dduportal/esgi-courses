@@ -1,4 +1,4 @@
-= Orchestration de conteneurs et Intégration Continue
+= Orchestration de conteneurs et CI/CD
 include::./attributes.adoc[]
 
 [.title]
