@@ -1,0 +1,12 @@
+name: Bonjour
+on:
+  - push
+jobs:
+  dire_bonjour:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - name: "Build Image"
+        run: docker image build --tag=cowsay:latest ./
+      - name: "Say Hello"
+        run: docker container run --rm --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" cowsay:latest bash -c "cat ./README.md | /usr/games/cowsay"
