@@ -53,14 +53,14 @@ include::./chapitres/docker-base.adoc[leveloffset=1]
 // Docker Images
 include::./chapitres/docker-images.adoc[leveloffset=1]
 
+// CI Docker Images
+include::./chapitres/ci-docker.adoc[leveloffset=1]
+
 // Docker Volumes
 include::./chapitres/docker-volumes.adoc[leveloffset=1]
 
 // Docker Network
 include::./chapitres/docker-network.adoc[leveloffset=1]
-
-// CI Docker Images
-include::./chapitres/ci-docker.adoc[leveloffset=1]
 
 // GitHub Forks
 include::./chapitres/github-forks.adoc[leveloffset=1]
