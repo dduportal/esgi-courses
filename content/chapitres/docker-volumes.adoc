@@ -65,14 +65,14 @@ docker container run --rm --volume=app-data:/app alpine ls -la /app
 +
 [source,bash]
 ----
-docker container run --rm --volume /workspace:/app alpine:3.17 ls -la /app
+docker container run --rm --volume /workspace:/app alpine ls -la /app
 ----
 
 == 🎓 CI : Partager le dépôt dans le conteneur
 
 * Revenons à l'image Docker dans GitHub Actions
-* Enlevez la ligne `COPY README.md` du workflow
-* Utilisez un partage avec l'hôte pour le fichier `README.md`
+* Enlevez la ligne `COPY ./ /app` du workflow
+* Utilisez un partage avec l'hôte pour le fichier source `index.js`
 
 * 💡 `--workdir="$(pwd)"`
 
@@ -81,14 +81,31 @@ docker container run --rm --volume /workspace:/app alpine:3.17 ls -la /app
 [source,Dockerfile]
 ----
 # Dockerfile
-FROM ubuntu:20.04
-RUN apt-get update && apt-get install --yes cowsay
+FROM node:19
+WORKDIR /app
+COPY package.json /app/
+COPY package-lock.json /app/
+RUN npm ci
+# COPY ./index.js /app/
 ----
 
 [source,yaml]
 ----
 # bonjour.yml
-include::../code-samples/gh-actions/ci-docker-build-vol.yml[]
+name: Bonjour
+on:
+  - push
+jobs:
+  dire_bonjour:
+    runs-on: ubuntu-22.04
+    env:
+      IMAGE_NAME: "mynode:19"
+    steps:
+      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - run: docker image build --tag="${IMAGE_NAME}" ./
+      # Uncomment to validate your work (should fail the next step)
+      # - run: echo 'Hello Error' > ./index.js
+      - run: docker container run --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" "${IMAGE_NAME}" npm run lint
 ----
 
 == 🎓 Sécurité des conteneurs
