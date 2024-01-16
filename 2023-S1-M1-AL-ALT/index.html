@@ -963,8 +963,10 @@ jobs:
 <div class="imageblock"><img src="media/wait-here.jpg" alt="wait here"></div></div></section><section id="exercice_environnement_préfabriqué_local"><h2>🎓 Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But :</strong> Utiliser un <code>Dockerfile</code> pour fabriquer une image à utiliser</p></li><li><p>🤔 <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer">GitHub Actions ne permet pas de spécifier un <code>Dockerfile</code></a></p></li><li><p>C&#8217;est à vous. Mettez à jour votre workflow pour :</p><div class="ulist"><ul><li><p>Fabriquer une image Docker contenant <code>npm</code> et <code>node</code>, même versions que dans GitPod et qui installe les dépendances</p><div class="ulist"><ul><li><p>💡 Pensez à copier le code source !</p></li></ul></div></li><li><p>Exécuter la commande <code>npm run lint</code> dans un conteneur basé sur cette image</p></li></ul></div></li></ul></div></div></section><section id="exercice_environnement_préfabriqué_local_2"><h2>✅ Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile"># Dockerfile
 FROM node:19
 WORKDIR /app
-COPY ./ /app
-RUN npm install</code></pre></div></div>
+COPY ./package.json /app/
+COPY ./package-lock.json /app/
+RUN npm ci
+COPY ./index.js /app/</code></pre></div></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml"># bonjour.yml
 name: Bonjour
 on:
