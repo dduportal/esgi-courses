@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Install latest version of required dependencies
 # hadolint ignore=DL3018
@@ -36,7 +36,6 @@ RUN { npm install-clean && npx update-browserslist-db@latest; } || npm install
 # hadolint ignore=DL3059
 RUN npm link gulp
 
-COPY ./gulp/tasks /app/tasks
 COPY ./gulp/gulpfile.js /app/gulpfile.js
 
 VOLUME ["/app"]
