@@ -37,7 +37,7 @@ ls --color=always -l /bin
 * Les autres éléments sont des arguments  (`/bin`)
 ** Nécessaire (par opposition)
 
-== Manuel des commande
+== Manuel des commandes
 
 * Afficher le manuel de `<commande>` :
 +
@@ -124,7 +124,7 @@ mkdir ~/"Accent tué"
 ls -d ~/Accent\ tué
 ----
 
-== Un language (?)
+== Un langage (?)
 
 * Variables interpolées avec le caractère "dollar" `$` :
 +

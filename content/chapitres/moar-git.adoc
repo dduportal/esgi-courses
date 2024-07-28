@@ -24,7 +24,7 @@ Testé, pas approuvé.
 == Comment éviter ça ?
 
 * Répliquer votre dépôt sur une ou plusieurs machines !
-* Git est pensé pour gérer ce de problème
+* Git est pensé pour gérer ce type de problème
 
 == Gestion de version décentralisée
 
@@ -229,7 +229,7 @@ Et vous devriez voir votre changement dans le ficher README.md
 
 - Un dépôt distant peut être hébergé par n'importe quel serveur sans besoin autre qu'un accès SSH ou HTTPS.
 
-- Une multitudes de services facilitent et enrichissent encore git: (GitHub, Gitlab, Gitea, Bitbucket...)
+- Une multitude de services facilitent et enrichissent encore git: (GitHub, Gitlab, Gitea, Bitbucket...)
 
 
 == Checkpoint 🎯
