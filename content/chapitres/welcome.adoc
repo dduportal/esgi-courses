@@ -43,7 +43,7 @@ video::ohno.mp4[width="200",options="autoplay,loop,nocontrols"]
 * *Pourquoi ?* s'assurer que vous avez acquis un minimum de concepts
 * *Quoi ?* Deux notes sur 20 (25% Contrôle Continu, 75% Projet)
 * *Comment ?*
-** Contrôle Continu: Participation + attention pendant le cours, respect des échéance et des autres, éventuellement un QCM
+** Contrôle Continu: Participation + attention pendant le cours, respect des échéances et des autres, éventuellement un QCM
 ** Un projet GitHub (public) évalué selon une liste de critères _pré-déterminés_
 
 == Plan

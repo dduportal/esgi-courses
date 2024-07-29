@@ -22,7 +22,7 @@ image:solo.gif[width="500"]
 Collaborer c'est pas évident, mais il existe des outils et des méthodes pour vous aider.
 
 [.small]
-Cela reste des outils, ça ne résous pas tout non plus.
+Cela reste des outils, ça ne résoud pas tout non plus.
 
 == Git multijoueur
 
@@ -35,7 +35,7 @@ Cela reste des outils, ça ne résous pas tout non plus.
 
 image:bloing.jpeg[]
 
-== Un Example de Git Flow
+== Un Exemple de Git Flow
 
 (Attachez vous aux idées générales... les détails varient d'un projet à l'autre!)
 

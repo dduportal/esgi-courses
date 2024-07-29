@@ -200,7 +200,7 @@ git push origin "${TAG}"
 
 * La notion de "version" est un outil de communication aux consommateurs de nos produits logiciels
 
-* Le "semantic versioning" est une des façon les plus usitées pour gérer les politiques de version
+* Le "semantic versioning" est une des façons les plus usitées pour gérer les politiques de version
 
 * Nous avons déployé manuellement notre première image Docker, avec synchronisation code source <-> image Docker
 

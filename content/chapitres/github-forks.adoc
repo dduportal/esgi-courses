@@ -53,7 +53,7 @@ hadolint ./Dockerfile
 
 == 🎓 Exercice: Contribuez au projet de votre binôme (4/5)
 
-Une fois que vous êtes satisfaits de votre changement il vous faut maintenant créer un commit et pousser votre nouvelle branche sur votre fork.
+Une fois que vous êtes satisfait de votre changement il vous faut maintenant créer un commit et pousser votre nouvelle branche sur votre fork.
 
 == 🎓 Exercice: Contribuez au projet de votre binôme (5/5)
 
@@ -78,7 +78,7 @@ image:pr.png[]
 == Revue de code ?
 
 * Validation par un ou plusieurs pairs (technique et non technique) des changements
-* Relecture depuis github (ou depuis le poste du développeur)
+* Relecture depuis GitHub (ou depuis le poste du développeur)
 * Chaque relecteur émet des commentaires // suggestions de changement
 * Quand un relecteur est satisfait d'un changement, il l'approuve
 
@@ -119,7 +119,7 @@ Ces "checks" peuvent êtres exécutés par votre moteur de CI ou des outils exte
 
 * Votre PR n'a pas déclenché le workflow de CI de votre binôme 🤔
 * Il faut modifier votre workflow pour qu'il se déclenche aussi sur une PR
-* "Une chose à la fois" : faites une PR dédiée au déclenchement, puis mettez à jour la PR initial
+* "Une chose à la fois" : faites une PR dédiée au déclenchement, puis mettez à jour la PR initiale
 * La link:https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows[documentation] se trouve par ici
 
 == Checkpoint 🎯

@@ -35,7 +35,7 @@ image::fail-fast-continuous-integration.png[height=250]
 
 == Quelques moteurs de CI connus
 
-* A héberger soit-même : https://www.jenkins.io/[Jenkins,window=_blank], https://about.gitlab.com/[GitLab,window=_blank], https://www.drone.io/[Drone CI,window=_blank], https://ovh.github.io/cds/[CDS,window=_blank]...
+* A héberger soi-même : https://www.jenkins.io/[Jenkins,window=_blank], https://about.gitlab.com/[GitLab,window=_blank], https://www.drone.io/[Drone CI,window=_blank], https://ovh.github.io/cds/[CDS,window=_blank]...
 * Hébergés en ligne : https://travis-ci.org/[Travis CI,window=_blank], https://semaphoreci.com/[Semaphore CI,window=_blank], https://circleci.com/[Circle CI,window=_blank], https://codefresh.io/[Codefresh,window=_blank], https://docs.github.com/en/free-pro-team@latest/actions/quickstart[GitHub Actions,window=_blank]
 
 == GitHub Actions

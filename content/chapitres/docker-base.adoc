@@ -64,7 +64,7 @@ docker container run hello-world
 
 * Un service "Docker Engine" tourne en tâche de fond et publie une API REST
 * La commande `docker run ...` a envoyé une requête `POST` au service
-* Le service a télécharge une **Image** Docker depuis le registre **DockerHub**,
+* Le service a téléchargé une **Image** Docker depuis le registre **DockerHub**,
 * Puis a exécuté un **conteneur** basé sur cette image
 
 == 🎓 Exercice : Où est mon conteneur ?
@@ -228,7 +228,7 @@ docker container ls
 
 == Checkpoint 🎯
 
-* Docker essaye de résoudre le problème de l'empaquetage le plus "portable" possible
+* Docker essaie de résoudre le problème de l'empaquetage le plus "portable" possible
 ** On n'en a pas encore vu les effets, ça arrive !
 
 * Vous avez vu qu'un containeur permet d'exécuter une commande dans un environnement "préparé"

@@ -95,7 +95,7 @@ Source : http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-co
 
 == Bénéfices du Déploiement Continu
 
-* Rends triviales les procédures de mise en production et de rollback
+* Rend triviales les procédures de mise en production et de rollback
 ** Encourage à mettre en production le plus souvent possible
 ** Encourage à faire des mises en production incrémentales
 * Limite les risques d'erreur lors de la mise en production

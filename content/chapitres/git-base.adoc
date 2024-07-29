@@ -162,11 +162,11 @@ image::scm-basics-history.png[]
 == 🎓 Exercice avec Git - 2
 
 
-* Afficher la liste des commits
+* Affichez la liste des commits
 
-* Afficher le changeset associé à un commit
+* Affichez le changeset associé à un commit
 
-* Modifier du contenu dans `README.md` et afficher le diff
+* Modifiez du contenu dans `README.md` et affichez le diff
 
 * Annulez ce changement sur `README.md`
 
@@ -201,13 +201,13 @@ image::scm-branches.png[caption="SCM branches"]
 
 == 🎓 Exercice avec Git - 3
 
-* Créer une branche nommée `feature/html`
+* Créez une branche nommée `feature/html`
 
 
-* Ajouter un nouveau commit contenant un nouveau fichier `index.html` sur cette branche
+* Ajoutez un nouveau commit contenant un nouveau fichier `index.html` sur cette branche
 
 
-* Afficher le graphe correspondant à cette branche avec `git log --graph`
+* Affichez le graphe correspondant à cette branche avec `git log --graph`
 
 == ✅ Solution de l'exercice avec Git - 3
 
@@ -233,10 +233,10 @@ image::scm-merge.png[caption="SCM Merge"]
 
 == 🎓 Exercice avec Git - 4
 
-* Merger la branche `feature/html` dans la branche principale
+* Mergez la branche `feature/html` dans la branche principale
 ** ⚠️ Pensez à utiliser l'option `--no-ff`
 
-* Afficher le graphe correspondant à cette branche avec `git log --graph`
+* Affichez le graphe correspondant à cette branche avec `git log --graph`
 
 
 == ✅ Solution de l'exercice avec Git - 4
@@ -270,7 +270,7 @@ image::scm-feature-branch-workflow.png[caption="Feature Branch SCM Workflow",lin
 
 == Checkpoint 🎯
 
-* `git` est un des (plus populaires) de système de contrôle de versions
+* `git` est un des (plus populaires) système de contrôle de versions
 
 * Cet outil vous permet:
 ** D'avoir un historique auditable de votre code source
