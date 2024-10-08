@@ -26,7 +26,8 @@
 :github_icon: icon:github[set=fab]
 :linkedin_icon: icon:linkedin[set=fab]
 :pdf_icon: icon:file-pdf[set=fa]
-:author_mail: icon:envelope[set=fa] damien.duportal icon:at[set=fa] gmail.com
+:author1_mail: icon:envelope[set=fa] marion.playout icon:at[set=fa] gmail.com
+:author2_mail: icon:envelope[set=fa] damien.duportal icon:at[set=fa] gmail.com
 :gitpod_github_repo_url: https://github.com/dduportal/esgi-gitpod
 :student_gh_repository_name: esgi-ci-cd
 :revealjs_customtheme: ./styles/build.css

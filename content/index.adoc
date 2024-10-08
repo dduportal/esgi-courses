@@ -2,7 +2,7 @@
 include::./attributes.adoc[]
 
 [.title]
-🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - M1-AL-ALT-S1 2023
+🇫🇷 link:https://www.esgi.fr/campus-lyon.html[ESGI Lyon,window="_blank"] - M2 IW S1 2024/2025
 
 image::qrcode.png["QRCode to this presentation",height=150]
 
@@ -77,7 +77,8 @@ include::./chapitres/bibliographie.adoc[leveloffset=1]
 [{invert}]
 == Merci !
 
-{author_mail}
+{author1_mail}
+{author2_mail}
 
 [.small]
 link:{presentationUrl}[Slides: {presentationUrl}]

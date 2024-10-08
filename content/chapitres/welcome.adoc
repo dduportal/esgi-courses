@@ -5,13 +5,23 @@
 La suite: vers le bas ⬇️
 
 [{invert}]
+== Marion PLAYOUT
+
+* <Placeholder for job role>
+
+* Me contacter :
+** {author1_mail}
+** link:https://github.com/marionplt[{github_icon} marionplt,window="_blank"]
+** link:https://www.linkedin.com/in/marion-playout-4104a190/[{linkedin_icon} Marion Playout,window=_blank]
+
+[{invert}]
 == Damien DUPORTAL
 
 * link:https://touilleur-express.fr/2022/07/17/devenir-staff-engineer/[Staff Software Engineer, window="_blank"] chez https://www.cloudbees.com[CloudBees,window="_blank"] pour le projet link:https://www.jenkins.io/[Jenkins,window="_blank"] 👨🏻‍⚖️
 * Freelancer
 
 * Me contacter :
-** {author_mail}
+** {author2_mail}
 ** link:https://github.com/dduportal[{github_icon} dduportal,window="_blank"]
 ** link:https://www.linkedin.com/in/damien-duportal-ab70b524/[{linkedin_icon} Damien Duportal,window=_blank]
 
@@ -31,10 +41,11 @@ video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 
 == Calendrier
 
-* *Présentiel* 🎓 Mercredi 22 novembre 2023 - 08h00 -> 13h00
-* *Présentiel* 🎓 Mercredi 20 décembre 2023 - 14h00 -> 19h00
-* *Présentiel* 🎓 Lundi 15 janvier 2024 - 09h45 -> 17h15
-* *Présentiel* 🎓 Mardi 16 janvier 2024 - 09h45 -> 17h15
+TODO...
+// * *Présentiel* 🎓 Mercredi 22 novembre 2023 - 08h00 -> 13h00
+// * *Présentiel* 🎓 Mercredi 20 décembre 2023 - 14h00 -> 19h00
+// * *Présentiel* 🎓 Lundi 15 janvier 2024 - 09h45 -> 17h15
+// * *Présentiel* 🎓 Mardi 16 janvier 2024 - 09h45 -> 17h15
 
 == Evaluation
 
