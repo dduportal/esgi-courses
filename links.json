@@ -1,10 +1,14 @@
 [
   {
+    "name": "Cours ESGI (2024/2025) : Solutions de Déploiement Continu (CI & CD) - M2 IW S1",
+    "link": "2024-S1-M2-IW"
+  },
+  {
     "name": "Cours ESGI (2023/2024) : Orchestration de conteneurs et Intégration Continue - M1 AL ALT S1",
     "link": "2023-S1-M1-AL-ALT"
   },
   {
-    "name": "Cours ESGI (2023/2024) : Solutions de Déploiement Continu (CI & CD) - M2 IW ALT S1",
+    "name": "Cours ESGI (2023/2024) : Solutions de Déploiement Continu (CI & CD) - M2 IW S1",
     "link": "2023-S1-M2-IW"
   },
   {
