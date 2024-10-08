@@ -21,7 +21,6 @@ var current_config = {
     buildDir: process.env.BUILD_DIR || '/tmp/dist',
     sourcesDir: '/app/content',
     nodeModulesDir: '/app/node_modules',
-    fontAwesomeDir: '/app/fontawesome',
     listen_ip: process.env.LISTEN_IP || '0.0.0.0',
     listen_port: process.env.LISTEN_PORT || 8000,
     livereload_port: process.env.LIVERELOAD_PORT || 35729,
@@ -50,19 +49,6 @@ function prepare_revealjs_menu_plugin() {
 function prepare_plugin_copycode() {
     return src(current_config.nodeModulesDir + '/reveal.js-copycode/plugin/copycode/**/*')
         .pipe(dest(current_config.buildDir + '/reveal.js/plugin/reveal.js-copycode/'));
-}
-
-function prepare_fontawesome() {
-    return src(current_config.fontAwesomeDir + '/css/all.css')
-        // https://github.com/asciidoctor/asciidoctor-reveal.js/issues/286#issuecomment-787081903
-        .pipe(rename('font-awesome.css'))
-        .pipe(dest(current_config.buildDir + '/styles/'));
-}
-
-
-function prepare_webfonts() {
-    return src(current_config.fontAwesomeDir + '/webfonts/**/*')
-        .pipe(dest(current_config.buildDir + '/webfonts/'));
 }
 
 function prepare_highlightjs_min() {
@@ -169,8 +155,6 @@ const build = series(
         prepare_revealjs_external_plugins,
         prepare_revealjs_menu_plugin,
         prepare_plugin_copycode,
-        prepare_fontawesome,
-        prepare_webfonts,
         prepare_highlightjs_min,
         prepare_highlightjs_languages,
         prepare_plugin_clipboardjs,
