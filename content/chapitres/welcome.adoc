@@ -7,7 +7,7 @@ La suite: vers le bas ⬇️
 [{invert}]
 == Marion PLAYOUT
 
-* <Placeholder for job role>
+* Software engineer chez https://www.axway.com/fr[Axway,window="_blank"] 
 
 * Me contacter :
 ** {author1_mail}
@@ -42,10 +42,10 @@ video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 == Calendrier
 
 TODO...
-// * *Présentiel* 🎓 Mercredi 22 novembre 2023 - 08h00 -> 13h00
-// * *Présentiel* 🎓 Mercredi 20 décembre 2023 - 14h00 -> 19h00
-// * *Présentiel* 🎓 Lundi 15 janvier 2024 - 09h45 -> 17h15
-// * *Présentiel* 🎓 Mardi 16 janvier 2024 - 09h45 -> 17h15
+// * *Présentiel* 🎓 Mardi 5 novembre 2024 - 09h45 -> 17h15
+// * *Présentiel* 🎓 Mercredi 4 décembre 2024 - 14h00 -> 17h15
+// * *Présentiel* 🎓 Jeudi 5 décembre 2024 - 09h45 -> 15h15
+// * *Présentiel* 🎓 Jeudi 9 janvier 2025 - 09h45 -> 15h15
 
 == Evaluation
 
