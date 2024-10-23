@@ -42,10 +42,10 @@ video::yourturn.mp4[width="600",options="autoplay,loop,nocontrols"]
 == Calendrier
 
 TODO...
-// * *Présentiel* 🎓 Mardi 5 novembre 2024 - 09h45 -> 17h15
-// * *Présentiel* 🎓 Mercredi 4 décembre 2024 - 14h00 -> 17h15
-// * *Présentiel* 🎓 Jeudi 5 décembre 2024 - 09h45 -> 15h15
-// * *Présentiel* 🎓 Jeudi 9 janvier 2025 - 09h45 -> 15h15
+* *Présentiel* 🎓 Mardi 5 novembre 2024 - 09h45 -> 17h15
+* *Présentiel* 🎓 Mercredi 4 décembre 2024 - 14h00 -> 17h15
+* *Présentiel* 🎓 Jeudi 5 décembre 2024 - 09h45 -> 15h15
+* *Présentiel* 🎓 Jeudi 9 janvier 2025 - 09h45 -> 15h15
 
 == Evaluation
 
