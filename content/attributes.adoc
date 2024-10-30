@@ -3,7 +3,6 @@
 :highlightjsdir: highlightjs
 :highlightjs-languages: groovy, dockerfile
 :icons: font
-:iconfont-remote!:
 :sectids:
 :allow-uri-read:
 :linkattrs:
