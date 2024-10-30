@@ -1,4 +1,4 @@
-= Orchestration de conteneurs et CI/CD
+= Solutions de Déploiement Continu (CI & CD)
 include::./attributes.adoc[]
 
 [.title]
