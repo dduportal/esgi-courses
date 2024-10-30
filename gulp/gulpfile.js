@@ -6,7 +6,6 @@ const { exec } = require('child_process');
 var rename = require("gulp-rename");
 var browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
-// const { autoprefixer } = require('gulp-autoprefixer');
 const csso = require('gulp-csso');
 var asciidoctor = require('@asciidoctor/core')();
 var asciidoctorRevealjs = require('@asciidoctor/reveal.js');
@@ -71,10 +70,8 @@ function styles() {
     return src(current_config.stylesSrcPath + '/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(rename('build.css'))
-        // .pipe(autoprefixer())
         .pipe(csso())
         .pipe(dest(current_config.buildDir + '/styles/'));
-    // .pipe(browserSync.stream());
 }
 
 function html() {
@@ -94,19 +91,16 @@ function html() {
                 }
             );
         });
-    // .pipe(browserSync.stream());
 }
 
 function media() {
-    return src(current_config.mediaSrcPath + '/*')
+    return src(current_config.mediaSrcPath + '/*', { encoding: false })
         .pipe(dest(current_config.buildDir + '/media/'));
-    // .pipe(browserSync.stream());
 }
 
 function favicon() {
     return src(current_config.faviconPath)
         .pipe(dest(current_config.buildDir + '/'));
-    // .pipe(browserSync.stream());
 }
 
 function serve(cb) {
@@ -121,7 +115,7 @@ function serve(cb) {
     cb();
 }
 
-const watchFiles = function() {
+const watchFiles = function () {
     // Watch for AsciiDoctor sources
     watch([
         current_config.sourcesDir + '/**/*.adoc', // AsciiDoctor sources
