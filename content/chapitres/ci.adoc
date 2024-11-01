@@ -166,7 +166,7 @@ include::../code-samples/gh-actions/npm-example.yml[]
 * N'hésitez pas à utiliser la documentation de GitHub Actions:
 ** https://docs.github.com/en/free-pro-team@latest/actions[Accueil,window=_blank]
 ** https://docs.github.com/en/free-pro-team@latest/actions/quickstart[Quickstart,window=_blank]
-** https://docs.github.com/en/free-pro-team@latest/actions/reference[Référence,window=_blank]
+** https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions[Référence,window=_blank]
 
 == 🎓 Exercice: Créez un dépôt (git dans) GitHub
 
