@@ -43,7 +43,7 @@ function prepare_revealjs_external_plugins() {
 }
 
 function prepare_revealjs_menu_plugin() {
-    return src(current_config.nodeModulesDir + '/reveal.js-menu/**/*')
+    return src(current_config.nodeModulesDir + '/reveal.js-menu/**/*', { encoding: false })
         .pipe(dest(current_config.buildDir + '/reveal.js/reveal.js-plugins/menu/'))
         .pipe(browserSync.stream());
 }
