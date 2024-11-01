@@ -31,13 +31,13 @@ function prepare_revealjs() {
 }
 
 function prepare_revealjs_core_plugins() {
-    return src(current_config.nodeModulesDir + '/reveal.js/plugin/**/*')
+    return src(current_config.nodeModulesDir + '/reveal.js/plugin/**/*', { encoding: false })
         .pipe(dest(current_config.buildDir + '/reveal.js/plugin/'))
         .pipe(browserSync.stream());
 }
 
 function prepare_revealjs_external_plugins() {
-    return src(current_config.nodeModulesDir + '/reveal.js-plugins/**/*')
+    return src(current_config.nodeModulesDir + '/reveal.js-plugins/**/*', { encoding: false })
         .pipe(dest(current_config.buildDir + '/reveal.js/reveal.js-plugins/'))
         .pipe(browserSync.stream());
 }
@@ -49,7 +49,7 @@ function prepare_revealjs_menu_plugin() {
 }
 
 function prepare_plugin_copycode() {
-    return src(current_config.nodeModulesDir + '/reveal.js-copycode/plugin/copycode/**/*')
+    return src(current_config.nodeModulesDir + '/reveal.js-copycode/plugin/copycode/**/*', { encoding: false })
         .pipe(dest(current_config.buildDir + '/reveal.js/plugin/reveal.js-copycode/'))
         .pipe(browserSync.stream());
 }
@@ -68,7 +68,7 @@ function prepare_highlightjs_languages() {
 
 
 function prepare_plugin_clipboardjs() {
-    return src(current_config.nodeModulesDir + '/clipboard/dist/clipboard.min.js')
+    return src(current_config.nodeModulesDir + '/clipboard/dist/clipboard.min.js', { encoding: false })
         .pipe(dest(current_config.buildDir + '/scripts/'))
         .pipe(browserSync.stream());
 }
@@ -106,7 +106,7 @@ function media() {
 }
 
 function favicon() {
-    return src(current_config.faviconPath)
+    return src(current_config.faviconPath, { encoding: false })
         .pipe(dest(current_config.buildDir + '/'))
         .pipe(browserSync.stream());
 }
