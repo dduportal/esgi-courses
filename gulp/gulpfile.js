@@ -1,14 +1,13 @@
-
-
 /*jslint node: true, stupid: true */
+
 const { series, parallel, src, dest, watch } = require('gulp');
 const { exec } = require('child_process');
-var rename = require("gulp-rename");
-var browserSync = require('browser-sync').create();
+const rename = require("gulp-rename");
+const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const csso = require('gulp-csso');
-var asciidoctor = require('@asciidoctor/core')();
-var asciidoctorRevealjs = require('@asciidoctor/reveal.js');
+const asciidoctor = require('@asciidoctor/core')();
+const asciidoctorRevealjs = require('@asciidoctor/reveal.js');
 
 asciidoctorRevealjs.register();
 
@@ -74,23 +73,21 @@ function styles() {
         .pipe(dest(current_config.buildDir + '/styles/'));
 }
 
-function html() {
-    return src(current_config.sourcesDir + '/**/*.adoc', { read: false })
-        .on('end', function () {
-            asciidoctor.convertFile(
-                current_config.sourcesDir + '/index.adoc',
-                {
-                    safe: 'unsafe',
-                    backend: 'revealjs',
-                    attributes: {
-                        'revealjsdir': 'node_modules/reveal.js@',
-                        'presentationUrl': process.env.PRESENTATION_URL,
-                        'repositoryUrl': process.env.REPOSITORY_URL,
-                    },
-                    to_dir: current_config.buildDir,
-                }
-            );
-        });
+function html(cb) {
+    asciidoctor.convertFile(
+        current_config.sourcesDir + '/index.adoc',
+        {
+            safe: 'unsafe',
+            backend: 'revealjs',
+            attributes: {
+                'revealjsdir': 'node_modules/reveal.js@',
+                'presentationUrl': process.env.PRESENTATION_URL,
+                'repositoryUrl': process.env.REPOSITORY_URL,
+            },
+            to_dir: current_config.buildDir,
+        }
+    );
+    cb();
 }
 
 function media() {
@@ -159,4 +156,4 @@ const build = series(
 );
 
 exports.build = build;
-exports.default = series(clean, serve, build, watchFiles)
+exports.default = series(clean, build, serve, watchFiles)
