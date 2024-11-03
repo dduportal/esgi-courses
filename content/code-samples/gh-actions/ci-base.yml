@@ -18,7 +18,7 @@ jobs:
       - run: echo "Bonjour 👋"
 # end::simple-hello[]
 # tag::checkout[]
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
 # end::checkout[]
 # tag::show-readme[]
       - run: ls -l # Liste les fichier du répertoire courant
