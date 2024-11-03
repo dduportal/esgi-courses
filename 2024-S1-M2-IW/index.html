@@ -570,7 +570,7 @@ dramatically easier to find and remove.</p></div></blockquote><div class="attrib
     run: echo "Hello ESGI"
   # Exemple de step 2 (une action)
   - name: 'Login to DockerHub'
-    uses: docker/login-action@v2 # https://github.com/marketplace/actions/docker-login
+    uses: docker/login-action@v3 # https://github.com/marketplace/actions/docker-login
     with:
       username: ${{ secrets.DOCKERHUB_USERNAME }}
       password: ${{ secrets.DOCKERHUB_TOKEN }}</code></pre></div></div></div></section><section id="concepts_de_github_actions_job_12"><h2>Concepts de GitHub Actions - Job 1/2</h2><div class="slide-content"><div class="imageblock"><img src="media/gh-actions-concepts.jobs.svg" alt="gh actions concepts.jobs" width="800"></div></div></section><section id="concepts_de_github_actions_job_22"><h2>Concepts de GitHub Actions - Job 2/2</h2><div class="slide-content"><div class="paragraph"><p>Un <strong>Job</strong> est un groupe logique de tâches :</p></div>
@@ -604,13 +604,13 @@ jobs:
   test-linux:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - run: npm install
     - run: npm test
   test-mac:
     runs-on: macos-12
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - run: npm install
     - run: npm test</code></pre></div></div></div></section><section id="essayons_github_actions"><h2>Essayons GitHub Actions</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But</strong> : nous allons créer notre premier workflow dans GitHub Actions</p></li><li><p>N&#8217;hésitez pas à utiliser la documentation de GitHub Actions:</p><div class="ulist"><ul><li><p><a href="https://docs.github.com/en/free-pro-team@latest/actions" target="_blank">Accueil</a></p></li><li><p><a href="https://docs.github.com/en/free-pro-team@latest/actions/quickstart" target="_blank">Quickstart</a></p></li><li><p><a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions" target="_blank">Référence</a></p></li></ul></div></li></ul></div></div></section><section id="exercice_créez_un_dépôt_git_dans_github"><h2>🎓 Exercice: Créez un dépôt (git dans) GitHub</h2><div class="slide-content"><div class="ulist"><ul><li><p>En étant authentifié dans <a href="https://github.com" target="_blank"><span class="icon"><i class="fab fa-github"></i></span> GitHub</a>,</p></li><li><p>Créez un nouveau dépôt nommé <code>esgi-ci-cd</code></p><div class="ulist"><ul><li><p>Pas de "template" (modèle)</p></li><li><p>Visibilité publique</p></li><li><p>Initialisation avec un fichier <code>README.md</code></p></li></ul></div></li></ul></div></div></section><section id="exercice_récupérez_le_dépôt_dans_gitpod"><h2>🎓 Exercice: Récupérez le dépôt dans Gitpod</h2><div class="slide-content"><div class="ulist"><ul><li><p>Obtenez l&#8217;URL (HTTPS) du dépôt GitHub fraîchement créé</p><div class="ulist"><ul><li><p>💡 Depuis la page  du dépôt, cliquez sur le bouton vert intitulé "<strong>Code</strong>"</p></li></ul></div></li><li><p>Dans Gitpod :</p><div class="ulist"><ul><li><p>Depuis un terminal, positionnez-vous dans le dossier <code>/workspace</code>,</p></li><li><p>Clonez le dépôt avec la commande</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">git clone https://github.com/xxx/{student_gh_repository_name}</code></pre></div></div></li><li><p>💡 Si le dépôt n&#8217;apparaît pas dans l'"Explorer" à gauche :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">code -a /workspace/{student_gh_repository_name}</code></pre></div></div></li></ul></div></li></ul></div></div></section><section id="exercice_exemple_simple_avec_github_actions"><h2>🎓 Exercice: Exemple simple avec GitHub Actions</h2><div class="slide-content"><div class="ulist"><ul><li><p>Dans le dépôt <code>esgi-ci-cd</code>, sur la branch <code>main</code>,</p><div class="ulist"><ul><li><p>Créez le fichier <code>.github/workflows/bonjour.yml</code> avec le contenu suivant :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml">name: Bonjour
 on:
@@ -637,7 +637,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: ls -l # Liste les fichier du répertoire courant
       - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt</code></pre></div></div></div></section><section id="exemple_environnement_dexécution"><h2>Exemple : Environnement d&#8217;exécution</h2><div class="slide-content"><div class="ulist"><ul><li><p>Notre workflow doit s&#8217;assurer que "la vache" 🐮 doit nous lire 💬 le contenu du fichier <code>README.md</code></p><div class="ulist"><ul><li><p><a href="https://www.destroyallsoftware.com/talks/wat" target="_blank">WAT 🤪</a> ?</p></li></ul></div></li></ul></div>
 <div class="ulist"><ul><li><p>Essayez la commande <code>cat README.md | cowsay</code> dans GitPod</p><div class="ulist"><ul><li><p>Modifiez l&#8217;étape &#8220;cat README.md&#8221; du workflow pour faire la même chose dans GitHub Actions</p></li><li><p>SPOILER: ❌ (la commande <code>cowsay</code> n&#8217;est pas disponible dans le runner GitHub Actions)</p></li></ul></div></li></ul></div></div></section><section id="exercice_personnalisation_dans_le_workflow"><h2>🎓 Exercice : Personnalisation dans le workflow</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But</strong> : exécuter la commande <code>cat README.md | cowsay</code> dans le workflow comme dans GitPod</p></li><li><p>👷🏽‍♀️ C&#8217;est à vous de mettre à jour le workflow pour personnaliser l&#8217;environnement :</p><div class="ulist"><ul><li><p>💡 Cherchez comment installer <code>cowsay</code> dans le runner GitHub (<code>runs-on</code>&#8230;&#8203;)</p></li></ul></div></li></ul></div></div></section><section id="solution_personnalisation_dans_le_workflow"><h2>✅ Solution : Personnalisation dans le workflow</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml">name: Bonjour
@@ -647,7 +647,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: |
           sudo apt-get update
           sudo apt-get install --yes cowsay
@@ -709,7 +709,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section id="environnement_dexécution_du_ci"><h2>🤔 Environnement d&#8217;exécution du CI</h2><div class="slide-content"><div class="paragraph"><p><strong>Problème</strong> : On souhaite avoir les mêmes outils dans notre CI ainsi que dans nos environnement de développement</p></div>
 <div class="ulist"><ul><li><p>Environnement d&#8217;exécutions différents :</p><div class="ulist"><ul><li><p>Système d&#8217;exploitation ? (macOS, Windows, Ubuntu Linux, Arch Linux, etc.)</p></li><li><p>Architecture du processeur ? (Intel, AMD, ARM, PowerPC, Risc-V, etc.)</p></li><li><p>SDKs installés (quelle version de NodeJS ? et de NPM ? etc.)</p></li></ul></div></li></ul></div>
@@ -720,8 +720,8 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/setup-node@v4
         with:
           node-version: 19
       - run: npm install
@@ -957,7 +957,7 @@ jobs:
       image: ghcr.io/dduportal/esgi-gitpod
       options: --user=root
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Quel est l&#8217;impact en terme de temps d&#8217;exécution du changement précédent ?</p></li><li><p><strong>Problème :</strong> Le temps entre une modification et le retour est crucial</p></li></ul></div>
 <div class="imageblock"><img src="media/wait-here.jpg" alt="wait here"></div></div></section><section id="exercice_environnement_préfabriqué_local"><h2>🎓 Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But :</strong> Utiliser un <code>Dockerfile</code> pour fabriquer une image à utiliser</p></li><li><p>🤔 <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer">GitHub Actions ne permet pas de spécifier un <code>Dockerfile</code></a></p></li><li><p>C&#8217;est à vous. Mettez à jour votre workflow pour :</p><div class="ulist"><ul><li><p>Fabriquer une image Docker contenant <code>npm</code> et <code>node</code>, même versions que dans GitPod et qui installe les dépendances</p><div class="ulist"><ul><li><p>💡 Pensez à copier le code source !</p></li></ul></div></li><li><p>Exécuter la commande <code>npm run lint</code> dans un conteneur basé sur cette image</p></li></ul></div></li></ul></div></div></section><section id="exercice_environnement_préfabriqué_local_2"><h2>✅ Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile"># Dockerfile
@@ -977,7 +977,7 @@ jobs:
     env:
       IMAGE_NAME: "mynode:19"
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
       - run: docker container run "${IMAGE_NAME}" npm run lint</code></pre></div></div></div></section><section id="réfléchissons_ensemble"><h2>🤔 Réfléchissons ensemble</h2><div class="slide-content"><div class="ulist"><ul><li><p>Impact sur le temps de build ?</p></li><li><p>Quelles limites voyez-vous ?</p></li></ul></div></div></section><section id="checkpoint_9"><h2>Checkpoint 🎯</h2><div class="slide-content"><div class="ulist"><ul><li><p>On peut exécuter des tâches de CI dans des images de container</p></li><li><p>Un curseur est à positionner entre des images préfabriquées qui peuvent être lourdes ou fabriquer soit-même sa propre image</p></li></ul></div></div></section></section>
 <section><section id="docker_volumes" data-background-color="rgb(248, 228, 130)" data-state="invert"><h2>Docker : Volumes</h2></section><section id="quel_est_le_problème"><h2>🤔 Quel est le problème ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Faut-il fabriquer sa propre image à chaque fois ?</p><div class="ulist"><ul><li><p>Ref. copie du <code>README</code> pour utiliser <code>cowsay</code></p></li></ul></div></li><li><p>Comment partager des fichiers entre conteneurs ?</p></li><li><p>Et entre hôte et conteneur ?</p></li></ul></div></div></section><section id="problème_des_layers"><h2>Problème des Layers</h2><div class="slide-content"><div class="ulist"><ul><li><p>⏱️ Performances : les layers ont de très mauvais performance I/O (disque)</p></li><li><p>💾 Si vous supprimez un conteneur, ses layers disparaissent</p></li><li><p>❌ Pas de partage de layer possible entre conteneurs</p></li></ul></div></div></section><section id="docker_volumes_2"><h2>Docker Volumes</h2><div class="slide-content"><div class="ulist"><ul><li><p>Ce sont des dossier stockés sur l&#8217;hôte,</p></li><li><p>gérés par le Docker Engine,</p></li><li><p>Pouvant être partagés,</p></li><li><p>Et survivant aux conteneurs</p></li></ul></div>
@@ -1001,7 +1001,7 @@ jobs:
     env:
       IMAGE_NAME: "mynode:19"
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
       # Uncomment to validate your work (should fail the next step)
       # - run: echo 'Hello Error' &gt; ./index.js
@@ -1167,13 +1167,13 @@ involves just one single line of code?</p></div></blockquote><div class="attribu
       # ... Build
       # ... Test
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         if: startsWith(github.ref, 'refs/tags/')
         with:
           username: xxxxx
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push if on `main`
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         if: startsWith(github.ref, 'refs/tags/')
         with:
           push: true
@@ -1185,13 +1185,13 @@ involves just one single line of code?</p></div></blockquote><div class="attribu
       # ... Build
       # ... Test
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         if: contains('refs/heads/main', github.ref)
         with:
           username: xxxxx
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push if on `main`
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         if: contains('refs/heads/main', github.ref)
         with:
           push: true
