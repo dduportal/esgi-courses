@@ -101,7 +101,7 @@ jobs:
     env:
       IMAGE_NAME: "mynode:19"
     steps:
-      - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
       # Uncomment to validate your work (should fail the next step)
       # - run: echo 'Hello Error' > ./index.js
