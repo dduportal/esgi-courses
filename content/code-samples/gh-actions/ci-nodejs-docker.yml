@@ -5,7 +5,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     env:
-      IMAGE_NAME: "mynode:19"
+      IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
