@@ -49,16 +49,14 @@ image::wait-here.jpg[]
 
 == ✅ Exercice : Environnement préfabriqué local
 
+Dockerfile:
+
 [source,Dockerfile]
 ----
-# Dockerfile
-FROM node:19
-WORKDIR /app
-COPY ./package.json /app/
-COPY ./package-lock.json /app/
-RUN npm ci
-COPY ./index.js /app/
+include::../code-samples/gh-actions/nodejs-Dockerfile[tags="common,copy"]
 ----
+
+GitHub Workflow:
 
 [source,yaml]
 ----

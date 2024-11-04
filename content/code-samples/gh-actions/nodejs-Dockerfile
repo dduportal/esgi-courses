@@ -1,0 +1,10 @@
+# tag::common[]
+FROM node:{nodejs_version}
+WORKDIR /app
+COPY ./package.json /app/
+COPY ./package-lock.json /app/
+RUN npm clean-install
+# end::common[]
+# tag::copy[]
+COPY ./index.js /app/
+# end::copy[]

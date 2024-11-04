@@ -78,16 +78,15 @@ docker container run --rm --volume /workspace:/app alpine ls -la /app
 
 == ✅ CI : Partager le dépôt dans le conteneur
 
+Dockerfile:
+
 [source,Dockerfile]
 ----
-# Dockerfile
-FROM node:19
-WORKDIR /app
-COPY package.json /app/
-COPY package-lock.json /app/
-RUN npm ci
-# COPY ./index.js /app/
+include::../code-samples/gh-actions/nodejs-Dockerfile[tags="common"]
+# Comment the COPY instruction
 ----
+
+GitHub Workflow:
 
 [source,yaml]
 ----
@@ -99,7 +98,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     env:
-      IMAGE_NAME: "mynode:19"
+      IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
