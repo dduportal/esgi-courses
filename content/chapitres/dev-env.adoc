@@ -21,7 +21,11 @@ link:https://gitpod.io[GitPod.io,window="_blank"] : Environnement de développem
 
 * Authentifiez vous en utilisant votre compte GitHub:
 ** Bouton "Login" en haut à droite
-** Puis choisissez le lien "{github_icon} Continue with GitHub"
+** Section "GitPod Flex": Choisissez le (petit) lien "Log in to GitPod Classic"
+
+image::gitpod-use-classic.png[width=200]
+
+** Section "Log In to GitPod": Choisissez le lien "{github_icon} Continue with GitHub"
 
 [.small]
 ⚠️ Pour les "autorisations", passez sur la slide suivante
@@ -35,22 +39,35 @@ image::gitpod-github-permissions.png[width=400]
 [.small]
 ⚠️ Passez à la slide suivante avant d'aller plus loin
 
-== Choix de l'Éditeur de Code ✎
+== Bienvenue sur GitPod ✎
 
-Choisissez l'éditeur "VSCode Browser" (la première tuile) :
+Remplissez les champs Nom et Prénom,
 
-image::gitpod-select-editor.png[width=600]
+pour activer le bouton "Continue with 10 hours per hours" :
+
+image::gitpod-welcome.png[width=300]
 
 [.small]
 ⚠️ Passez à la slide suivante avant d'aller plus loin
 
+== Choix de l'Éditeur de Code ✎
+
+Choisissez l'éditeur "VSCode Browser" (la première tuile) et le thème de votre choix :
+
+image::gitpod-select-editor.png[width=600]
+
+[.small]
+⚠️ Puis remplissez le dernier questionnaire, avant d'aller à la slide suivante
+
 == Workspaces GitPod 🗂
 
-* Vous arrivez sur la link:https://gitpod.io/workspaces[page listant les "workspaces" GitPod,window="_blank"] :
+* Vous arrivez sur la link:https://gitpod.io/workspaces[page listant les "workspaces" GitPod,window="_blank"].
+
+* 📣 Ne créez pas de workspace pour le moment
 
 * Un workspace est une instance d'un environnement de travail virtuel (C'est un ordinateur distant)
 
-* ⚠  Faites attention à réutiliser le même workspace tout au long de ce cours⚠
+* ⚠ Faites attention à réutiliser le même workspace tout au long de ce cours⚠
 
 image::gitpod-workspaces.png[width=600]
 
@@ -65,9 +82,11 @@ image::gitpod-workspaces.png[width=600]
 
 == Démarrer l'environnement GitPod
 
-Cliquez sur le bouton ci-dessous pour démarrer un environnement GitPod personnalisé:
+Cliquez sur le bouton ci-dessous pour créer votre workspace GitPod.
 
 image::https://gitpod.io/button/open-in-gitpod.svg[link="https://gitpod.io#{gitpod_github_repo_url}",window="_blank"]
+
+⚠️ Gardez bien les réglages par défaut et cliquez sur "Continuer" ⚠️
 
 Après quelques secondes (minutes?), vous avez accès à l'environnement:
 
