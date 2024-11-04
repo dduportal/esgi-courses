@@ -5,8 +5,8 @@
     "repository": "https://github.com/dduportal/esgi-course",
     "devDependencies": {
         "@asciidoctor/reveal.js": "5.1.0",
-        "asciidoctor": "^3.0.4",
-        "browser-sync": "^3.0.3",
+        "asciidoctor": "3.0.4",
+        "browser-sync": "3.0.3",
         "clipboard": "2.0.11",
         "gulp": "5.0.0",
         "gulp-autoprefixer": "9.0.0",
