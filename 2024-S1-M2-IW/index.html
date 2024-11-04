@@ -677,25 +677,25 @@ server.listen(port, hostname, () =&gt; {
   console.log(`Server running at http://${hostname}:${port}/`);
 });</code></pre></div></div></div></section><section id="exercice_essayons_cette_application_dans_gitpod"><h2>🎓 Exercice : Essayons cette application dans GitPod</h2><div class="slide-content"><div class="ulist"><ul><li><p>Créez un fichier <code>index.js</code> à la racine de votre dépôt avec le contenu de la slide précédente</p></li><li><p>Ouvrez 2 terminaux</p><div class="ulist"><ul><li><p>Dans le premier terminal, exécutez l&#8217;application :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">node ./index.js # CTRL-C to stop</code></pre></div></div></li><li><p>Dans le second terminal, faites-lui dire bonjour :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">curl --verbose http://127.0.0.1:3000</code></pre></div></div></li></ul></div></li></ul></div></div></section><section id="cycle_de_vie_pipeline"><h2>🤔 Cycle de vie / Pipeline</h2><div class="slide-content"><div class="ulist"><ul><li><p>C&#8217;est tout ? Bien sûr que non ! Il y a plein d&#8217;étapes (avant et après)</p></li><li><p>Commençons par un cycle de vie NodeJS classique :</p><div class="ulist"><ul><li><p>Récupération des dépendances</p></li><li><p>Lint (Analyse statique)</p></li><li><p>Test (peu importe le type)</p></li></ul></div></li><li><p>💡 <a href="https://www.npmjs.com/">NPM</a> à la rescousse</p></li></ul></div></div></section><section id="exercice_mise_en_place_dun_cycle_de_vie_12"><h2>🎓 Exercice : Mise en place d&#8217;un cycle de vie 1/2</h2><div class="slide-content"><div class="ulist"><ul><li><p>Créez un fichier <code>package.json</code> à la racine de votre dépôt:</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-json hljs" data-noescape="true" data-lang="json">{
-  "name": "sayhello",
-  "version": "1.0.0",
-  "description": "A web application which says hello",
-  "main": "index.js",
-  "scripts": {
-      "lint": "jshint index.js",
-      "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "engines": {
-      "node": "19"
-  },
-  "devDependencies": {
-      "jshint": "^2.13.6"
-  },
-  "jshintConfig": {
-      "esversion": 6
-  }
+    "name": "sayhello",
+    "version": "1.0.0",
+    "description": "A web application which says hello",
+    "main": "index.js",
+    "scripts": {
+        "lint": "jshint index.js",
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": "23"
+    },
+    "devDependencies": {
+        "jshint": "^2.13.6"
+    },
+    "jshintConfig": {
+        "esversion": 6
+    }
 }</code></pre></div></div></div></section><section id="exercice_mise_en_place_dun_cycle_de_vie_22"><h2>🎓 Exercice : Mise en place d&#8217;un cycle de vie 2/2</h2><div class="slide-content"><div class="ulist"><ul><li><p>Essayez de lancer l&#8217;application dans GitPod :</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash"># Récupérer les dépendances - Prérequis systématique
 npm install
@@ -729,7 +729,7 @@ jobs:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - uses: actions/setup-node@v4
         with:
-          node-version: 19
+          node-version: 23
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section id="exercice_corriger_le_ci"><h2>🎓 Exercice : Corriger le CI</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But:</strong> Le workflow est toujours en échec. Faites le nécessaire pour corriger les erreurs</p></li></ul></div></div></section><section id="checkpoint_5"><h2>Checkpoint 🎯</h2><div class="slide-content"><div class="ulist"><ul><li><p>GitHub Action fournit des actions pour installer et configurer nos environnements de CI</p></li><li><p>Quand le CI est rouge, on le corrige en priorité !</p></li></ul></div></div></section></section>
 <section><section id="plus_de_git" data-background-color="rgb(248, 228, 130)" data-state="invert"><h2>Plus de Git !</h2><div class="slide-content"><div class="paragraph"><p>aka. Mettre son code en sécurité</p></div></div></section><section id="une_petite_histoire"><h2>🤔 Une petite histoire</h2><div class="slide-content"><div class="paragraph"><p>Votre dépôt est actuellement sur votre ordinateur.</p></div>
@@ -966,13 +966,14 @@ jobs:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: npm install
       - run: npm run lint</code></pre></div></div></div></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Quel est l&#8217;impact en terme de temps d&#8217;exécution du changement précédent ?</p></li><li><p><strong>Problème :</strong> Le temps entre une modification et le retour est crucial</p></li></ul></div>
-<div class="imageblock"><img src="media/wait-here.jpg" alt="wait here"></div></div></section><section id="exercice_environnement_préfabriqué_local"><h2>🎓 Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But :</strong> Utiliser un <code>Dockerfile</code> pour fabriquer une image à utiliser</p></li><li><p>🤔 <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer">GitHub Actions ne permet pas de spécifier un <code>Dockerfile</code></a></p></li><li><p>C&#8217;est à vous. Mettez à jour votre workflow pour :</p><div class="ulist"><ul><li><p>Fabriquer une image Docker contenant <code>npm</code> et <code>node</code>, même versions que dans GitPod et qui installe les dépendances</p><div class="ulist"><ul><li><p>💡 Pensez à copier le code source !</p></li></ul></div></li><li><p>Exécuter la commande <code>npm run lint</code> dans un conteneur basé sur cette image</p></li></ul></div></li></ul></div></div></section><section id="exercice_environnement_préfabriqué_local_2"><h2>✅ Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile"># Dockerfile
-FROM node:19
+<div class="imageblock"><img src="media/wait-here.jpg" alt="wait here"></div></div></section><section id="exercice_environnement_préfabriqué_local"><h2>🎓 Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="ulist"><ul><li><p><strong>But :</strong> Utiliser un <code>Dockerfile</code> pour fabriquer une image à utiliser</p></li><li><p>🤔 <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer">GitHub Actions ne permet pas de spécifier un <code>Dockerfile</code></a></p></li><li><p>C&#8217;est à vous. Mettez à jour votre workflow pour :</p><div class="ulist"><ul><li><p>Fabriquer une image Docker contenant <code>npm</code> et <code>node</code>, même versions que dans GitPod et qui installe les dépendances</p><div class="ulist"><ul><li><p>💡 Pensez à copier le code source !</p></li></ul></div></li><li><p>Exécuter la commande <code>npm run lint</code> dans un conteneur basé sur cette image</p></li></ul></div></li></ul></div></div></section><section id="exercice_environnement_préfabriqué_local_2"><h2>✅ Exercice : Environnement préfabriqué local</h2><div class="slide-content"><div class="paragraph"><p>Dockerfile:</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile">FROM node:{nodejs_version}
 WORKDIR /app
 COPY ./package.json /app/
 COPY ./package-lock.json /app/
-RUN npm ci
+RUN npm clean-install
 COPY ./index.js /app/</code></pre></div></div>
+<div class="paragraph"><p>GitHub Workflow:</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml"># bonjour.yml
 name: Bonjour
 on:
@@ -981,7 +982,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     env:
-      IMAGE_NAME: "mynode:19"
+      IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
@@ -990,13 +991,14 @@ jobs:
 <div class="paragraph"><p>&#8658; Parfait 🦄</p></div></div></section><section id="votre_premier_volume"><h2>🎓 Votre premier volume</h2><div class="slide-content"><div class="ulist"><ul><li><p>Vérifiez que le dossier <code>/app</code> n&#8217;existe pas au préalable :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">docker container run --rm alpine ls -la /app</code></pre></div></div></li><li><p>Essayez maintenant avec un volume :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">docker volume create app-data
 docker container run --rm --volume=app-data:/app alpine ls -la /app
 docker volume ls</code></pre></div></div></li><li><p>Essayez de créer un fichier dedans :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">docker container run --rm --volume=app-data:/app alpine touch /app/test-1
-docker container run --rm --volume=app-data:/app alpine ls -la /app</code></pre></div></div></li></ul></div></div></section><section id="partager_avec_lhôte"><h2>Partager avec l&#8217;hôte</h2><div class="slide-content"><div class="ulist"><ul><li><p>Concept : partager un dossier/fichier de l&#8217;hôte</p><div class="ulist"><ul><li><p>Contrainte : chemin absolu</p></li></ul></div></li><li><p>⚠️ à n&#8217;utiliser que pour des commandes "one shot"</p><div class="ulist"><ul><li><p>Entorse à la portabilité (file owner, permission, contrainte du chemin)</p></li></ul></div></li><li><p>🎓 Dans GitPod, essayez la commande suivante :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">docker container run --rm --volume /workspace:/app alpine ls -la /app</code></pre></div></div></li></ul></div></div></section><section id="ci_partager_le_dépôt_dans_le_conteneur"><h2>🎓 CI : Partager le dépôt dans le conteneur</h2><div class="slide-content"><div class="ulist"><ul><li><p>Revenons à l&#8217;image Docker dans GitHub Actions</p></li><li><p>Enlevez la ligne <code>COPY ./ /app</code> du workflow</p></li><li><p>Utilisez un partage avec l&#8217;hôte pour le fichier source <code>index.js</code></p></li><li><p>💡 <code>--workdir="$(pwd)"</code></p></li></ul></div></div></section><section id="ci_partager_le_dépôt_dans_le_conteneur_2"><h2>✅ CI : Partager le dépôt dans le conteneur</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile"># Dockerfile
-FROM node:19
+docker container run --rm --volume=app-data:/app alpine ls -la /app</code></pre></div></div></li></ul></div></div></section><section id="partager_avec_lhôte"><h2>Partager avec l&#8217;hôte</h2><div class="slide-content"><div class="ulist"><ul><li><p>Concept : partager un dossier/fichier de l&#8217;hôte</p><div class="ulist"><ul><li><p>Contrainte : chemin absolu</p></li></ul></div></li><li><p>⚠️ à n&#8217;utiliser que pour des commandes "one shot"</p><div class="ulist"><ul><li><p>Entorse à la portabilité (file owner, permission, contrainte du chemin)</p></li></ul></div></li><li><p>🎓 Dans GitPod, essayez la commande suivante :</p><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-bash hljs" data-noescape="true" data-lang="bash">docker container run --rm --volume /workspace:/app alpine ls -la /app</code></pre></div></div></li></ul></div></div></section><section id="ci_partager_le_dépôt_dans_le_conteneur"><h2>🎓 CI : Partager le dépôt dans le conteneur</h2><div class="slide-content"><div class="ulist"><ul><li><p>Revenons à l&#8217;image Docker dans GitHub Actions</p></li><li><p>Enlevez la ligne <code>COPY ./ /app</code> du workflow</p></li><li><p>Utilisez un partage avec l&#8217;hôte pour le fichier source <code>index.js</code></p></li><li><p>💡 <code>--workdir="$(pwd)"</code></p></li></ul></div></div></section><section id="ci_partager_le_dépôt_dans_le_conteneur_2"><h2>✅ CI : Partager le dépôt dans le conteneur</h2><div class="slide-content"><div class="paragraph"><p>Dockerfile:</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-noescape="true" data-lang="Dockerfile">FROM node:{nodejs_version}
 WORKDIR /app
-COPY package.json /app/
-COPY package-lock.json /app/
-RUN npm ci
-# COPY ./index.js /app/</code></pre></div></div>
+COPY ./package.json /app/
+COPY ./package-lock.json /app/
+RUN npm clean-install
+# Comment the COPY instruction</code></pre></div></div>
+<div class="paragraph"><p>GitHub Workflow:</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-yaml hljs" data-noescape="true" data-lang="yaml"># bonjour.yml
 name: Bonjour
 on:
@@ -1005,7 +1007,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     env:
-      IMAGE_NAME: "mynode:19"
+      IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: docker image build --tag="${IMAGE_NAME}" ./
