@@ -15,6 +15,10 @@ image::matrixfromhell.jpg[]
 
 Problème de temps **exponentiel**
 
+== !
+
+image::docker_meme.jpg[caption="Docker meme",width=300]
+
 == Déjà vu ?
 
 L'IT n'est pas la seule industrie à résoudre des problèmes...
