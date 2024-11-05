@@ -64,7 +64,7 @@ docker container run hello-world
 
 * Un service "Docker Engine" tourne en tâche de fond et publie une API REST
 * La commande `docker run ...` a envoyé une requête `POST` au service
-* Le service a téléchargé une **Image** Docker depuis le registre **DockerHub**,
+* Le service a téléchargé une **Image** Docker depuis le registre **DockerHub**
 * Puis a exécuté un **conteneur** basé sur cette image
 
 == 🎓 Exercice : Où est mon conteneur ?
@@ -80,7 +80,7 @@ docker container ls
 docker container ls --all
 ----
 
-=> 🤔 comment comprenez vous les résultats des 2 dernières commandes ?
+=> 🤔 comment comprenez-vous les résultats des 2 dernières commandes ?
 
 == ✅ Solution : Où est mon conteneur ?
 

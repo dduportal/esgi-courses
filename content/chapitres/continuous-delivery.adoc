@@ -131,7 +131,7 @@ include::../code-samples/gh-actions/ci-docker-push-main.yml[]
 
 * Les 2 sont automatisées, mais un être humain est nécessaire comme déclencheur pour la 1ère
 
-* Le choix dépends des risques et de la "production"
+* Le choix dépend des risques et de la "production"
 
 * On a vu comment automatiser le déploiement dans GitHub Actions
 ** Conditions dans le workflow
