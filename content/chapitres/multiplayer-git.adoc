@@ -27,7 +27,7 @@ Cela reste des outils, ça ne résoud pas tout non plus.
 == Git multijoueur
 
 * Git permet de collaborer assez aisément
-* Chaque développeur crée et publie des commits...
+* Chaque dévelopeu•se•r crée et publie des commits...
 * ... et rapatrie ceux de de ses camarades !
 * C'est un outil très flexible... chacun peut faire ce qu'il lui semble bon !
 
@@ -53,7 +53,7 @@ image:gitmulti1.svg[]
 
 == Gestion des branches
 
-* Chaque groupe de travail (développeur, binôme...)
+* Chaque groupe de travail (dévelopeu•se•r, binôme...)
 ** Crée une branche de travail à partir de la branche staging
 ** Une branche de travail correspond à *une chose à la fois*
 ** Pousse des commits dessus qui implémentent le changement
@@ -84,7 +84,7 @@ Où vivent ces branches ?
 
 == Un remote pour les gouverner tous
 
-Tous les développeurs envoient leur commits et branches sur le même remote
+Tous les dévelopeu•se•r•s envoient leur commits et branches sur le même remote
 
 * Simple a gérer ...
 * ... mais nécessite que tous les contributeurs aient accès au dépôt

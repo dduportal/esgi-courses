@@ -58,7 +58,7 @@ echo "A new line" >> ./README.md
 git add ./README.md
 git commit -m "add a new line to the documentation"
 
-# Liste tous les commits présent sur la branche main.
+# Liste tous les commits présents sur la branche main.
 git log --graph
 --
 
@@ -76,7 +76,7 @@ Git permet de manipuler des "remotes"
 
 [source,bash]
 --
-# Liste les remotes associés a votre dépôt
+# Liste les remotes associés à votre dépôt
 git remote -v
 # Vous devriez voir l'URL de votre dépôt en tant que 'origin'
 
@@ -84,7 +84,7 @@ git remote -v
 # git remote add origin https://<URL de votre dépôt>
 --
 
-== Publier une branche dans sur dépôt distant
+== Publier une branche sur dépôt distant
 
 Maintenant qu'on a un dépôt, il faut publier notre code dessus !
 
@@ -102,8 +102,8 @@ image:remote1.svg[]
 
 * `git` a envoyé la branche `main` sur le remote `origin`
 
-* ... qui à accepté le changement et mis à jour sa propre branche main.
-* `git` a créé localement une branche distante `origin/main` qui suis l'état de `main` sur le remote.
+* ... qui a accepté le changement et mis à jour sa propre branche main.
+* `git` a créé localement une branche distante `origin/main` qui suit l'état de `main` sur le remote.
 
 * Vous pouvez constater que la page github de votre dépôt affiche le code source
 
@@ -126,7 +126,7 @@ Dans votre dépôt local, une branche "distante" est automatiquement maintenue p
 
 C'est une image du dernier état connu de la branche sur le remote.
 
-Pour mettre a jour les branches distantes depuis le remote il faut utiliser :
+Pour mettre à jour les branches distantes depuis le remote il faut utiliser :
 
 `git fetch <nom_du_remote>`
 
@@ -134,14 +134,14 @@ Pour mettre a jour les branches distantes depuis le remote il faut utiliser :
 
 [source, bash]
 --
-# Lister toutes les branches y compris les branches distances
+# Lister toutes les branches y compris les branches distantes
 git branch -a
 
 
 # Notez qu'est listé remotes/origin/main
 
 
-# Mets a jour les branches distantes du remote origin
+# Met à jour les branches distantes du remote origin
 git fetch origin
 
 
@@ -164,11 +164,11 @@ GitHub crée directement un commit sur la branche main sur le dépôt distant
 
 [source, bash]
 --
-# Mets à jour les branches distantes du dépôt origin
+# Met à jour les branches distantes du dépôt origin
 git fetch origin
 
 # La branche distante main a avancé sur le remote origin
-# => La branche remotes/origin/main est donc mise a jour
+# => La branche remotes/origin/main est donc mise à jour
 
 # Ouvrez votre README
 code ./README.md
@@ -185,11 +185,11 @@ image:remote3.svg[]
 
 == Branche Distante VS Branche Locale
 
-Le changement à été rapatrié, cependant il n'est pas encore présent sur votre branche main locale
+Le changement a été rapatrié, cependant il n'est pas encore présent sur votre branche main locale
 
 [source, bash]
 --
-# Merge la branch distante dans la branche locale.
+# Merge la branche distante dans la branche locale.
 git merge origin/main
 --
 

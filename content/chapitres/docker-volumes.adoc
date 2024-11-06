@@ -20,9 +20,9 @@
 
 == Docker Volumes
 
-* Ce sont des dossier stockés sur l'hôte,
-* gérés par le Docker Engine,
-* Pouvant être partagés,
+* Ce sont des dossier stockés sur l'hôte
+* gérés par le Docker Engine
+* Pouvant être partagés
 * Et survivant aux conteneurs
 
 => Parfait 🦄

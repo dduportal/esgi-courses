@@ -72,8 +72,8 @@ image:pr.png[]
 
 * Technique : est-ce que ça marche ? est-ce maintenable ?
 * Fonctionnel : est-ce que le code fait ce que l'on veux ?
-* Humain : Propager la connaissance par la revue de code.
-* Méthode : Tracer les changements.
+* Humain : propager la connaissance par la revue de code.
+* Méthode : tracer les changements.
 
 == Revue de code ?
 
@@ -87,7 +87,7 @@ image:pr.png[]
 * La revue de code est un **exercice difficile** et **potentiellement frustrant** pour les deux parties.
 ** Comme sur Twitter, on est bien à l'abri derrière son écran ;=)
 * En tant que contributeur, **soyez respectueux** de vos relecteurs : votre changement peut être refusé et c'est quelque chose de normal.
-* En tant que relecteur, **soyez respectueux** du travail effectué, même si celui ci comporte des erreurs ou ne correspond pas à vos attentes.
+* En tant que relecteur, **soyez respectueux** du travail effectué, même si celui-ci comporte des erreurs ou ne correspond pas à vos attentes.
 
 💡 Astuce: link:https://github.com/franckverrot/clamav-client/pull/12#discussion_r526222319[Proposez des solutions] plutôt que simplement pointer les problèmes.
 
