@@ -14,12 +14,12 @@
         "gulp-exec": "5.0.0",
         "gulp-ignore": "3.0.0",
         "gulp-rename": "2.0.0",
-        "gulp-sass": "5.1.0",
+        "gulp-sass": "6.0.0",
         "qrcode": "1.5.4",
         "reveal.js-copycode": "1.2.0",
         "reveal.js-plugins": "4.2.5",
         "reveal.js-menu": "2.1.0",
         "@highlightjs/cdn-assets": "11.10.0",
-        "sass": "^1.80.5"
+        "sass": "1.81.0"
     }
 }
