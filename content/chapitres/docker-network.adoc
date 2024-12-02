@@ -1,6 +1,8 @@
 [{invert}]
 = Docker : Réseau
 
+(chapitre bonus)
+
 == 🤔 Quel est le problème ?
 
 * Comment accéder aux serveurs webs dans des conteneurs ?

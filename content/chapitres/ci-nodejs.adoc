@@ -132,5 +132,7 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initia
 
 == Checkpoint 🎯
 
-- GitHub Action fournit des actions pour installer et configurer nos environnements de CI
 - Quand le CI est rouge, on le corrige en priorité !
+- Le CI sert de référence pour l'environnement : version des outils, du système
+- CI (execution fréquente) + code (explicite et partagé) pour les outils
+- GitHub Action fournit des actions pour installer et configurer nos environnements de CI
