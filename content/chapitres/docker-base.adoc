@@ -15,15 +15,15 @@ image::matrixfromhell.jpg[]
 
 Problème de temps **exponentiel**
 
-== !
-
-image::docker_meme.jpg[caption="Docker meme",width=300]
-
 == Déjà vu ?
 
 L'IT n'est pas la seule industrie à résoudre des problèmes...
 
 image::also-a-matrix-from-hell.png[]
+
+== !
+
+image::docker_meme.jpg[caption="Docker meme",width=300]
 
 == Solution: Le conteneur intermodal
 
@@ -39,8 +39,6 @@ image::container_vs_vm.jpg[]
 
 == Conteneur != VM
 
-"Separation of concerns": 1 "tâche" par conteneur
-
 image::vm-and-container.png[]
 
 ==  VMs && Conteneurs
@@ -48,6 +46,13 @@ image::vm-and-container.png[]
 Non exclusifs mutuellement
 
 image::cont-vm-not-excl.png[]
+
+== "Separation of concerns"
+
+1 "tâche" par conteneur
+
+image::maison-conteneur.jpg[caption="Maison conteneur",width=300]
+
 
 == Comment ça marche ?
 
