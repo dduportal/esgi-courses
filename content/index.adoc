@@ -41,11 +41,11 @@ include::./chapitres/ci.adoc[leveloffset=1]
 // CI avec NodeJS
 include::./chapitres/ci-nodejs.adoc[leveloffset=1]
 
-// Moar Git
+// Multiplayer Git
 include::./chapitres/moar-git.adoc[leveloffset=1]
 
-// Multiplayer Git
-include::./chapitres/multiplayer-git.adoc[leveloffset=1]
+// GitHub Forks
+include::./chapitres/github-forks.adoc[leveloffset=1]
 
 // Docker Base
 include::./chapitres/docker-base.adoc[leveloffset=1]
@@ -61,9 +61,6 @@ include::./chapitres/docker-volumes.adoc[leveloffset=1]
 
 // Docker Network
 include::./chapitres/docker-network.adoc[leveloffset=1]
-
-// GitHub Forks
-include::./chapitres/github-forks.adoc[leveloffset=1]
 
 // Version
 include::./chapitres/version.adoc[leveloffset=1]
