@@ -1,5 +1,5 @@
 [{invert}]
-= Plus de Git !
+= Git à plusieurs
 
 aka. Mettre son code en sécurité
 
@@ -42,49 +42,35 @@ Source link:https://www.geeksforgeeks.org/centralized-vs-distributed-version-con
 
 Cela rends la manipulation un peu plus complexe, allons-y pas à pas :-)
 
-== 🎓 Consulter l'historique de commits
-
-* Dans votre workspace GitPod,
-* positionnez-vous dans le dépôt `{student_gh_repository_name}`,
-* modifiez le fichier `README.md`, puis commitez,
-* et enfin, affichez l'historique de commits.
-
-== ✅ Consulter l'historique de commits
-
-[source,bash]
---
-cd /workspace/esgi-devops-2013
-echo "A new line" >> ./README.md
-git add ./README.md
-git commit -m "add a new line to the documentation"
-
-# Liste tous les commits présents sur la branche main.
-git log --graph
---
-
-== Associer un dépôt distant (1/2)
+== Git Remote
 
 Git permet de manipuler des "remotes"
 
-* Image "distante" (sur un autre ordinateur) de votre dépôt local.
-* Permet de publier et de rapatrier des branches.
-* Le serveur maintient sa propre arborescence de commits, tout comme votre dépôt local.
+* "Remote" == "Dépôt Distant" (sur un autre ordinateur)
+* Chaque "Remote" possède sa propre arborescence
+* Sous-commande `git remote ...`
+* Un dépôt (local) peut posséder N remotes
 
-* Un dépôt peut posséder N remotes.
-
-== Associer un dépôt distant (2/2)
+== Afficher les Remotes
 
 [source,bash]
 --
-# Liste les remotes associés à votre dépôt
-git remote -v
-# Vous devriez voir l'URL de votre dépôt en tant que 'origin'
+git remote
+# 1 seule remote : 'origin'
 
-## La commande 'git clone' a effectué l'action ci-dessous pour vous :
-# git remote add origin https://<URL de votre dépôt>
+git remote -v
+# 2 entrées : fetch / push
+# Vous devriez voir l'URL de votre dépôt en tant que 'origin'
 --
 
-== Publier une branche sur dépôt distant
+La commande 'git clone' a effectué l'action ci-dessous pour vous :
+
+[source,bash]
+--
+git remote add origin <URL de votre dépôt>
+--
+
+== Publier une branche sur une remote
 
 Maintenant qu'on a un dépôt, il faut publier notre code dessus !
 
@@ -120,32 +106,36 @@ git push origin main
 
 image:remote2.svg[]
 
-== Branche distante
+== Branches distantes
 
-Dans votre dépôt local, une branche "distante" est automatiquement maintenue par git
+Dans votre dépôt local, une branche "distante" est automatiquement suivie par git
 
 C'est une image du dernier état connu de la branche sur le remote.
 
-Pour mettre à jour les branches distantes depuis le remote il faut utiliser :
+[source, bash]
+--
+git branch
+# Branches locales
 
-`git fetch <nom_du_remote>`
+git branch -r
+# 'r' pour "remotes"
 
-== !
+git branch -a
+# 'a' pour "all"
+--
+
+== Récupérer la liste des changements
+
+Pour mettre à jour les branches distantes depuis le remote il faut utiliser la commande `git fetch` :
 
 [source, bash]
 --
-# Lister toutes les branches y compris les branches distantes
-git branch -a
-
-
-# Notez qu'est listé remotes/origin/main
-
-
-# Met à jour les branches distantes du remote origin
 git fetch origin
 
 
-# Rien ne se passe, votre dépôt est tout neuf, changeons ça!
+git fetch --all --prune
+# --all : toutes les remotes (pas seulement origin)
+# --prune : kezako ?
 --
 
 == 🎓 Créez un commit depuis GitHub directement
@@ -177,6 +167,7 @@ code ./README.md
 git log
 
 # Votre nouveau commit n'est pas présent, AHA !
+git branch -a
 --
 
 == !
@@ -190,7 +181,7 @@ Le changement a été rapatrié, cependant il n'est pas encore présent sur votr
 [source, bash]
 --
 # Merge la branche distante dans la branche locale.
-git merge origin/main
+git merge origin/main main
 --
 
 == !
@@ -218,9 +209,9 @@ image:remote4.svg[]
 --
 # Liste l'historique de commit
 git log
-
 # Votre nouveau commit est présent sur la branche main !
 # Juste au dessus de votre commit initial !
+git branch -a
 --
 
 Et vous devriez voir votre changement dans le ficher README.md
@@ -231,13 +222,98 @@ Et vous devriez voir votre changement dans le ficher README.md
 
 - Une multitude de services facilitent et enrichissent encore git: (GitHub, Gitlab, Gitea, Bitbucket...)
 
+== Limites de travailler seul
+
+* Capacité finie de travail
+* Victime de propres biais
+* On ne sait pas tout
+
+== !
+
+image:solo.gif[width="500"]
+
+== Travailler en équipe ? Une si bonne idée ?
+
+* ... Mais il faut communiquer ?
+* ... Mais tout le monde n'a pas les mêmes compétences ?
+* ... Mais tout le monde y code pas pareil ?
+
+== ... et (souvent) ça finit comme ça !
+
+image:bloing.jpeg[]
+
+== !
+
+Collaborer n'est pas évident, mais il existe des outils et des méthodes pour vous aider.
+
+[.small]
+Cela reste des outils, ça ne résout pas tout non plus.
+
+== Git multijoueur
+
+* Git permet de collaborer assez aisément
+* Chaque dévelopeu•se•r crée et publie des commits...
+* ... et rapatrie ceux de de ses camarades !
+* C'est un outil très flexible... chacun peut faire ce qu'il lui semble bon !
+
+== Gestion des remotes
+
+Où vivent ces branches ?
+
+== Plusieurs modèles possibles
+
+* Un remote pour les gouverner tous !
+* Chacun son propre remote (et les commits seront bien gardés)
+* ... whatever floats your boat!
+
+== Un remote pour les gouverner tous
+
+Tous les dévelopeu•se•r•s envoient leur commits et branches sur le même remote
+
+* Simple a gérer ...
+* ... mais nécessite que tous les contributeurs aient accès au dépôt
+** Adapté a l'entreprise, peu adapté au monde de l'open source
+
+== !
+
+image:remotemulti1.svg[]
+
+== Chacun son propre remote
+
+* La motivation: accès simplifié
+** Tout le monde peut lire le dépôt principal. Personne ne peut écrire dessus.
+** Tout le monde peut dupliquer le dépôt public et écrire sur sa copie.
+** Toute modification du dépôt principal passe par une procédure de revue.
+** Si la revue est validée, alors la branche est "mergée" dans la branche cible
+
+* C'est le modèle poussé par GitHub !
+
+== !
+
+image:remotemulti2.svg[]
+
+== Forks ! Forks everywhere !
+
+Dans la terminologie GitHub:
+
+* Un fork est un remote copié d'un dépôt principal
+** C'est la où les contributeurs poussent leur branche de travail.
+* Les branches de version (main, staging...) vivent sur le dépôt principal
+* La procédure de ramener un changement d'un fork à un dépôt principal s'appelle la Pull Request (PR)
+
 
 == Checkpoint 🎯
 
-=> git + Git(Hub|Lab|tea|...) = superpowers ! 🦄
+* Git permet d'avoir plusieurs dépôts distants ("Remote")
+** Par défaut : `origin`
 
-* GUI de navigation dans le code
-* Plateforme de gestion et suivi d'issues
-* Plateforme de revue de code
-* Integration aux moteurs de CI/CD
-* And so much more...
+* Git suit les branches locales ET distantes
+** 💡 `git branch`
+
+* `git fetch` permet de récupérer les historiques des dépôts distants
+** 💡 `git pull <remote> <branch>` == +
+  `git fetch <remote>` + +
+  `git merge <remote>/<branch> <branch>`
+
+* GitHub permet de "forker" un dépôt existant dans un nouveau dépôt personnel
+** Vous pouvez ainsi avoir une seconde "remote" à suivre : `upstream`
