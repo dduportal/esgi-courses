@@ -11,7 +11,7 @@
     "author": "",
     "license": "ISC",
     "engines": {
-        "node": "23"
+        "node": "{nodejs_version}"
     },
     "devDependencies": {
         "jshint": "^2.13.6"

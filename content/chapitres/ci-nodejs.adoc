@@ -44,7 +44,7 @@ curl --verbose http://127.0.0.1:3000
 
 * Créez un fichier `package.json` à la racine de votre dépôt:
 
-[source,json]
+[source,json, subs="attributes"]
 ----
 include::../code-samples/nodejs-app/package.json[lines="1..7,9..22"]
 ----
@@ -121,7 +121,7 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initia
 
 == ✅ Solution : CI avec le tooling NodeJS
 
-[source,yaml]
+[source,yaml, subs="attributes"]
 ----
 include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initial,setupnode"]
 ----
