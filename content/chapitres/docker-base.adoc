@@ -53,22 +53,6 @@ image::cont-vm-not-excl.png[]
 
 image::maison-conteneur.jpg[caption="Maison conteneur",width=300]
 
-
-== Comment ça marche ?
-
-== 🎓 Exercice : Votre premier conteneur
-
-C'est à vous (ouf) !
-
-* Retournez dans Gitpod
-* Dans un terminal, tapez la commande suivante :
-
-[source,bash]
-----
-docker container run hello-world
-# Equivalent de l'ancienne commande 'docker run'
-----
-
 == 🩻 Anatomie
 
 * Un service "Docker Engine" tourne en tâche de fond et publie une API REST
@@ -76,23 +60,19 @@ docker container run hello-world
 * Le service a téléchargé une **Image** Docker depuis le registre **DockerHub**
 * Puis a exécuté un **conteneur** basé sur cette image
 
-== 🎓 Exercice : Où est mon conteneur ?
+[source,bash]
+----
+docker container run hello-world
+# Equivalent de l'ancienne commande 'docker run'
+----
 
-C'est à vous !
+== Où est mon conteneur ?
 
 [source,bash]
 ----
-docker container ls --help
-# ...
 docker container ls
-# ...
-docker container ls --all
+# Où est mon conteneur ? ajouter l'option --all
 ----
-
-=> 🤔 comment comprenez-vous les résultats des 2 dernières commandes ?
-
-== ✅ Solution : Où est mon conteneur ?
-
 Le conteneur est toujours présent dans le "Docker Engine" même en étant arrêté
 
 [source,shell]
