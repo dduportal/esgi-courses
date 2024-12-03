@@ -51,7 +51,7 @@ image::cont-vm-not-excl.png[]
 
 1 "tâche" par conteneur
 
-image::maison-conteneur.jpg[caption="Maison conteneur",width=300]
+image::maison-conteneur.png[caption="Maison conteneur",width=300]
 
 == 🩻 Anatomie
 
@@ -73,6 +73,7 @@ docker container run hello-world
 docker container ls
 # Où est mon conteneur ? ajouter l'option --all
 ----
+
 Le conteneur est toujours présent dans le "Docker Engine" même en étant arrêté
 
 [source,shell]
