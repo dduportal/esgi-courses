@@ -69,6 +69,10 @@ include::./chapitres/continuous-delivery.adoc[leveloffset=1]
 // Docker Network
 include::./chapitres/docker-network.adoc[leveloffset=1]
 
+// Docker Advanced
+include::./chapitres/docker-advanced.adoc[leveloffset=1]
+
+
 // Bibliographie
 include::./chapitres/bibliographie.adoc[leveloffset=1]
 

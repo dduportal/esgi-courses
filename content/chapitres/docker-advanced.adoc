@@ -1,0 +1,22 @@
+= Docker Avancé
+
+(bonus)
+
+== 🎓 Sécurité des conteneurs
+
+* *Buts :*
+** Limiter l'impact d'un processus malicieux
+** S'assurer des meilleurs performances de production
+** Obtenir une liste exhaustive des dossier utilisés par l'application
+
+* Essayez d'exécuter un conteneur `webserver-2`, basé sur l'image `nginx`, avec l'option `--read-only` activée
+** 💡 Pensez à regarder les logs si le conteneur est en erreur
+** 💡 Déclarez un volume pour chaque dossier/fichier nécessitant une écriture
+
+== ✅ Sécurité des conteneurs
+
+[source,bash]
+----
+docker container run --detach --name=webserver-2 --read-only \
+  --volume=/var/cache/nginx --volume=/var/run nginx
+----
