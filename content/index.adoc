@@ -47,11 +47,11 @@ include::./chapitres/docker-base.adoc[leveloffset=1]
 // Docker Images
 include::./chapitres/docker-images.adoc[leveloffset=1]
 
-// Docker Volumes
-include::./chapitres/docker-volumes.adoc[leveloffset=1]
-
 // CI Docker Images
 include::./chapitres/ci-docker.adoc[leveloffset=1]
+
+// Docker Volumes
+include::./chapitres/docker-volumes.adoc[leveloffset=1]
 
 // Moar Git
 include::./chapitres/moar-git.adoc[leveloffset=1]
