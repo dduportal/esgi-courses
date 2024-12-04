@@ -18,7 +18,7 @@ Plusieurs solutions existent, chacune avec ses avantages / inconvénients :
 * 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour exécuter les étapes dans la même image Docker que GitPod :
 ** 💡 link:{gitpod_github_repo_url}/tree/main/.gitpod.yml#L5[Image utilisée dans GitPod,window="_blank"]
 ** 💡 link:https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer[Utilisation d'un container comme runner GitHub Actions,window="_blank"]
-** 💡 link:https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem[Contraintes d'exécution de container dans GitHub Actions (`--user=root`),window="_blank"]
+** 💡 link:https://github.com/orgs/community/discussions/26811#discussioncomment-3253473[Contraintes d'exécution de container dans GitHub Actions (`--user=root`),window="_blank"]
 
 == ✅ Solution : Environnement préfabriqué simple
 
