@@ -19,6 +19,6 @@ jobs:
           node-version: {nodejs_version}
 # end::setupnode[]
 #tag::initial[]
-      - run: npm install
+      - run: npm clean-install
       - run: npm run lint
 #end::initial[]

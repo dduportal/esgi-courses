@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - run: npm install
+    - run: npm clean-install
     - run: npm test
   test-mac:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v4
-    - run: npm install
+    - run: npm clean-install
     - run: npm test

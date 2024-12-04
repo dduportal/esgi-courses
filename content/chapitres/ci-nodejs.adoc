@@ -55,8 +55,12 @@ include::../code-samples/nodejs-app/package.json[lines="1..7,9..22"]
 
 [source,bash]
 ----
-# Récupérer les dépendances - Prérequis systématique
+# Récupérer les dépendances à partir des contraintes exprimées dans "package.json"
+# Génère un "package-lock.json" avec le "freeze" des dépendances
 npm install
+
+# Installer les dépendences de manière reproductible à partir de "package-lock.json"
+npm clean-install
 
 # Exécuter le script "launch-app"
 npm run start # CTRL-C to stop
@@ -89,7 +93,7 @@ On a donc un pipeline à 2 étapes :
 * Modifiez votre workflow pour :
 ** Ajouter `node_modules/` dans un fichier `.gitignore` à la racine
 ** Enlever les commandes "cowsay" de l'exercice précédent
-** Exécuter les commandes `npm install` puis `npm run lint` dans 2 étapes distinctes
+** Exécuter les commandes `npm clean-install` puis `npm run lint` dans 2 étapes distinctes
 
 ❌ Résultat attendu : la même erreur
 
@@ -109,7 +113,7 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initia
 ** Architecture du processeur ? (Intel, AMD, ARM, PowerPC, Risc-V, etc.)
 ** SDKs installés (quelle version de NodeJS ? et de NPM ? etc.)
 
-🚧 Que dis l'étape "npm install du workflow ?
+🚧 Que dis l'étape "npm clean-install du workflow ?
 
 // `Unsupported engine `
 
@@ -117,7 +121,7 @@ include::../code-samples/gh-actions/ci-nodejs.yml[tags="common,!container,initia
 
 * *But* : Utilisez l'action GitHub https://github.com/actions/setup-node[] pour avoir la même version de NodeJS + NPM que dans GitPod
 
-* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour que l'étape `npm install` ne signale plus d'incompatibilité de version
+* 👷🏽‍♀️ C'est à vous de mettre à jour le workflow pour que l'étape `npm clean-install` ne signale plus d'incompatibilité de version
 
 == ✅ Solution : CI avec le tooling NodeJS
 
