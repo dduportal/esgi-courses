@@ -80,7 +80,7 @@ docker container run --rm --volume /workspace:/app alpine ls -la /app
 
 Dockerfile:
 
-[source,Dockerfile]
+[source,Dockerfile,subs="attributes"]
 ----
 include::../code-samples/gh-actions/nodejs-Dockerfile[tags="common"]
 # Comment the COPY instruction
