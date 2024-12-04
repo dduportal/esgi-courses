@@ -117,3 +117,9 @@ jobs:
 * Bonne pratique : utiliser les options de volumes de Docker permet de mieux communiquer les caractéristiques et contraintes de l'application
 
 => DevOps The Right Way 🦄
+
+[source]
+--
+# Bonus
+docker run slecache/docker-game
+--
