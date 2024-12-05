@@ -71,10 +71,8 @@ docker container run --rm --volume /workspace:/app alpine ls -la /app
 == 🎓 CI : Partager le dépôt dans le conteneur
 
 * Revenons à l'image Docker dans GitHub Actions
-* Enlevez la ligne `COPY ./ /app` du workflow
+* Enlevez la ligne `COPY ./index.js /app` du workflow
 * Utilisez un partage avec l'hôte pour le fichier source `index.js`
-
-* 💡 `--workdir="$(pwd)"`
 
 == ✅ CI : Partager le dépôt dans le conteneur
 
@@ -104,7 +102,7 @@ jobs:
       - run: docker image build --tag="${IMAGE_NAME}" ./
       # Uncomment to validate your work (should fail the next step)
       # - run: echo 'Hello Error' > ./index.js
-      - run: docker container run --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" "${IMAGE_NAME}" npm run lint
+      - run: docker container run --volume="$(pwd)":/app "${IMAGE_NAME}" npm run lint
 ----
 
 == Checkpoint 🎯
