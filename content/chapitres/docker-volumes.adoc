@@ -16,7 +16,7 @@
 
 * 💾 Si vous supprimez un conteneur, ses layers disparaissent
 
-* ❌ Pas de partage de layer possible entre conteneurs
+* ❌ Pas de partage de fichiers possible entre conteneurs
 
 == Docker Volumes
 
