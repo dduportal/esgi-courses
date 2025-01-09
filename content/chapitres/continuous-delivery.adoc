@@ -95,7 +95,7 @@ jobs:
 
 == ✅ Livraison Continue sur le DockerHub
 
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 include::../code-samples/gh-actions/ci-docker-push-tag.yml[]
 ----
@@ -138,12 +138,12 @@ Source : http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-co
 
 * Changez votre workflow de CI de façon à ce que, sur un push sur la branch `main`, les tâches suivantes soient effectuées :
 ** Comme avant: Lint, Build, Test de l'image (en affichant le `README`)
-** SI c'est la branche `main`, alors il faut pousser l'image avec le tag `latest` sur le DockerHub
+** SI c'est la branche `main`, alors il faut pousser l'image avec le tag `{cd_docker_tag}` sur le DockerHub
 ** Conservez le cas avec les tags
 
 == ✅ Déploiement Continu sur le DockerHub
 
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 include::../code-samples/gh-actions/ci-docker-push-main.yml[]
 ----
