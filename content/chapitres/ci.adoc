@@ -188,7 +188,7 @@ include::../code-samples/gh-actions/npm-example.yml[]
 +
 [source,bash]
 ----
-git clone https://github.com/xxx/{student_gh_repository_name}
+git clone {student_gh_repository_url}
 ----
 
 ** 💡 Si le dépôt n'apparaît pas dans l'"Explorer" à gauche :

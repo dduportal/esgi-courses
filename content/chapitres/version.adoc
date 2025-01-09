@@ -162,6 +162,27 @@ Retrait d'une fonctionnalité (retrait d'une route dans une API).
 
 Si vous n'avez pas déjà un compte sur le DockerHub, créez-en un maintenant (nécessite une validation)
 
+== 🎓 Relancer votre environnement GitPod
+
+Plus d'1 mois s'est écoulé : votre workspace a été nettoyé !
+
+* Relancez un nouvel environnement GitPod
+** link:#démarrer_lenvironnement_gitpod[Slide 5.10 "Démarrer l’environnement GitPod",window="_blank"]
+
+* Clonez votre dépôt précédent dans le nouveau workspace GitPod
++
+[source,bash]
+--
+git clone {student_gh_repository_url} /workspace/{student_gh_repository_name}
+--
+
+* Reconstruisez l'image Docker depuis le link:#exercice_environnement_préfabriqué_local_2[Dockerfile,window="_blank"]
++
+[source,bash]
+--
+docker image build <...>
+--
+
 == 🎓 "Taguez" et déployez la version 1.0.0
 
 * Depuis GitPod, créez un tag git local `1.0.0`

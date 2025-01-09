@@ -29,6 +29,7 @@
 :author2_mail: icon:envelope[set=fa] damien.duportal icon:at[set=fa] gmail.com
 :gitpod_github_repo_url: https://github.com/dduportal/esgi-gitpod
 :student_gh_repository_name: esgi-ci-cd
+:student_gh_repository_url: https://github.com/<username>/esgi-ci-cd
 :revealjs_customtheme: ./styles/build.css
 :invert: state=invert,background-color="rgb(248, 228, 130)"
 :nodejs_version: 23
